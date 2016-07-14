@@ -1,1 +1,1 @@
-Source code on git.wikimedia.org
+Source code on phabricator.wikimedia.org
