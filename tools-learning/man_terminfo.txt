@@ -523,8 +523,7 @@ DESCRIPTION
        wait_tone                   wait       WA        wait for dial-tone
        xoff_character              xoffc      XF        XOFF character
        xon_character               xonc       XN        XON character
-       zero_motion                 zerom      Zx        No motion for subse‐
-                                                        quent character
+       zero_motion                 zerom      Zx        No motion for subse‐ quent character
 
        The following string capabilities are present in the SVr4.0 term structure, but were originally not docu‐
        mented in the man page.
