@@ -1,16 +1,12 @@
 Command Line Options
 	for node command
-модули для терминала
-	TTY
-		modeule tty //const tty = require('tty');
-			class tty.ReadStream - наследник net.Socket, - по умолчанию process.stdin - объект этого класса
-			class tty.WriteStream - наследник net.Socket, - по умолчанию process.stdout, process.stderr - объект этого класса
-	Readline
-		module readline // const readline = require('readline');
-			... для чтения строки за строкой
-	REPL
-		module repl // const repl = require('repl');
-			... для создания интерактивной командной строки
+TTY - modeule tty
+	class tty.ReadStream - наследник net.Socket, - по умолчанию process.stdin - объект этого класса
+	class tty.WriteStream - наследник net.Socket, - по умолчанию process.stdout, process.stderr - объект этого класса
+Readline - module readline
+	... для чтения строки за строкой
+REPL - module repl
+	... для создания интерактивной командной строки
 
 Globals
 	Javascript itself
@@ -218,21 +214,65 @@ Globals
 	clearInterval(intervalObject)
 	clearTimeout(timeoutObject)
 
-Modules
-Assertion Testing
-Errors
+Modules - module module
+	module.exports
+	module.filename
+	module.id
+	module.loaded
+	module.parent
+	module.children - The module objects required by this one
+	module.require(id) - как буд-то require() из указанного модуля
+Utilities - module util
+	util.debuglog(section)
+	util.deprecate(function, string)
+	util.format(format[, ...])
+	util.inherits(constructor, superConstructor)
+	util.inspect(object[, options])
+		Customizing util.inspect colors
+		Custom inspect() function on Objects
+Console - global console !!!!!! + class Console
+	global object console (by class Console)
+	new Console(stdout[, stderr])
+	class Console
+		console.log([data][, ...])
+		console.dir(obj[, options])
+		console.trace(message[, ...])
+		console.warn([data][, ...])
+		console.error([data][, ...])
+		console.info([data][, ...])
+		console.assert(value[, message][, ...])
+		console.time(label)
+		console.timeEnd(label)
+Assertion Testing - module assert
+	assert(value[, message])
+	assert.equal(actual, expected[, message])
+	assert.notEqual(actual, expected[, message])
+	assert.strictEqual(actual, expected[, message])
+	assert.notStrictEqual(actual, expected[, message])
+	assert.deepEqual(actual, expected[, message])
+	assert.notDeepEqual(actual, expected[, message])
+	assert.deepStrictEqual(actual, expected[, message])
+	assert.notDeepStrictEqual(actual, expected[, message])
+	assert.throws(block[, error][, message])
+	assert.doesNotThrow(block[, error][, message])
+	assert.ok(value[, message])
+	assert.fail(actual, expected, message, operator)
+	assert.ifError(value)
+Errors = exception, но некоторые, которые вызывают падение node.js (assert вызывает abort()), не могут быть пойманы
+	standard
+	system
+	user-specified
+	assertion
 Debugger
 
-Console
-	global object console (by class Console)
 Events
 Buffer
 Stream
 OS
 Path
 File System
+Process
 
-Utilities
 
 
 Child Processes
@@ -251,7 +291,6 @@ Query Strings
 String Decoder
 Timers
 
-Process
 V8
 VM
 C/C++ Addons
