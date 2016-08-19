@@ -149,7 +149,7 @@
 Node.js обнаруживает исключительное нарушение логики, которое никогда не должно происходить. 
 Они обычно вызываются модулем <code>assert</code>.</li>
 </ul>
-<p>Все JavaScript и системные ошибюки, генерируемые Node.js, наследуются от или являются от или являются экземплярами
+<p>Все JavaScript и системные ошибки, генерируемые Node.js, наследуются от или являются от или являются экземплярами
 стандартного JavaScript класса <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error" class="type">&lt;Error&gt;</a> и гарантированно предоставляют
 <em>по крайней мере</em> свойства, доступные в этом классе.</p>
 <h2>Распространение и перехват ошибок<span><a class="mark" href="https://nodejs.org/dist/latest-v6.x/docs/api/errors.html#errors_error_propagation_and_interception" id="errors_error_propagation_and_interception">#</a></span></h2>
@@ -174,7 +174,7 @@ Node.js обнаруживает исключительное нарушение
 чтобы сообщить об ошибке.</p>
 <p>Ошибки, которые возникают в <em>Асинхронном API</em>, могут обрабатываться разными способами:</p>
 <ul>
-<li><p>Most asynchronous methods that accept a <code>callback</code> function will accept an
+<li><p>Большинство асинхронных методов, которые принимают <code>callback</code> функцию, will accept an
 <code>Error</code> object passed as the first argument to that function. If that first
 argument is not <code>null</code> and is an instance of <code>Error</code>, then an error occurred
 that should be handled.</p>
