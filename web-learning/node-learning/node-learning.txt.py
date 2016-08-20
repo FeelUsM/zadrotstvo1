@@ -259,10 +259,16 @@ Assertion Testing - module assert
 	assert.fail(actual, expected, message, operator)
 	assert.ifError(value)
 Errors = exception, но некоторые, которые вызывают падение node.js (assert вызывает abort()), не могут быть пойманы
-	standard
-	system
-	user-specified
-	assertion
+	standard - от javascript
+		<EvalError> : при вызове eval().
+		<SyntaxError> : неправильный синатксис JavaScript.
+		<RangeError> : за пределами дипозона
+		<ReferenceError> : неопределенная переменная
+		<TypeError> : аргументы неправильного типа
+		<URIError> : неправильное использование глобальной функции обработки URI.
+	system - от ОС
+	user-specified - от пользователя
+	assertion - от assert
 	
 	new Error(message)
 	error.message - при наследовании надо устанавливать вручную
