@@ -263,15 +263,50 @@ Errors = exception, но некоторые, которые вызывают п�
 	system
 	user-specified
 	assertion
+	
+	new Error(message)
+	error.message - при наследовании надо устанавливать вручную
+	error.prototype.name - при наследовании надо устанавливать вручную
+	Error.captureStackTrace(targetObject[, constructorOpt]) - записывает стек в targetObject.stack
+		constructorOpt - ссылка на функцию, которая и после которой в targetObject.stack ничего не попадет
+	Error.stackTraceLimit
+	error.stack
 Debugger
 
-Events
+Events - module events
+	const EventEmitter = require('events');
+	Class: EventEmitter
+		Event: 'newListener'
+		Event: 'removeListener'
+
+		EventEmitter.defaultMaxListeners
+		emitter.setMaxListeners(n) - при превышении этого числа в консоль идет warning
+			0 - нет ограничения
+		emitter.getMaxListeners()
+		EventEmitter.listenerCount(emitter, eventName) - отсутствует в браузере
+		emitter.listenerCount(eventName) - отсутствует в браузере
+		emitter.listeners(eventName) - отсутствует в браузере
+
+		emitter.addListener(eventName, listener)
+		emitter.prependListener(eventName, listener)
+		emitter.on(eventName, listener) - срабатывают в том порядке, в котором определены (в отличии от браузера)
+		emitter.prependOnceListener(eventName, listener)
+		emitter.once(eventName, listener)
+		emitter.removeListener(eventName, listener)
+		emitter.removeAllListeners([eventName])
+
+		emitter.eventNames()
+		emitter.emit(eventName[, arg1][, arg2][, ...])
+			обработчик вызывается синхронно
+			если событие было обработано - возвращает true, иначе false
 Buffer
 Stream
 OS
 Path
 File System
 Process
+
+... модуль heapdump 
 
 
 
