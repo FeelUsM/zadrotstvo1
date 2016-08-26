@@ -299,16 +299,15 @@ Events - module events
 		emitter.emit(eventName[, arg1][, arg2][, ...])
 			обработчик вызывается синхронно
 			если событие было обработано - возвращает true, иначе false
-Buffer
-Stream
+Buffer - global class Buffer (as Uint8Array)
+	...
+Stream - module stream
+
 OS
 Path
 File System
 Process
-
 ... модуль heapdump 
-
-
 
 Child Processes
 Cluster
