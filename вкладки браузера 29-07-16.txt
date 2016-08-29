@@ -37,3 +37,22 @@ sublime:
 		Sublime Text 3 build 3047 with SublimeGDB:	https://forum.sublimetext.com/t/sublime-text-3-build-3047-with-sublimegdb/11356
 		DebuggingWithEmacs:	https://www.emacswiki.org/emacs/DebuggingWithEmacs
 			GdbMode:	https://www.emacswiki.org/emacs/GdbMode
+
+			
+			
+			
+фалы в js
+	https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
+	https://developer.mozilla.org/en-US/docs/Web/API/WindowBase64/Base64_encoding_and_decoding#Appendix.3A_Decode_a_Base64_string_to_Uint8Array_or_ArrayBuffer
+	https://developer.mozilla.org/en-US/docs/Web/API/FileReader#readAsArrayBuffer()
+	https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Symbol
+парсеры на хабре:
+	Особенности написания и возможные фичи LR-генераторов	https://habrahabr.ru/post/140441/
+	Написание компилятора LALR(1)-парсеров. Базовая теория	https://habrahabr.ru/post/140058/
+	Как я создавал синтаксический анализатор		https://habrahabr.ru/post/137799/
+	Пишите меньше кода, блин				https://habrahabr.ru/post/308308/
+	http://www.ict.edu.ru/ft/005128//ch7.pdf
+парапланы в МАИ
+	http://www.maiclub.ru/index1.html?buks
+	http://www.maiclub.ru/schule-exersice.html
+	
