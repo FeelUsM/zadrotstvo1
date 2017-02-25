@@ -73,6 +73,14 @@
 				}
 				else if(cur[11] instanceof Object) {
 					var xx=cur[11];
+					/*
+				"401":"Ракетный блок" 
+				"402":"Инфракрасный лазер"
+				"405":"Фотонная пушка"
+				*/
+					if("401" in xx) note_str+= xx[401]+' РБ\t';
+					if("402" in xx) note_str+= xx[402]+' ИЛ\t';
+					if("405" in xx) note_str+= xx[405]+' Фотонок\t';
 					delete xx[401];
 					delete xx[402];
 					delete xx[405];
