@@ -21,10 +21,33 @@
 			? как выглядит строка, содержащая цвета и стили ?
 		.inherits(constructor, superConstructor) - для наследования,
 			это не то же самое, что и язкаовое наследование в ES6 ...
-	Errors
 	Globals
 	Modules
-	Events
+	Errors	new Error(mes) /*standard JavaScript*/
+			.message = mes.toString()
+			.stack - указывает на точку в коде, где вызван new Error(mes)
+		  Error.captureStackTrace(targetObject[, constructorOpt])
+		  Error.stackTraceLimit
+		*	Standard JavaScript errors
+				<EvalError>
+				<SyntaxError>
+				<RangeError>
+				<ReferenceError>
+				<TypeError>
+				<URIError>
+		*	System errors
+				.code
+				.errno
+				.syscall
+		*	User-specified errors
+		*	Assertion Errors
+		синхронные функции кидают через throw
+		асинхронные: (невозможно поймать через try/catch)
+			берут callback-функцию (err,data)
+			EventEmitter и его наследники имеют событие 'error'
+				если при ошибке нет обработчика 'error', нужно использовать domain или process.on('uncaughtException')
+			иногда всё-таки кидают через throw (?)
+	Events	EventEmitter = require('events')
 	Timers
 	Assertion Testing
 система, и взаимодействие с ОС и др. процессами
@@ -40,6 +63,7 @@
 	Path
 
 	OS
+	Domain
 	Process
 	Child Processes
 	Cluster		require('cluster')	для запуска процессов, которые имеют общие порты
@@ -49,7 +73,6 @@
 	HTTPS
 	UDP/Datagram
 	DNS
-	Domain
 	URL
 прочее
 	Query Strings
