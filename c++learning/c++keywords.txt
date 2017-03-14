@@ -86,13 +86,13 @@ alignof (начиная с C++11)
 noexcept(начиная с C++11)
 == для совместимости ==
 &&	and
-&=	and_eq
-&	bitand
 ||	or
-|=	or_eq
-|	bitor
-^	xor
-^=	xor_eq
 !	not
 !=	not_eq
+&	bitand
+&=	and_eq
+|	bitor
+|=	or_eq
+^	xor
+^=	xor_eq
 ~	compl
