@@ -52,6 +52,7 @@
 	Assertion Testing
 система, и взаимодействие с ОС и др. процессами
 	Command Line Options
+	Process
 	REPL
 	Buffer
 	Stream
@@ -64,7 +65,6 @@
 
 	OS
 	Domain
-	Process
 	Child Processes
 	Cluster		require('cluster')	для запуска процессов, которые имеют общие порты
 сеть

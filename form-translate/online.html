@@ -791,10 +791,10 @@ Index</a>
 <dd>То же что и -d.
 </dd>
 <dt><strong>-f</strong></dt>
-<dd>Вывод (статистики) идет только в log-файл.
+<dd>Вывод (статистики) идет только в log-файл. /выражение всё равно напечатает в stdout/
 </dd>
 <dt><strong>-F</strong></dt>
-<dd>Вывод (статистики) только в log-файл. Дальше как -L или -ll.
+<dd>Вывод (статистики) только в log-файл. Дальше как -L или -ll. /выражение всё равно напечатает в stdout/
 </dd>
 <dt><strong>-h</strong></dt>
 <dd>Wait for some key to be touched before finishing the run.
@@ -1186,7 +1186,7 @@ number должен быть числом, которое помещается �
 </h1>
 
 <p>
-<a name="sect-indices"></a>Byдексы<a name="260"></a><a name="261"></a> 
+<a name="sect-indices"></a>Индексы<a name="260"></a><a name="261"></a> 
 - объекты, которые представляют чила, которые используются как целые аргументы для подсчета целей. 
 Они в основном используются как аргументы векторов или многомерных массивов (или тензоров). 
 Их основное свойство в том, что они имеют размерность<a name="262"></a>. 
@@ -1344,16 +1344,17 @@ FORM будет выполнять свертку для первой пары, 
 </h1>
 
 <p>
-<a name="sect-sets"></a>A set<a name="320"></a> is a (non-empty) collection of variables that should 
-all be of the same type. This type can be symbols, vectors, indices or 
-functions. A set has a name which can be used to refer to 
-it, and this name may not coincide with any of the other names in the 
-program. A set is declared by giving its name, followed by a 
-colon<a name="321"></a>, after which the elements of the set are listed. The first 
-element determines the type of all the elements of the set. All 
-elements must have been declared as variables before the set-statement. 
-There can be only one set per statement. Example (see also 
-<a href="#substaset">7.120</a>): 
+<a name="sect-sets"></a>Множество<a name="320"></a> 
+- (не пустая) коллекция переменных, которые должны быть одного типа. 
+Этим типом могут быть символы, векторы, индексы или функции. 
+Множество имеет имя, которое может использоваться для ссылки на него, 
+и это имя может не совпадать с любыми другими именами в программе. 
+Множество объявляется имененм, за которым следует двоеточие<a name="321"></a>, 
+после чего перечисляются элементы множества. 
+Первый элемент определяет тип всех элементов множества. 
+Все элементы дожны быть объявлены как переменные перед объявлением множества. 
+Возможно только одно множество на объявление. 
+Пример (см. также <a href="#substaset">7.120</a>): 
 </p><pre>     s    xa, xb, xc, xd, ya, x, y;
      i    mu, nu, rho;
      set exxes: xa, xb, xc, xd;
@@ -1361,97 +1362,98 @@ There can be only one set per statement. Example (see also
      set indi:  mu, nu, rho, 1, 2, 3;
      set xandy: xa, ya;
 </pre>
-We see here that a single symbol (xa) can belong to more than one set. 
-Also the fixed indices (1, 2 and 3) can be elements 
-of a set of indices and the numbers that can be powers can also be 
-members of a set of symbols (usually -9999 to + 9999). If this can cause 
-confusion, FORM will give a warning and interpret the set as a 
-set of symbols.
+Мы здесь видим, что отдельный символ (xa) может принадлежать более чем одному множеству. 
+Также фиксированные индексы (1, 2 и 3) могут быть элементами множества индексов и чисел, 
+которые могут быть степенями, могут также быть членами множества символов (обычно от -9999 до + 9999). 
+Если это может привести к путанице, FORM выдаст предупреждение 
+и будет интерпретировать множество как множество символов.
 
 <p>
-In addition to the user defined sets there are some built in sets with a 
-special meaning. These are:
+В дополнение к пользовательским множествам 
+существует несколько встроенных множеств со специальным значением:
 </p><dl>
 <dt><strong>int_</strong></dt>
-<dd><a name="327"></a> This is a set of symbols. It refers to all integer numbers 
-	that fit inside a FORM word.
+<dd><a name="327"></a> Это множество символов. 
+	Оно ссылается на все целые числа, которые могут поместиться в машинном слове FORM-а.
 </dd>
 <dt><strong>pos_</strong></dt>
-<dd><a name="329"></a> This is a set of symbols. They are the positive integers that 
-    fit inside a FORM word.
+<dd><a name="329"></a> Это множество символов. 
+	Это положительные целые, которые могут поместиться в машинном слове FORM-а.
 </dd>
 <dt><strong>pos0_</strong></dt>
-<dd><a name="331"></a> A set of symbols. They are all non-negative integers that 
-fit inside a FORM word.
+<dd><a name="331"></a> Множество символов. 
+Это все неотрицательные числа, которые могут поместиться в машинном слове FORM-а.
 </dd>
 <dt><strong>neg_</strong></dt>
-<dd><a name="333"></a>  A set of symbols. They are all negative integers that 
-fit inside a FORM word.
+<dd><a name="333"></a>  Множество символов. 
+Это все отрицательные целые, которые могут поместиться в машинном слове FORM-а.
 </dd>
 <dt><strong>neg0_</strong></dt>
-<dd><a name="335"></a>  A set of symbols. They are all non-positive integers that 
-fit inside a FORM word.
+<dd><a name="335"></a>  Множество символов. 
+Это все неположительные целые, которые могут поместиться в машинном слове FORM-а.
 </dd>
 <dt><strong>symbol_</strong></dt>
-<dd><a name="337"></a> The set of all formal symbols. It excludes integers, 
-    numbers and whole function arguments.
+<dd><a name="337"></a> Множество всех формальных символов. 
+Это исключает целые, числа и все аргументы функций.
 </dd>
 <dt><strong>fixed_</strong></dt>
-<dd><a name="338"></a> The set of all fixed indices.
+<dd><a name="338"></a> Множество всех фиксированных индексов.
 </dd>
 <dt><strong>index_</strong></dt>
-<dd><a name="339"></a> The set of all indices.
+<dd><a name="339"></a> Множество всех индексов.
 </dd>
 <dt><strong>number_</strong></dt>
-<dd><a name="340"></a> The set of all rational numbers.
+<dd><a name="340"></a> Множество всех рациональных чисел.
 </dd>
 <dt><strong>even_</strong></dt>
-<dd><a name="341"></a> This is a set of symbols. It refers to all even integer numbers 
-	that fit inside a FORM word.
+<dd><a name="341"></a> Это множество символов. 
+Оно ссылается на все четные целые числа, которые могут поместиться в машинном слове FORM-а.
 </dd>
 <dt><strong>odd_</strong></dt>
-<dd><a name="343"></a> This is a set of symbols. It refers to all odd integer numbers 
-	that fit inside a FORM word.
+<dd><a name="343"></a> Это множество символов. 
+Оно ссылается на все нечетные целые числа, которые могут поместиться в машинном слове FORM-а.
 </dd>
 <dt><strong>dummyindices_</strong></dt>
-<dd><a name="345"></a> This is a set of indices. It refers to all 
-	indices of the type Nm_? (m a positive integer) that were obtained by
-    summing over indices with a sum statement<a name="346"></a> <a href="#substasum">7.129</a>.
+<dd><a name="345"></a> Это множество индексов. 
+	Оно ссылается на все индексы типа Nm_? (m - положительное целое), 
+	которое получается при помощи суммирования по индексам 
+	при помощи конструкции суммирования<a name="346"></a> <a href="#substasum">7.129</a>.
 </dd>
 </dl>
 
 <p>
-Sets can be used during wildcarding<a name="349"></a>. When x is a symbol, 
-the notation x? indicates `any symbol'. This is sometimes more than we 
-want. In the case that we would like `any symbol that belongs to the set 
-exxes' we would write x?exxes which is an unique notation as usually 
-the question mark cannot be followed by a name. There should be no blank 
-between the question mark and the name of the set. The object x?indi 
-would result in a type mismatch error, if x is a symbol and indi a set of 
-indices. 
+Множества могут использоваться ссимволами подстановки<a name="349"></a>. 
+Когда x - символ, нотация x? означает `любой символ'. 
+Иногда это больше чем мы хотим. 
+В случае, когда мы хотим `любой символ, который принадлежит множеству exxes' 
+мы должны написать x?exxes, что является уникальным обозначением, 
+т.к. обычно знак вопроса не может следовать за именем. 
+Не должно быть пробелов между знаком вопроса и именем множества. 
+Объект x?indi может привести к ошибке "не совпадение типов", 
+если x будет символом, а indi - множеством индексов. 
 
 </p><p>
-This use of wildcards belonging to sets can be extended even more: 
-The notation x?exxes?yyy means that x should belong to the set exxes, and
-its replacement should be the corresponding element of set yyy. At first 
-this notation looks unnecessarily complicated. The statement 
+Такое использование подстановочных символов по отношению к множествам может быть расширено еще больше: 
+Нотация x?exxes?yyy означает, что x должен принадлежать множеству exxes, 
+и его замена должна быть соответствующим элементом yyy. 
+Во первых эта нотация выглядит излишне сложной. Конструкция 
 </p><pre>     id   x?exxes?yyy = x;
 </pre>
-should have the much simpler syntax
+должна иметь более простой синтаксис
 <pre>     id   exxes = yyy;
 </pre>
-This last notation cannot be maintained, when the patterns are more 
-complicated, hence it has been omitted altogether.
+Последнюю нотацию невозможно осуществить, когда паттерны более сложные, 
+следовательно она, в общем, была пропущена.
 
 <p>
-When things become really complicated<a name="354"></a>, the sets can be 
-used as kind of an array. They can be used with a fixed array index 
-(running from 1 for the first element). When they have a symbolic argument 
-(must be a symbol), they are either in the right hand side of an 
-id-statement and the symbol must be replaced by a number by means of a 
-wildcard substitution or in the left hand side and the symbol is 
-automatically seen as a wildcard. The set must still follow the question 
-mark of a wildcard. An example will clarify the above:
+Когда вещи становятся понастоящему сложными<a name="354"></a>, множества могут использоваться как массивы. 
+Они могут использоваться с фиксированным индексом массива (1 - для первого элемента массива). 
+Когда они имеют символьный аргумент (должен быть символом), 
+они либо находятся в правой части конструкции id и этот символ должен быть заменен номером, 
+по замене по подстановочному символу, либо находится в левой части 
+и символ автоматически рассматривается как подстановочный. 
+За множеством по прежнему следует знак вопроса в паттерне. 
+Вот пример, проясняющий это:
 </p><pre>    s a1,a2,a3,b1,b2,b3,x,n;
     f g1,g2,g3,g;
     set aa:a1,a2,a3;
@@ -1460,33 +1462,30 @@ mark of a wildcard. An example will clarify the above:
    
     id  g(x?aa[n]) = gg[n](bb[n]) + bb[2]*n;
 </pre>
-The n in the left hand side is automatically a symbol wildcard. x must 
-match an element in aa and n takes its number. In the right hand side 
-<code>gg[n]</code> becomes an array element, when the n is substituted. The 
-same holds for <code>bb[n]</code>. The element <code>bb[2]</code> is immediately 
-replaced by b2, so there is rarely profit by using this, unless the 
-preprocessor had something to do with the construction of this 
-quantity. As should be clear from the above: the array elements are 
-indicated with straight braces<a name="357"></a>. 
+n в левой части автоматически является подстановочным символом. 
+x должен соответствовать элементу в aa и n становится равным его номеру. 
+В правой части <code>gg[n]</code> становится элементом массива, когда в него подставляется n. 
+То же самое происходит в <code>bb[n]</code>. 
+Элемент <code>bb[2]</code> сразу заменяется на b2, так что использование этого способа редко приносит пользу, 
+если только препроцессор не сделает что-нибудь с конструкцией этой величины. 
+Следует прояснить: элементы массивов обозначаются прмыми скобками<a name="357"></a>. 
 
 <p>
-Another use of sets is in the select  
-option<a name="358"></a> of the id-statement. This is discussed in 
-chapter&nbsp;<a href="#pattern">5</a> on pattern<a name="360"></a> matching. 
+Другое использование множеств проявляется в опции select <a name="358"></a> конструкции id. 
+Это обсуждается в главе&nbsp;<a href="#pattern">5</a> в соответствии шаблонам<a name="360"></a>. 
 
 </p><p>
-Neither the array properties of the sets nor the select option of the 
-id-statement can be used in conjunction with the built in sets. These 
-sets are not supposed to have a finite number of indices.
+Ни свойства множеств как массивов ни опция select конструкции id 
+не могут использоваться вместе со встроенными множествами. 
+Эти множества не имеют конечного количества индексов.
 
 </p><p>
-Apart from the above sets that were formally declared and used by name 
-there is a second way to use sets. These sets are called <b>implicitly 
-declared sets<a name="361"></a></b>. They are declared at the 
-position that they are used and their use defines their contents. The 
-elements of the set should be enclosed by a pair of curly 
-brackets<a name="362"></a> and the set is placed at the position where 
-otherwise the name of the set would be used:
+Помио вышеперечисленных множеств, которые формально определены и используются по имени, 
+есть второй способ использования множеств. 
+Эти множества называются <b>неявно объевленными множествами<a name="361"></a></b>. 
+Они объявляются в том месте, где они используются и их использование определяет их содержимое. 
+Элементы множества должны быть заключены в фигурные скобки<a name="362"></a> 
+И множество располагается в том месте, где должно находится имя множества:
 </p><pre>    Symbols a1,a2,a3,b1,b2,b3,x,n;
     CFunctions g1,g2,g3,g;
     Local expr =
@@ -1498,110 +1497,107 @@ otherwise the name of the set would be used:
    expr =
       g1(b1) + g2(b2) + g3(b3) + g(x);
 </pre>
-Such a set exists internally only till the end of the module in which it 
-is used. It can be used at all positions where named sets can be used. 
-Hence they can also be used, when the array properties of sets are 
-considered.
+Такое множество внутренне существует до конца модуля, в котором оно используется. 
+Оно может использоваться во всех местах, где может использоваться именованное множество. 
+Следовательно, оно также может использоваться, когда множество рассматривыается как массив.
 
 <p>
-The preprocessor has to be able to distinguish these sets from strings for 
-its calculator<a name="365"></a> (see 
-chapter&nbsp;<a href="#preprocessor">3</a>). Usually this is no problem, because any 
-regular name contains at least one character that is not accepted by this 
-calculator. If the only elements in the set are numeric the 
-comma<a name="367"></a> will tell the preprocessor that it is a set and the 
-calculator should not be used. This leaves the case of a set with a single 
-numeric element. By placing a comma either before or after it the use of 
-the calculator is vetoed. For the interpretation of the set this makes no 
-difference.
+Препроцессор должен быть в состоянии отличать такие множества от с трок в своем калькуляторе<a name="365"></a> 
+(см. главу&nbsp;<a href="#preprocessor">3</a>). 
+Обычно это не вызывает проблем, потому что любое обычное имя содержит по крайней мере один символ, 
+который не воспринимается калькулятором. 
+Если все эелементы множества числовые, запятая<a name="367"></a> скажет препроцессору, 
+что это множество и калькулятор не будет использоваться. 
+Сюда не попадает множество с одним числовым аргументом. 
+Если поместить запятую до или после него, использование калькулятора будет запрещено. 
+Это не внесет изменений в интерпретацию множества.
 
 </p><p>
-When it is possible to demand an object to be inside a 
-set<a name="368"></a>, it should also be possible to demand that an object 
-be outside a set<a name="369"></a>. This is done with the `?!' operator 
-instead of the `?' operator. The extra exclamation<a name="370"></a> mark 
-is like a `not' operator. It can be used only, when its use makes sense. 
-Hence it cannot be used in conjunction with the array properties of sets 
-and together with the select option of the id-statement. So its only use is 
-in patterns of the type
-</p><pre>    x?!setname
+Когда возможно потребовать, чтобы объект находился во множестве<a name="368"></a>, 
+также возможно потребовать, чтобы объект находился вне множества<a name="369"></a>. 
+Это делается при помощи оператора `?!' вместо оператора `?'. 
+Дополнительный восклицательный знак<a name="370"></a> похож на оператор `не'. 
+Он может использоваться только когда имеет смысл. 
+Следовательно он не может использоваться совместно с использованием множества как массива 
+и вместе с опцией select конструкции id. 
+Так что это может использоваться только в паттернах типа</p>
+<pre>    x?!setname
     x?!{a,b,c}
 </pre>
-as is done in
+как это делается в
 <pre>    id  x^n?!{,-1} = x^(n+1)/(n+1);
 </pre>
-There is a variation of the second type that is not possible with named 
-sets<a name="375"></a>:
+У второго типа существует вариация, которая невозможна с именованными множествами<a name="375"></a>:
 <pre>    Symbols a,b,x,y,z;
     CFunction f;
     
     id  f(x?!{a,y?,z?})*f(y?!{b,x?,z?})*f(z?!{x?,y?})
             =  .........
 </pre>
-In this complicated pattern the z is easiest: It is not allowed to be equal 
-to the objects that will be substituted for the wildcards x and y. The 
-symbol x cannot be equal to the wildcards y and z, but in addition it 
-should not be equal to a. A similar condition holds for y. One could argue 
-that at least one of these conditions is superfluous from the strictly 
-logical viewpoint. It depends however on the order of the declarations in 
-how FORM runs through the pattern, so it would require some trying to 
-see which `not' specifications are superfluous. If for instance the first 
-function is matched first, there is still no assignment for z. This means 
-that the z? in the set cannot be used yet and hence it places no 
-restrictions on x. Therefore it is the x? in the last function that causes 
-x and z to be different. If on the other hand the last function would be 
-matched first, we need the z? in the set of the first function. From the 
-strict logical viewpoint, FORM could go back over the pattern and still 
-make the appropriate rejections, but this would cost too much extra time. 
-As one can see, it is safer to specify both.
+В этом паттерне самое простое это z: 
+Ей запрещено быть равной объектам, которые будут подставляться вместо символов x и y. 
+Символ x не может быть равным подстановочным символам y и z, но дополнительно он не должен быть равен a. 
+Такое же условие и для y. 
+Можно поспорить, что по крайней мере одно из этих условий лишнее с чисто логической точки зрения. 
+тем не менее она зависит от порядка объявлений, в котором FORM проходит по паттерну, 
+так что это требует некоторых попыток увидеть, которое из утверждений `не' является излишним. 
+Если например первая функция сопоставляется первой, то к этому моменту z не получила значение. 
+Это значит, что z? в множестве пока не может использоваться, 
+это место не накладывает ограничений на x. 
+Следовательно x? в последней функции делает разными x и z. 
+Если, с другой стороны, последняя функция должна сопоставляться первой, 
+нам потребуется z? в множестве первой функции. 
+С первой точки зрения, FORM может вернуться по паттерну и все-таки провести соответствующие исключения, 
+но это будет стоить много дополнительного времени. 
+Как видно, безопаснее задать обе.
 
 <p>
 
 </p><h1><a name="SECTION00370000000000000000">
-The autodeclare conventions</a>
+Соглашения об автообъявлении (autodeclare)</a>
 </h1>
 
 <p>
-As we have seen above, all variables that are introduced by the user have 
-to be declared. As such FORM is a strong<a name="382"></a> typing 
-language. This isn't always handy. Hence it is possible to introduce some 
-rules about the automatic declaration of classes of variables. This is done 
-with the AutoDeclare<a name="383"></a> statement (see also 
-<a href="#substaautodeclare">7.9</a>). If we use the statements
+Как мы видели выше, все переменные, вводимые пользователем должны быть объявлены. 
+По этому FORM это строго<a name="382"></a> типизированный язык. 
+Это не всегда удобно. Следовательно можно ввести некоторые правила 
+об автоматическом объявлении классов переменных. 
+Это делается конструкцией AutoDeclare<a name="383"></a> (см. также <a href="#substaautodeclare">7.9</a>). 
+если мы используем конструкции
 </p><pre>     AutoDeclare Symbol x,tt;
      AutoDeclare CFunction f,t;
 </pre>
-any object encountered by the compiler of which the name starts with the 
-character x will automatically be declared as a symbol. Also objects of 
-which the name starts with the characters tt will be declared as symbols. 
-Objects of which the name starts with the characters f or t, but not with 
-the string tt, and that have not yet been declared will be declared 
-automatically as commuting functions. As one can see, in the case of 
-potential conflicts<a name="387"></a> (like with t and tt) the more 
-restrictive one takes precedence. This is independent of the order of the 
-AutoDeclare statements. One disadvantage of the use of the AutoDeclare 
-statement is that one looses a certain amount of control over the order of 
-declaration of the variables, as now they will be declared in the order in 
-which they occur in the statements. The order of the declaration determines 
-the ordering of the objects in the output.
+любой объект, встреченный компилятором, чье имя начинается с символа x 
+автоматически будет объявлен как символ. 
+также объекты, чье имя начинается с символов tt будут объявлены как символы. 
+Объекты, чье имя начинается с символов f или t, но не со строки tt, 
+и которые еще не объявлены будут объявлены автоматически как коммутирующие функции. 
+Как можно видеть, в случае потенцтального конфликта<a name="387"></a> 
+(такого как с t и tt), более ограничивающее объявление имеет преимущество. 
+Это не зависит от порядка конструкций AutoDeclare. 
+Один недостаток конструкции AutoDeclare состоит в том, 
+оно теряет определенное количество контроля над порядком объявлений переменных, 
+так что сейчас они объявляются в том порядке, в котором встречаются в конструкциях. 
+Порядок объявлений определяет порядок объектов при выводе.
 
 <p>
 
 </p><h1><a name="SECTION00380000000000000000">
-Name lists</a>
+Списки имен</a>
 </h1>
 
 <p>
-<a name="sect-namelists"></a>Sometimes it is necessary to see how FORM has interpreted a set
-of declarations. It can also be that declarations were made in an unlisted 
-include file and that the user wants to know what variables have been 
-defined. The lists<a name="391"></a> of active variables<a name="392"></a> 
-can be printed with the statement
+<a name="sect-namelists"></a>Иногда необходимо увидеть, как FORM интерпретирует множество объявлений. 
+Может оказаться, что объявления производятся в непечатаемом include-файле 
+и что пользователь хочет узнать, какие переменные были объявлены. 
+Список<a name="391"></a> активных переменных<a name="392"></a> 
+может быть напечатан при конструкции
 </p><pre>     On names;
 </pre>
-This statement sets a flag that causes the listing of all name tables and 
-default properties that are active at the moment that the compiler has 
-finished compiling the current module and all modules after. The printing 
+Эта конструкция устанавливает флаг, который вызывает 
+the listing of all name tables and default properties 
+that are active at the moment that the compiler has finished compiling the current module and all modules after. 
+The printing 
 is just before the algebra processor takes over for the execution of the 
 module - assuming that no error condition exists. If the `On names' is 
 specified in a module that ends with a .global-instruction, the name lists 
@@ -9066,8 +9062,8 @@ identify
 
 <p>
 <table cellpadding="3">
-<tbody><tr><td align="LEFT">Type</td>
-<td align="LEFT">Executable statement</td>
+<tbody><tr><td align="LEFT">Тип</td>
+<td align="LEFT">Исполняемая конструкция</td>
 </tr>
 <tr><td align="LEFT">Syntax</td>
 <td align="LEFT">id[entify] [<tt>&lt;</tt>options<tt>&gt;</tt>] <tt>&lt;</tt>pattern<tt>&gt;</tt> = <tt>&lt;</tt>expression<tt>&gt;</tt>;</td>
@@ -10173,15 +10169,15 @@ local
 <tr><td align="LEFT">&nbsp;</td>
 <td align="LEFT">l[ocal] <tt>&lt;</tt>names of expressions<tt>&gt;</tt>;</td>
 </tr>
-<tr><td align="LEFT">See also</td>
+<tr><td align="LEFT">См. также</td>
 <td align="LEFT">global (<a href="#substaglobal">7.57</a>)</td>
 </tr>
 </tbody></table> <br>
 <br>
 
 </p><p>
-Used to define a local<a name="4585"></a> expression. A local 
-expression is an expression that will be dropped<a name="4586"></a> when a 
+Используется для определения локального <a name="4585"></a> выражения. 
+A local expression is an expression that will be dropped<a name="4586"></a> when a 
 .store<a name="4587"></a> instruction is encountered. If this is not what is 
 intended one should use global<a name="4588"></a> expressions (see 
 <a href="#substaglobal">7.57</a>). The statement can also be used to change the status of 
@@ -11876,10 +11872,13 @@ on
 </tbody></table>
 <br>
 <table width="590">
-<tbody><tr><td>Turns compression mode on. This compression is a 
-relatively simple compression that hardly costs extra computer time but 
-saves roughly a factor two in disk storage. The old statement was `compress 
-on' but this should be avoided in the future. This setting is the default.</td></tr>
+<tbody><tr><td>Включает режим сжатия. 
+Это сжатие - относительно простое сжатие, 
+по сравнению с тем, которое могло бы потребовать много компьютерного времени, 
+но сжимает примерно в 2 раза данные на диске. 
+Старая конструкция была `compress on' 
+но ее следует избегать в будущем. 
+Этот параметр используется по умолчанию.</td></tr>
 </tbody></table>
     <br>
 
@@ -11890,13 +11889,14 @@ on' but this should be avoided in the future. This setting is the default.</td><
 </tbody></table>
 <br>
 <table width="590">
-<tbody><tr><td>This option should be followed by a comma or a space and 
-a single digit. It activates the gzip compression for the sort file. This 
-compression can make the intermediate sort file considerably shorter at the 
-cost of some CPU time. This option can be used when disk space is at a 
-premium. The digit indicates the compression level. Zero means no 
-compression and 9 is the highest level. The default level is 6. Above that 
-the compression becomes very slow and doesn't gain very much extra.</td></tr>
+<tbody><tr><td>
+За этой опцией должна следовать запятая или пробел и одна цифра. 
+она активирует gzip сжатие для sort-файла. 
+Это сжатие может делать промежуточный sort-файл значительно короче, потребовав некоторое время процессора. 
+Эта опция может использоваться, когда очень ценится дисковое пространство. 
+Цифра показывает степень сжатия. 
+Ноль означает без сжатия и 9 - это наивысший уровень. По умолчанию уровень 6. 
+Выше этого уровня сжатие становится очень медленным и не приносит много пользы.</td></tr>
 </tbody></table>
     <br>
 
@@ -11907,11 +11907,11 @@ the compression becomes very slow and doesn't gain very much extra.</td></tr>
 </tbody></table>
 <br>
 <table width="590">
-<tbody><tr><td>Determines how many of the statistics FORM prints when a 
-small buffer is full. The keyword can be followed by a positive integer in 
-which case one out of that many of these statistics will be printed. If no 
-number is given the default value of 10 is used. When the number that 
-follows is zero, this feature is turned off (same effect as the value one).</td></tr>
+<tbody><tr><td>Определяет, как много статистики будет печатать FORM когда маленький буфер заполнится. 
+За ключевым словом может следовать положительное целое. 
+В этом случае one out of that many of these statistics will be printed. 
+Если число не указано, по умолчанию используется значение 10. 
+Когда число равно нулю, эта фича выключается (такой же эффект при значении один).</td></tr>
 </tbody></table>
     <br>
 
@@ -11922,7 +11922,7 @@ follows is zero, this feature is turned off (same effect as the value one).</td>
 </tbody></table>
 <br>
 <table width="590">
-<tbody><tr><td>Same as the above fewerstatistics.</td></tr>
+<tbody><tr><td>То же что и fewerstatistics.</td></tr>
 </tbody></table>
     <br>
 
@@ -11933,8 +11933,8 @@ follows is zero, this feature is turned off (same effect as the value one).</td>
 </tbody></table>
 <br>
 <table width="590">
-<tbody><tr><td>Determines whether FORM prints a final line of run time 
-statistics at the end of the run. Default is on.</td></tr>
+<tbody><tr><td>Определяет, будет ли FORM печатать последнюю строку со статистикой времени выполнения 
+в конце работы. По умолчанию включено.</td></tr>
 </tbody></table>
     <br>
 
@@ -11945,8 +11945,7 @@ statistics at the end of the run. Default is on.</td></tr>
 </tbody></table>
 <br>
 <table width="590">
-<tbody><tr><td>In this mode polynomials are sorted in a way that high 
-powers come before low powers.</td></tr>
+<tbody><tr><td>В этом режиме полиномы сортируются в порядке убывания степеней.</td></tr>
 </tbody></table>
     <br>
 
@@ -11957,7 +11956,7 @@ powers come before low powers.</td></tr>
 </tbody></table>
 <br>
 <table width="590">
-<tbody><tr><td>Not active at the moment.</td></tr>
+<tbody><tr><td>В данный момент не работает.</td></tr>
 </tbody></table>
     <br>
 
@@ -11968,8 +11967,8 @@ powers come before low powers.</td></tr>
 </tbody></table>
 <br>
 <table width="590">
-<tbody><tr><td>In this mode polynomials are sorted in a way that low 
-powers come before high powers. This is the default.</td></tr>
+<tbody><tr><td>В этом режиме полиномы сортируются 
+в порядке возрастания степеней. Это по умолчанию.</td></tr>
 </tbody></table>
     <br>
 
@@ -26015,4 +26014,4 @@ Index</a>
 
 
 
-</body></html>
+</body></html>l>
