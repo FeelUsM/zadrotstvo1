@@ -1595,29 +1595,28 @@ x должен соответствовать элементу в aa и n ста
 </p><pre>     On names;
 </pre>
 Эта конструкция устанавливает флаг, который вызывает 
-the listing of all name tables and default properties 
-that are active at the moment that the compiler has finished compiling the current module and all modules after. 
-The printing 
-is just before the algebra processor takes over for the execution of the 
-module - assuming that no error condition exists. If the `On names' is 
-specified in a module that ends with a .global-instruction, the name lists 
-will be printed at the end of each module, as printing the name lists will 
-then be the default option. If one likes to switch this flag off, this can 
-be done with the statement
+вывод всех таблиц имен и свойств по умолчанию, 
+которые активны на момент окончания компиляции текущего модуля и модулей после. 
+Печать как раз происходит перед тем как алгебраический процессор берет на себы исполнение модуля 
+- подразумевая, что нет состояния ошибки. 
+Если задан `On names' в модуле, который заканчивается на инструкцию .global, 
+списки имен будут печататься в конце каждого модуля, 
+т.к. печать списков имен после этого будет опцией по умолчанию. 
+Если потребуется выключить флаг, 
+это можно сделать при помощи конструкции
 <pre>     Off names;
 </pre>
-which prohibits the printing of the name lists in the current module and 
-all modules following.
+которая запрещает печать списков имен в текущем модуле и во всех последующих.
 
 <p>
 
 </p><h1><a name="SECTION00390000000000000000">
-Dummy indices</a>
+Фиктивные индексы</a>
 </h1>
 
 <p>
-<a name="sect-dummies"></a>Sometimes indices<a name="399"></a> are to be summed over but due to the 
-evaluation procedures some terms contain the index mu and other terms 
+<a name="sect-dummies"></a>Иногда по индексам<a name="399"></a> происходит суммирование 
+but due to the evaluation procedures some terms contain the index mu and other terms 
 contain the index nu. There is a command to sum over indices in such a way 
 that FORM recognizes that the exact name of the index is irrelevant. 
 This is the `sum'-statement (see also <a href="#substasum">7.129</a>):</p><pre>   i  mu,nu;
@@ -1954,40 +1953,38 @@ look for other causes.
 </p><h1><a name="SECTION00400000000000000000"></a>
 <a name="preprocessor"></a>
 <br>
-The preprocessor
+Препроцессор
 </h1>
 
 <p>
-The preprocessor<a name="658"></a> is a program segment that reads and 
-edits<a name="659"></a> the input, after which the processed input is offered to 
-the compiler<a name="660"></a> part of FORM. When a module<a name="661"></a> 
-instruction is encountered by the preprocessor, the compilation is halted 
-and the module is executed. The compiler buffers are cleared and FORM  
-will continue with the next module. The preprocessor acts almost purely on 
-character strings. As such it does not know about the algebraic properties 
-of the objects it processes. Additionally the preprocessor also filters out 
-the commentary<a name="662"></a>.
+Препроцессор<a name="658"></a> это фрагмент программы, которая читает и редактирует <a name="659"></a> ввод, 
+после чего обработанный ввод направляется в компиляторную<a name="660"></a> часть FORM-а. 
+Когда препроцессор встретит инструкцию модуля<a name="661"></a>, 
+компиляция прерывается и модуль выполняется. 
+Буферы компилятора очищаются и FORM продолжает со следующим модулем. 
+Препроцессор работает только с символьными строками. 
+Следовательно он не знает об алгебраических свойствах обрабатываеемых объектов. 
+Дополнительно препроцессор отфильтровывает комментарии<a name="662"></a>.
 
 </p><p>
-The commands for the preprocessor are called instructions. Preprocessor 
-instructions start with the character # as the first non-blank character 
-in a line. After this there are several possibilities.
+Команды для препроцессора называются инструкциями. 
+Инструкции препроцессора начинаются с символа # как первого непробельного символа в строке. 
+После чего есть несколько возможностей.
 </p><dl>
 <dt><strong>#:</strong></dt>
-<dd><a name="664"></a> Special syntax for setup parameters at the beginning 
-of the program. See the chapter on the setup parameters.
+<dd><a name="664"></a> Специальный синтаксис для настроечных параметров в начале программы. 
+См. главу о настроечных параметрах.
 </dd>
 <dt><strong>#<img width="17" height="28" align="MIDDLE" border="0" src="./online_files/img6.png" alt="$-$">, #<img width="17" height="28" align="MIDDLE" border="0" src="./online_files/img7.png" alt="$+$"></strong></dt>
-<dd><a name="665"></a><a name="666"></a> Turns the listing of the input off or 
-on.
+<dd><a name="665"></a><a name="666"></a> Включает или выключает вывод ввода.
 </dd>
 <dt><strong>#name</strong></dt>
-<dd><a name="667"></a> Preprocessor command. The syntax of the various 
-commands will be discussed below.
+<dd><a name="667"></a> команда препроцессора. 
+Синтаксис различных команд обсуждается ниже.
 </dd>
 <dt><strong>#$name</strong></dt>
-<dd><a name="668"></a> Giving a value to a dollar variable in the 
-preprocessor. See chapter <a href="#dollars">6</a> on dollar variables.
+<dd><a name="668"></a> Задание значения долларовой переменной в препроцессоре. 
+См. главу <a href="#dollars">6</a> о долларовых переменных.
 </dd>
 </dl>
 
@@ -1996,7 +1993,7 @@ preprocessor. See chapter <a href="#dollars">6</a> on dollar variables.
 </p><h1><a name="SECTION00410000000000000000"></a>
 <a name="preprovariables"></a>
 <br>
-The preprocessor variables
+Переменные препроцессора
 </h1>
 
 <p>
@@ -2656,16 +2653,16 @@ Syntax:
 #commentchar character
 
 </p><p>
-The specified<a name="884"></a> character should be a single 
-non-whitespace character. There may be white space (blanks and/or tabs) 
-before or after it. The character will take over the role of the comment 
-character. <i>i.e.</i> any line that starts with this character in column 1 
-will be considered commentary<a name="886"></a>. This feature was provided 
-because output of some other algebra programs could put the multiplication 
-sign in column 1 in longer expressions.
+Заданный символ<a name="884"></a> должен быть одним непробельным символом. 
+Перед ним  и после него могут присутствовать пробельные символы (пробелы и/или табуляции). 
+Этот символ берет на себя роль символа комментария. 
+<i>т.е.</i> любая строка, которая начинается с этого символа в первой колонке, 
+будет считаться комментарием<a name="886"></a>. 
+Эта фичя сделана по тому, что в выводе некоторых других алгебраических программ 
+знак умножения в колонке 1 в длинных выражениях.
 
 </p><p>
-The default commentary character is <img width="12" height="13" align="BOTTOM" border="0" src="./online_files/img8.png" alt="$\ast$">.
+По умолчанию символ комментария это <img width="12" height="13" align="BOTTOM" border="0" src="./online_files/img8.png" alt="$\ast$">.
 
 </p><p>
 
@@ -4699,128 +4696,118 @@ Currently the syntax does not allow this. This may change in the future.
 </p><h1><a name="SECTION00500000000000000000"></a>
 <a name="modules"></a>
 <br>
-Modules
+Модули
 </h1>
 
 <p>
-Modules<a name="2421"></a> are the basic execution<a name="2422"></a> blocks. 
-Statements<a name="2423"></a> are always part of a module, and they will be 
-executed only when the module is executed. This is directly opposite to 
-preprocessor instructions which are executed when they are encountered in 
-the input stream.
+Модули<a name="2421"></a> это базовые блоки выполнения<a name="2422"></a>. 
+Конструкции всегда являются частью модуля<a name="2423"></a>, 
+и они будут выполняться только когда будет выполняться модуль. 
+Это рпямо противоположно инструкциям препроцессора, 
+которые выполняются сразу, как только встречаются во входном потоке.
 
 </p><p>
-Modules are terminated by a line that starts with a period<a name="2424"></a>. 
-Such a line is called the module<a name="2425"></a> instruction. 
-Once the module instruction has been recognized, the compilation of the 
-module is terminated and the module will be executed. All active 
-expressions will be processed one by one, term by term. When each term of 
-an expression has been through all statements of the module, the combined 
-results of all operations on all the terms of the expression will be sorted 
-and the resulting expression will be sent to the output. This can be an 
-intermediate file<a name="2426"></a>, or it can be some 
-memory<a name="2427"></a>, depending on the size of the output. If the combined 
-output of all active expressions is less than the parameter 
-``ScratchSize''<a name="2428"></a>, the results stay in memory. ScratchSize 
-is one of the setup parameters (see chapter <a href="#setup">16</a>).
+Модули заканчиваются строкой, которая начинается с точки<a name="2424"></a>. 
+Эта строка называется инструкцией модуля<a name="2425"></a>. 
+Как только будет распознана инструкция модуля, 
+будет прервана компиляция модуля и модуль начнет выполняться. 
+Все активные выражения будут обрабатываться одна за другой, терм за термом. 
+Когда каждый терм выражения пройдет через все конструкции модуля, 
+скомбинированные результаты всех операций на всех термах выражения 
+будут отсортированы и результирующее выражение будет послано на вывод. 
+Это может быть некоторый временный файл<a name="2426"></a>, 
+или это может быть некоторая память<a name="2427"></a>, 
+в зависимости от размера вывода. 
+Если скомбинированный вывод всех активных выражений меньше, 
+чем параметр ``ScratchSize''<a name="2428"></a>, результаты остануться в памяти. 
+ScratchSize это один из настроечных параметров (см. главу <a href="#setup">16</a>).
 
 </p><p>
-A module consists in general of several types of statements:
+Содуль состоит в общем из различных типов конструкций:
 </p><dl>
-<dt><strong>Declarations<a name="2431"></a></strong></dt>
-<dd>These are the declarations of 
-variables.
+<dt><strong>Объявления<a name="2431"></a></strong></dt>
+<dd>Это объявления переменных.
 </dd>
-<dt><strong>Specifications<a name="2432"></a></strong></dt>
-<dd>These tell what to do with 
-existing expressions as a whole.
+<dt><strong>Спецификации<a name="2432"></a></strong></dt>
+<dd>Это говорит, что наде сделать с существующими выражениями в целом.
 </dd>
-<dt><strong>Definitions<a name="2433"></a></strong></dt>
-<dd>These define new expressions.
+<dt><strong>Определения<a name="2433"></a></strong></dt>
+<dd>Здесь определяются новые выражения.
 </dd>
-<dt><strong>Executable<a name="2434"></a> statements</strong></dt>
-<dd>The operations 
-on all active expressions.
+<dt><strong>Исполняемые<a name="2434"></a> конструкции</strong></dt>
+<dd>Операции на всех активных выражениях.
 </dd>
-<dt><strong>OutputSpecifications<a name="2435"></a></strong></dt>
-<dd>These specify the 
-output representation.
+<dt><strong>Спецификации вывода<a name="2435"></a></strong></dt>
+<dd>Задают представление вывода.
 </dd>
-<dt><strong>End-of-module specifications<a name="2436"></a></strong></dt>
-<dd>Extra settings that are for this module only.
+<dt><strong>Спецификации конца модуля<a name="2436"></a></strong></dt>
+<dd>Дополнительные настройки, которые предназначены только для этого модуля.
 </dd>
-<dt><strong>Mixed statements<a name="2437"></a></strong></dt>
-<dd>They can occur in various 
-classes. Most notably the print statement.
+<dt><strong>Смешанные конструкции<a name="2437"></a></strong></dt>
+<dd>Они могут появляться в различных классах. Особенно в конструкциях печати.
 </dd>
 </dl>
-Statements must occur in such an order that no statement follows a 
-statement of a later category. The only exception is formed by the mixed 
-statements, which can occur anywhere. This is different from earlier 
-versions of FORM in which the order of the statements was not fixed. This 
-did cause a certain amount of confusion about the workings of FORM.
+Конструкции обязаны появаляться в таком порядке, 
+что нет конструкций, следующих за конструкцией последующей категории. 
+Существуют исключения только для смешанных конструкций, которые могут появляться везде. 
+Это отличается от ранних версий FORM-а, в которых порядок конструкций не был фиксированным. 
+Это вызывает некоторое количество смущения при работе с FORM-ом.
 
 <p>
-There are several types of modules.
+Существует несколько типов модулей.
 </p><dl>
 <dt><strong>.sort<a name="2440"></a></strong></dt>
 <dd><a name="instrsort"></a> The general end-of-module. 
-Causes execution of all active expressions, and prepares them for the next 
-module.
+Вызывает выполнение всех активных выражений, и подготавливает их для следующего модуля.
 </dd>
 <dt><strong>.end<a name="2442"></a></strong></dt>
-<dd><a name="instrend"></a> Executes all active expressions 
-and terminates the program.
+<dd><a name="instrend"></a> Выполняются все активные выражения и программа останавливается.
 </dd>
 <dt><strong>.store<a name="2444"></a></strong></dt>
-<dd><a name="instrstore"></a> Executes all active 
-expressions. Then it writes all active global expressions to an 
-intermediate storage file<a name="2446"></a> and removes all other 
-non-global expressions. Removes all memory of declarations except for those 
-that were made before a .global instruction.
+<dd><a name="instrstore"></a> Выполняются все активные выражения. 
+Затем записываются все активные глобальные выражения в промежуточный накопительный файл<a name="2446"></a> 
+и удаляются все другие не глобальные выражения. 
+Удаляется вся память объявлений, за исключением тех, которые были сделаны перед инструкцией .global.
 </dd>
 <dt><strong>.global<a name="2447"></a></strong></dt>
-<dd><a name="instrglobal"></a> No execution of 
-expressions. It just saves declarations made thus far from being erased by 
-a .store instruction.
+<dd><a name="instrglobal"></a> Выражения не выполняются. 
+Просто сохраняются объявления, сделанные до сих пор от стирания инструкцией .store.
 </dd>
 <dt><strong>.clear<a name="2449"></a></strong></dt>
-<dd><a name="instrclear"></a> Executes all active 
-expressions. Then it clears all buffers with the exception of the main 
-input stream. Continues execution in the main input stream as if the 
-program had started at this point. The only parameters that cannot be 
-changed at this point are the setup parameters. They remain. By default 
-also the clock<a name="2451"></a> is reset. If this is not desired this can be 
-changed by means of the ResetTimeOnClear<a name="2452"></a> setup 
-variable (see chapter <a href="#setup">16</a>).
+<dd><a name="instrclear"></a> Выполняет все активные выражения. 
+Затем он очищает все буферы, за исключением основного потока ввода. 
+Выполнение главного потока ввода продолжается, как если бы программа начала выполняться с этой точки. 
+Параметры, которые не могут измениться в этой точке - это только настроечные параметры. Они остаются. 
+По умолчанию часы также<a name="2451"></a> обнуляются. 
+Если это не нужно, может быть изменео значение настроечной переменной ResetTimeOnClear<a name="2452"></a> 
+(см. главу <a href="#setup">16</a>).
 </dd>
 </dl>
-Each program must be terminated by a .end instruction. If such an 
-instruction is absent and FORM encounters an end-of-input it will issue a 
-warning and generate a .end instruction.
+Каждая программа должна завершаться инструкцией .end. 
+Если такая инструкция отсутствует и FORM встретил конец файла, 
+он выдаст предупреждение и сгенерирует инструкцию .end.
 
 <p>
-Module instructions can contain a special commentary that will be printed 
-in all statistics that are generated during the execution of the module. 
-This special commentary is restricted to 24 characters (the statistics have 
-a fixed format and hence there is only a limited amount of space 
-available). This commentary is initiated by a colon and terminated by a 
-semicolon. The characters between this colon and the semicolon are the 
-special message, also called advertisement. Example
+Инструкции модуля могут содержать специальные комментарии, 
+которые будут напечатаны во всей статистике, которая ненерируется в процессе выполнения модуля. 
+Этот специальный комментарий ограничен 24-мя символами 
+(статистика имеет фиксированный формат, и следовательно доступно только ограниченное количество пространства). 
+Этот комментарий начинается с двоеточия и заканчивается точкой с запятой. 
+Символы между двоеточием и точкой с запятой это специальное сообщение, также называемое рекламой. 
+Пример
 </p><pre>	.sort:Eliminate x;
 </pre>
-would give in the statistics something like
+даст статистику наподобие
 <pre>Time =       0.46 sec    Generated terms =        360
                 F        Terms in output =        360
             Eliminate x  Bytes used      =       4506
 </pre>
-If the statistics are switched off, there will be no printing of this 
-advertisement either.
+Если статистика выключена, эта реклама также не будет выводиться.
 
 <p>
-For backwards compatibility there is still an obsolete<a name="2459"></a> 
-mechanism to pass module options via the module instructions. This is a 
-feature which will probably disappear in future versions of FORM. We do 
+Для обратной совместимости по прежнему остается устаревший механизм<a name="2459"></a> 
+передачи настроек модуля через инструкции модуля. 
+This is a feature which will probably disappear in future versions of FORM. We do 
 give the syntax to allow the user to identify the option properly and 
 enable proper translation into the moduleoption<a name="2460"></a> 
 statement (see <a href="#substamoduleoption">7.81</a>).
@@ -5048,50 +5035,52 @@ discouraged to change any of these files between saving and recovery.
 </p><h1><a name="SECTION00600000000000000000"></a>
 <a name="pattern"></a>
 <br>
-Pattern matching
+Сопоставление с образцом
 </h1>
 
 <p>
-Substitutions<a name="2585"></a><a name="2586"></a> are made in FORM  
-by specifying a generic object that should be replaced by an expression. 
-This generic object is called a pattern<a name="2587"></a>. Patterns that the 
-user may already be familiar with are the regular expressions in many 
-UNIX<a name="2588"></a> based systems or just a statement like <code>ls *.frm</code> to 
-list only files of which the name ends in <code>.frm</code>. In this case the 
-<code>*</code> is called a wildcard<a name="2589"></a> that can take any string 
-value. In symbolic manipulation there will be wildcards also, but their 
-nature will be different. They are also indicated in a different way.
+Замены,<a name="2585"></a><a name="2586"></a> производятся в FORM-е 
+при помощи задания универсального объекта, который должен быть заменен выражением. 
+Этот универсальный объект называется паттерном<a name="2587"></a>. 
+Паттерны, с кооторыми пользователь уже может быть знаком, это регулярные выражения во множестве 
+UNIX<a name="2588"></a>-подобных систем или просто конструкции наподобие <code>ls *.frm</code> 
+для перечисления файлов, чье имя заканчивается на <code>.frm</code>. 
+В этом случае <code>*</code> называется подстановочным символом<a name="2589"></a>, 
+который может принимать любое строковое значение. 
+В символных манипуляциях также существуют подстановочные символы, 
+но их природа отличается. Они также отображаются другим способом.
 
 </p><p>
-In FORM wildcard variables are indicated by attaching a 
-question<a name="2590"></a> mark (?) to the name of a variable. The type 
-of the variable indicates what type of object we are looking for. Assume 
-the following id<a name="2591"></a> statements:
+В FORM-е подстановочные переменные обозначаются добавлением знака вопроса<a name="2590"></a> (?) 
+к имени переменной. Тип переменной показывает, какой тип объекта мы ищем. 
+Предположим следующую конструкцию id<a name="2591"></a>:
 </p><pre>    Functions f,g;
     Symbol x;
 
     id f(g?,x) = g(x,x);
 </pre>
-In this statement g will match any function and hence all occurrences 
-of f, in which the first argument is a function and the second argument is 
-the symbol x, will match. In the right hand side the function g will be 
-substituted by whatever identity g had to assume in the left hand side to 
-make the match. Hence <code>f(f,x)</code> will be replaced by <code>f(x,x)</code>.
+В этой конструкции g будет соответствовать любой функции, 
+и следовательно все появления f, в которых первый аргумент является функцией, 
+и второй аргумент является символом x, будет подходящим. 
+В правой части подстановки функция g будет заменено на 
+то, чему равно g, предполагая, что левая часть имеет соответствие. 
+Следовательно <code>f(f,x)</code> будет заменена на <code>f(x,x)</code>.
 
 <p>
-In general function wildcards<a name="2594"></a> can only match 
-functions. Even though tensors are special functions, regular function 
-wildcards cannot match tensors, and tensor wildcards cannot match 
-functions. However commuting<a name="2595"></a> function wildcards can match 
-noncommuting<a name="2596"></a> functions <i>et vice versa</i>.
+В общем, функциональный символ подстановки<a name="2594"></a> может соответствовать ттолько функциям. 
+Даже если тензоры являются специальными фуункциями, 
+обычный шаблонный символ функции не может соответствовать тензору, 
+и шаблонный символ тензора не может соответствовать функции. 
+Тем не менее шаблонные символы коммутирующих функций<a name="2595"></a> 
+могут соответствовать некоммутирующим<a name="2596"></a> функциям <i>и наоборот</i>.
 
 </p><p>
-Index<a name="2598"></a> wildcards can only match indices. The 
-dimension of the indices is not relevant. Hence:
+Индексный символ подстановки<a name="2598"></a> может соответствовать только индексам. 
+Размерность индексов не имеет значения. Следовательно:
 </p><pre>    id f(mu?,mu?) = 4;
 </pre>
-would match both <code>f(ka,ka)</code> and <code>f(2,2)</code>. We will see later 
-how to be more selective about such matches.
+будет соответствовать и <code>f(ka,ka)</code> и <code>f(2,2)</code>. 
+Мы увидим далее насколько более выборочными могут быть паттерны.
 
 <p>
 When the same wildcard occurs more than once in a pattern, it should be 
