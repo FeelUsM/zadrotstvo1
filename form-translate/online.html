@@ -5083,167 +5083,172 @@ UNIX<a name="2588"></a>-подобных систем или просто кон
 Мы увидим далее насколько более выборочными могут быть паттерны.
 
 <p>
-When the same wildcard occurs more than once in a pattern, it should be 
-matched by the same object in all its occurrences. Hence the above pattern 
-would not match <code>f(mu,nu)</code>.
+Когда подстановочный символ встречается более одного раза в паттерне, 
+ему должен соответствовать один и тот же объект во всех местах. 
+Следовательно предыдущий паттерн не будет соответствовать <code>f(mu,nu)</code>.
 
 </p><p>
-There is one complication concerning the above rule of index wildcards only 
-matching indices. FORM writes contractions with vectors in a special 
-shorthand notation called Schoonschip<a name="2601"></a> notation. Hence 
-<code>f(mu)*p(mu)</code> becomes <code>f(p)</code>. This means that the substitution
+Существует одна сложность касательно последнего правила для индексных подстановочных символов only matching indices. 
+FORM записывает свертки с веторами в специальной укороченной нотации, 
+называемой Schoonschip<a name="2601"></a> нотайией. 
+Следовательно <code>f(mu)*p(mu)</code> становится <code>f(p)</code>. 
+Это означает, что подстановка
 </p><pre>    id f(mu?)*g(nu?) = fg(mu,nu);
 </pre>
-should also replace the term <code>f(p)*g(q)</code> by <code>fg(p,q)</code>. In this 
-case it looks like the wildcard indices matched the vectors. This is 
-however not the case, because if we take the previous pattern (with the 
-<code>f(mu?,mu?)</code>), it is not going to match the term <code>f(p,p)</code>, 
-because this term should be read as something of the type
-<code>f(mu,nu)*p(mu)*p(nu)</code>
-and that term does not fit the pattern <code>f(mu?,mu?)</code>.
+также должна заменить терм <code>f(p)*g(q)</code> на <code>fg(p,q)</code>. 
+В этом коде это выглядит какбуд-то индексный шаблонный символ соответствует вектору. 
+Тем не менее это не так, потому что если мы возьмем предыдущий паттерн 
+(с <code>f(mu?,mu?)</code>), он не подойдет для терма <code>f(p,p)</code>, 
+потому что этот терм должен читаться как <code>f(mu,nu)*p(mu)*p(nu)</code>
+а этот терм не подходит под паттерн <code>f(mu?,mu?)</code>.
 
 <p>
-Vector<a name="2604"></a> wildcards can match vectors, but they can 
-also match vector-like expressions in function arguments. A vector-like 
-expression is an expression in which all terms contain one single vector 
+Векторные<a name="2604"></a> подстановочные символы могут соответствочать векторам, 
+но также они могут соответствовать вектороподобным выражениям в аргументах функций. 
 without indices, possibly multiplied by other objects like coefficients, 
-functions or symbols. Hence
+Векторно-подобное выражепие - это такое выражение, 
+в котором все термы содержат одну единственную векторную функцию или символ. Следовательно
 </p><pre>    id f(p?) = p.p;
 </pre>
-would match <code>f(q)</code>, <code>f(2*q-r)</code> and <code>f(a*q+f(x)*r)</code>, if p, q 
-and r are vectors, and a and x are symbols, and f is a function. It would 
-not match <code>f(x)</code> and neither would it match <code>f(q*r)</code>, nor 
+будет соответствовать <code>f(q)</code>, <code>f(2*q-r)</code> и <code>f(a*q+f(x)*r)</code>, 
+если p, q и r являются веторами, a и x являются символами, и f - функция. 
+Он не будет соответствовать ни <code>f(x)</code>, ни <code>f(q*r)</code>, ни 
 <code>f(a*q+x)</code>.
 
 <p>
-Wildcard<a name="2607"></a> symbols are the most flexible objects. They 
-can match symbols, numbers and expressions that do not contain loose 
-indices or vectors without indices. These last objects are called 
-scalar<a name="2608"></a> objects. Hence wildcard symbols can match all 
-scalar objects. In
+Символьные одстановочные<a name="2607"></a> символы являются более гибкими объевтами. 
+Они могут соответствоввть символам, числам и выражениям, 
+которые не содержат свободных индексов или векторов без индексов. 
+Такие последние объекты называются скалярными<a name="2608"></a> объектами. 
+Следовательно символьные подстановочные символы могут соответствовать любым скалярным объектам. В 
 </p><pre>    id x^n? = x^(n+1)/(n+1);
 </pre>
-the wildcard symbol n would normally match a numerical integer power. In
+символьный подстановочный символ n будет нормально сопоставляться с численными целыми степенями. В
 <pre>    id f(x?) = x^2;
 </pre>
-there would be a match with <code>f(y)</code>, with <code>f(1+2*y)</code> and with 
-<code>f(p.p)</code>, but there would not be a match with <code>f(p)</code> if p is a 
-vector.
+будет сопоставляться с <code>f(y)</code>, с <code>f(1+2*y)</code> и с <code>f(p.p)</code>, 
+но не будет сопоставляться с <code>f(p)</code>, если p - это вектор.
 
 <p>
-There is one extra type of wildcards. This type is rather special. It 
-refers to groups of function
-arguments<a name="2613"></a><a name="2614"></a>. 
-The number of arguments is not specified. These variables are indicated by 
-a question mark followed by a name (just the opposite of the other wildcard 
-variables), and in the right hand side they are also written with the 
-leading question mark:
+Существует один дополнительный тип подстановочных символов. 
+Этот тип достаточно специфичный. 
+он ссылается на группу аргументов функции<a name="2613"></a><a name="2614"></a>. 
+Количество вргументов не задано. 
+Такие переменные обозначаются знаком вопроса, за которым идет имя 
+(в противоположность тому как у других подстановочных переменных), 
+и в правой части они должны также записываться с ведущим знаком вопроса:
 </p><pre>    id f(?name) = g(1,?name);
 </pre>
-In this statement<a name="2617"></a> all occurrences of f with any number of 
-arguments (including no arguments) will match. Hence <code>f(mu,nu)</code> will 
-be replaced by <code>g(1,mu,nu)</code>. In the case that f is a regular function 
-and g is a tensor, it is conceivable that the arguments in <code>?name</code> 
-will not fit inside a tensor. For instance <code>f(x)</code>, with x a symbol, 
-would match and FORM would try to put the symbol inside the tensor g. This 
-would result in a runtime error. In general FORM will only accept arguments 
-that are indices or single vectors for a substitution into a tensor. The 
-object <code>?name</code> is called an <b>argument field wildcard</b>.
+В этой конструкции<a name="2617"></a> все экземпляры f с любым количеством аргументов (включая отсутствие аргументов) будут подходящими. 
+Следовательно <code>f(mu,nu)</code> будет заменено на <code>g(1,mu,nu)</code>. 
+В случае когда f является обычной функцией и g - тензором, 
+думается, что аргументы в <code>?name</code> не подойдут для тензора. 
+Например <code>f(x)</code>, с символом x, не подойдет, 
+и FORM поаытается связать символ с тензором g. 
+Это приведет к ошибке времени выполнения. 
+В общем FORM будет принимать для подстановки в тензор аргументы, которые являются индексами или отдельными векторами. 
+Объект <code>?name</code> называется <b>подстановочное поле аргументов(argument field wildcard)</b>.
 
 <p>
-One should realize that the use of multiple argument field wildcards can 
-make the pattern matching slow.
+Следует понимать, что использование подстановочных полей аргументов 
+может замедлить сопоставление с шаблоном.
 </p><pre>    id f(?a,p1?,?b,p2?,?c,p3?,?d)*g(?e,p3?,?f,p1?,?g,p2?,?h) = ....
 </pre>
-may involve considerable numbers of tries, especially when there are many 
-occurrences of f and g in a term. One should be very careful with this.
+может вызвать значительное количество попыток, 
+особенно когда f и g много раз встречаются в терме. 
+Надо быть очень осторожным с этим.
 
 <p>
-A complication is the pattern matching in functions with symmetry 
-properties. In principle FORM has to try all possible permutations before 
-it can conclude that a match does not occur. This can become rather time 
-consuming when many wildcards are involved. FORM has a number of tricks 
-built in, in an attempt to speed this up, but it is clear that for many 
-cases these tricks are not enough. This type of pattern matching is one of 
-the weakest aspects of `artificial intelligence' in general. It is hoped 
-that in future versions it can be improved. For the moment the practical 
-consequence is that argument field wildcards cannot be used in symmetric 
-and antisymmetric functions. If one needs to make a generic replacement in 
-a symmetric function one cannot use
+Сложность состоит в сопоставлении с функциями, имеющими свойства симметрии. 
+В принципе FORM должен попробовать все возможные перестановки 
+перед тем как сможет заключить, что соответствия нет. 
+Это может привести к большому потреблению времени, когда вызывается много подстановочных символов. 
+FORM имеет достаточное количество встроенных трюков для попыток ускорить это, 
+но понятно, что для многих случаев этих трюков недостаточно. 
+Этот тип сопоставления с образцом - слабейший аспект `искусственного интеллекта' в общем. 
+Возможно в следующих версиях это будет улучшено. 
+На данный момент практическое следствие в том, 
+что подстановочные поля аргументов не могут использоваться с симметричными и антисимметричными функциями. 
+Если требуется сделать общую замену в симметричной функции, это не может использоваться
 </p><pre>    CFunction f(symmetric),g(symmetric);
     id  f(?a) = ....;
 </pre>
-but one could try something like
+но можно попробовать что-то вроде
 <pre>    CFunction f(symmetric),ff,g(symmetric);
     id  f(x1?,...,x5?) = ff(x1,...,x5);
     id  ff(?a) = ...;
     id  ff(?a) = f(?a);
 </pre>
-if f has for instance 5 arguments. If different numbers of arguments are 
-involved, one may need more than one statement here or a statement with the 
-replace_<a name="2625"></a> function:
+если f имеет например 5 аргументов. 
+Если используется различное количество аргументов, 
+может потребоваться больше одной конструкции, 
+или конструкция с функцией replace_<a name="2625"></a>:
 <pre>    Multiply replace_(f,ff);
 </pre>
-It just shows that one should at times be a bit careful with overuse of 
-(anti)symmetric functions. Cyclic functions do not have this restriction.
+Это показывает, что иногда следует быть более осторожным при чрезмерном использовании (анти)симметричных функций. 
+Циклические функции не имеют этих ограничений.
 
 <p>
-When there are various possibilities for a match, FORM will just take the 
-first one it encounters. Because it is not fixed how FORM searches for 
-matches (in future versions the order of trying may be changed without 
-notice) one should try to avoid ambiguities<a name="2628"></a> as in
+Когда существует несколько способов соответствия, 
+FORM просто возьмет первое попавшееся. 
+Потому что не зафиксировано, как FORM ищет соответствия 
+(в будущих версиях порядок перебора может быть изменен без уведомлений об этом), 
+следует избегать неоднозначностей<a name="2628"></a>, таких как
 </p><pre>    id f(?a,?b) = g(?a)*h(?b);
 </pre>
-Of course the current search method is fully consistent (and starts with 
-all arguments in <code>?a</code> and none in <code>?b</code> etc, but a future pattern 
-matcher may do it in a different order.
+Конечно текущий метод поиска полностью последовательный 
+(и стартует со всех аргументов в <code>?a</code> и ниодного в <code>?b</code> и т.д., 
+но будущий поисковик паттернов может работать в другом порядке.
 
 <p>
-When two argument field wildcards in the left hand side have the same name, 
-a match will only occur, when they match the same objects. Hence
+Когда два символа полей аргументов в левой части имеют одно и то же имя, 
+совпадение произойдет только когда они будут сопоставлены с одними и теми же аргументами. Следовательно
 </p><pre>    id f(?a,?a) = g(?a);
 </pre>
-will match <code>f(a,b,a,b)</code> or just <code>f</code> (in which case <code>?a</code> will 
-have zero arguments), but it will not match <code>f(b,b,b)</code>.
+будет соответствовать <code>f(a,b,a,b)</code> или даже <code>f</code> 
+(в этом случае <code>?a</code> будет иметь ноль аргументов), 
+но не будет соответствовать <code>f(b,b,b)</code>.
 
 <p>
-Sometimes it is useful when a search can be restricted to a limited set of 
-objects. For this FORM knows the concept of sets<a name="2633"></a>. If the name of 
-a set is attached after the question mark, this is an indication for FORM 
-to look only for matches in which the wildcard becomes one of the members 
-of the set:
+Иногда полезно, когда поиск может быть ограничен ограниченным множеством объектов. 
+Для этого в FORM-е существует концепция множеств<a name="2633"></a>. 
+Если имя множества добавлено после знака вопроса, 
+это говорит FORM-у о том, что надо искать соответствия в которых 
+подстановочный символ может быть равен одному из членов множества:
 </p><pre>    Symbols a,a1,a2,a3,b,c;
     Set aa:a1,a2,a3;
 
     id f(a?aa) = ...
 </pre>
-would match <code>f(a1)</code> but not <code>f(b)</code>. Sets can also be defined 
-dynamically<a name="2636"></a> by enclosing the elements between curly 
-brackets<a name="2637"></a> as in:
+будет соответствовать <code>f(a1)</code> но не <code>f(b)</code>. 
+Множества также могут быть определены динамически<a name="2636"></a>, 
+путем заключения элементов между фигурными скобками<a name="2637"></a> как в:
 <pre>    Symbols a,a1,a2,a3,b,c;
 
     id f(a?{a1,a2,a3}) = ...
 </pre>
-Sets<a name="2640"></a> of symbols can contain (small integer) numbers 
-as well. Similarly sets<a name="2641"></a> of indices can contain fixed 
-indices (positive numbers less than the value of fixindex<a name="2642"></a> 
-(see the chapter on the setup <a href="#setup">16</a>). This means that some sets can 
-be ambiguous<a name="2644"></a> in their nature.
+Множества символов<a name="2640"></a> могут также содержать (небольшие целые) числа. 
+Аналогично мнодества<a name="2641"></a> индексов могут содержать фиксированные индексы 
+(положительные числа, меньшие чем значение fixindex<a name="2642"></a> 
+(См. главу о настройке <a href="#setup">16</a>). 
+Это означает, что некоторые множества могут быть неоднозначны<a name="2644"></a> по своей природе.
 
 <p>
-Sometimes sets<a name="2645"></a> can be used as some type of 
-array<a name="2646"></a>. In the case of
+Иногда множества могут использоваться<a name="2645"></a> как некоторый тип массива<a name="2646"></a>. 
+В случае с
 </p><pre>    Symbols a,a1,a2,a3,b,c,n;
     Set aa:a1,a2,a3;
 
     id f(a?aa[n]) = ...
 </pre>
-not only does `a' have to be an element of the set aa, but if it is an 
-element of that set, n will become the number of the element that has been 
-matched. Hence for <code>f(a2)</code> the wildcard a would become <code>a2</code> and 
-the wildcard n would become 2. These objects can be used in the 
-right-hand side. One can also use sets in the right-hand side with an index 
-like the n of the previous example:
+не только `a' будет равно жлементу множества aa, 
+но если оно равно элементу этого множества, 
+n будет равно номеру этого элемента. 
+Следовательно для <code>f(a2)</code> подстановочный символ будет равен <code>a2</code> 
+и подстановочный символ n будет равен 2. 
+Эти объекты можно использовать в правой части. 
+Также в правой части можно использовать множества с индексами, 
+такими как n в предыдущем примере:
 <pre>    Symbols a,a1,a2,a3,b1,b2,b3,c,n;
     Functions f,g1,g2,g3;
     Set aa:a1,a2,a3;
@@ -5252,42 +5257,40 @@ like the n of the previous example:
 
     id f(a?aa[n]) = gg[n](bb[n]);
 </pre>
-which would replace <code>f(a2)</code> by <code>g2(b2)</code>. One cannot do 
-arithmetic<a name="2651"></a> with the number of the array element. 
-Constructions like <code>bb[n+1]</code> are not allowed.
+который будет заменять <code>f(a2)</code> на <code>g2(b2)</code>. 
+Однако запрещена арифметика <a name="2651"></a> с номерами элементов массива. 
+Конструкции в роде <code>bb[n+1]</code> - запрещены.
 
 <p>
-There is one more mechanism by which the array nature of sets can be used. 
-In the statement (declarations as before)
+Существует еще один механизм, позволяющий использовать множества как массивы. 
+В следующей конструкции (объявления такие же как и раньше)
 </p><pre>    id f(a?aa?bb) = a*f(a);
 </pre>
-a will have to be an element of the set aa, but after the matching it takes 
-the identity of the corresponding<a name="2654"></a> element of 
-the set bb. Hence <code>f(a2)</code> becomes after this statement 
-<code>b2*f(b2)</code>.
+a будет равно элементу из множества aa, но после того, как оно будет найдено, 
+оно будет равно соответствующему<a name="2654"></a> элементу множества bb. 
+Следовательно <code>f(a2)</code> превратится в <code>b2*f(b2)</code>.
 
 <p>
-Wildcards can also give their value directly to
-$-variables<a name="2655"></a><a name="2656"></a> (see chapter
-<a href="#dollars">6</a> about the $-variables). If a $-variable is attached to a
-wildcard (if there is a set restriction, it should be after the set) the
-$-variable will obtain the same contents as the wildcard, provided a match
-occurs. If there is more than one match, the last match will be in the
-$-variable.
+Подстановочные символы также могут передавать свое значение напрямую в $-variables<a name="2655"></a><a name="2656"></a> 
+(см. главу <a href="#dollars">6</a> про $-переменные). 
+Если $-переменная присоединена к подстановочному символу 
+(если на нее наложены ограничения множества, она должна быть после множества) 
+$-переменная получит то же содержимое, что и подстановочный символ. 
+Если имеется больше одного совпадения, $-переменная получит последнее совпадение.
 </p><pre>    id f(a?$w) = f(a);
 </pre>
-will put the match of a in <code>$w</code>. Hence in the case of <code>f(a2)</code> the 
-$-variable will have the value <code>a2</code>. In the case of 
-<code>f(a2)*f(a3)</code> the eventual value of <code>$w</code> depends on the order in 
-which FORM does the matching. This is not specified and it would not be 
-a good strategy to make programs that will depend on it. A future pattern 
-matcher might do it differently! But one could do things like
+присвоит совпадение в <code>$w</code>. 
+Следовательно в случае <code>f(a2)</code> $-переменная будет иметь значение <code>a2</code>. 
+В случае <code>f(a2)*f(a3)</code> конечное значение <code>$w</code> зависит от порядка в которм FORM ищет совпадения. 
+Это не определено, и будет прохой стратегией, делать программы, зависящие от этого. 
+Следующие паттерны могут делать это по разному! 
+Но это можно делать например так
 <pre>    while ( match(f(a?$w)) );
         id f($w) = ....
         id g($w) = ....
     endwhile;
 </pre>
-just to make sure with which match one is working.
+Только убедитесь, с которым совпадением вы работаете.
 
 <p>
 
@@ -8892,41 +8895,36 @@ global
 <tr><td align="LEFT">&nbsp;</td>
 <td align="LEFT">g[lobal] <tt>&lt;</tt>names of expressions<tt>&gt;</tt>;</td>
 </tr>
-<tr><td align="LEFT">See also</td>
+<tr><td align="LEFT">См. также</td>
 <td align="LEFT">local (<a href="#substalocal">7.76</a>)</td>
 </tr>
 </tbody></table> <br>
 <br>
 
 </p><p>
-Used to define a global<a name="4089"></a> 
-expression<a name="4090"></a>. A global expression is an expression that 
-remains active until the first .store<a name="4091"></a> instruction. At that 
-moment it is stored into the `storage file'<a name="4092"></a><a name="4093"></a> and stops being manipulated. After this it can 
-still be used in the right hand side of expressions and id<a name="4094"></a> 
-statements (see <a href="#substaidnew">7.61</a>). Global expressions that have been put 
-in the storage file can be saved to a disk file<a name="4096"></a> with the 
-save statement (see <a href="#substasave">7.118</a>) for use in later programs.
+Используется для объявления глобальных выражений<a name="4089"></a> <a name="4090"></a>. 
+Глобальное выражение - это такое выражение, которое остается активным, до первой инструкции .store<a name="4091"></a>. 
+В этот момент оно сохраняется в `накопительном файле'<a name="4092"></a><a name="4093"></a> и прекращает обрабатываться. 
+После этого оно может использаваться в правой части выражений и конструкций id<a name="4094"></a> (см. <a href="#substaidnew">7.61</a>). 
+Глобальные выражения, которые находятся в накопительном файле, могут быть сохранены в файл на диск<a name="4096"></a> при помощи конструкции save (см. <a href="#substasave">7.118</a>) для использования в последующих программах.
 
 </p><p>
-There are two versions of the global statement. In the first the 
-expression is defined and filled with a right hand side expression. The left 
-hand side and the right hand side are separated by an = sign. In this case 
-the expression can have arguments which will serve as
-dummy<a name="4098"></a> arguments after the global expression has been 
-stored with a .store instruction. Note that this use of arguments can often 
-be circumvented with the replace_ function (see <a href="#funreplace">8.53</a>) as in
+Существует две версии конструкции global. 
+В первой - выражение объявляется и заполняется выражением в правой части. 
+Левая и правая части разделяются знаком = . 
+В этом случае выражение может иметь аргументы, которые будут обрабатываться как фиктивные аргументы<a name="4098"></a> 
+после того, как глобальное выражение будет сохранено инструкцией .store. 
+Помните, что использование аргументов часто можно обойти при помощи функции replace_ (см. <a href="#funreplace">8.53</a>) как в
 </p><pre>    Global F(a,b) = (a+b)^2;
     .store
     Local FF = F(x,y);
     Local GG = F*replace_(a,x,b,y);
 </pre>
-because both definitions give the same result.
+потому что оба объявления дадут один и тот же результат.
 
 <p>
-The second version of the global statement has no = sign and no 
-right hand side. It can be used to change a local<a name="4102"></a> expression 
-into a global expression. <br>
+Вторая версия конструкции global не имеет знака = и не имеет правой части. 
+Она может использоваться для замены локального выражения<a name="4102"></a> на глобальное. <br>
 <br>
 <br>
 
@@ -10166,12 +10164,11 @@ local
 
 </p><p>
 Используется для определения локального <a name="4585"></a> выражения. 
-A local expression is an expression that will be dropped<a name="4586"></a> when a 
-.store<a name="4587"></a> instruction is encountered. If this is not what is 
-intended one should use global<a name="4588"></a> expressions (see 
-<a href="#substaglobal">7.57</a>). The statement can also be used to change the status of 
-a global expression into that of a local expression. In that case there is 
-no = sign and no right hand side. <br>
+Локальное выражение - это выражение, которое будет выброшено<a name="4586"></a>, 
+когда встретится инструкция .store<a name="4587"></a>. 
+Если это не то, что вы хотите, используйте глобальные<a name="4588"></a> выражения (см. <a href="#substaglobal">7.57</a>). 
+Эта конструкция также может использоваться для изменения статуса глобального выражения на локальный. 
+В этом случае отсутствует знак = и отсутствует правая часть. <br>
 <br>
 <br>
 
@@ -19735,31 +19732,31 @@ Dirac algebra
 </h1>
 
 <p>
-For its use in high<a name="15663"></a> energy physics FORM is 
-equipped with a built-in class of functions. These are the 
-gamma<a name="15664"></a> matrices of the Dirac<a name="15665"></a> 
-algebra which are generically denoted by g_<a name="15666"></a>. The gamma matrices 
-fulfill the relations:
+Для исаользования в физике высоких энергий<a name="15663"></a> 
+FORM оснащен наьором встроенных функций. 
+Это гамма-матрицы<a name="15664"></a> алгебры Дирака<a name="15665"></a>,  
+которые всегда обозначаются g_<a name="15666"></a>. 
+Гамма-матрицы удовлетворяют соотношениям:
 </p><pre>     {g_(j1,mu),g_(j1,nu)} = 2 * d_(mu,nu)
-     [g_(j1,mu),g_(j2,nu)] = 0    j1 not equal to j2.
+     [g_(j1,mu),g_(j2,nu)] = 0    j1 не равен j2.
 </pre>
-The first argument is a so-called spin<a name="15669"></a> line index. When 
-gamma matrices have the same spin line, they belong to the same Dirac 
-algebra and commute with the matrices of other Dirac algebra's. The indices 
-mu and nu are over space-time and are therefore usually running from 1 to 4 
-(or from 0 to 3 in Bjorken &amp; Drell metric<a name="15670"></a>). 
-The totally antisymmetric product e_(m1,m2,...,mn)g_(j,m1)...g_(j,
-mn)/n! is defined to be gamma5 or g5_(j). The notation 5<a name="15671"></a> finds 
-its roots in 4 dimensional space-time. The unit matrix is denoted by 
-gi_(j). In four dimensions a basis of the Dirac algebra can be given by: 
+Первый аргумент - это такназываемый спиновый индекс (индекс спиновой линии)<a name="15669"></a>. 
+Когда гамма-матрицы имеют одну и туже спиновую линию, 
+Они принадлежат одной и той же алгебре Дирака и коммутируют с другими матрицами других алгебр Дирака. 
+Индексы mu и nu - по пространству времени, и следовательно обычно пробегают значения от 1 до 4 
+(или от 0 до 3 в метрике Бьеркина &amp; Дрелла<a name="15670"></a>). 
+Полностью антисимметричное произведение e_(m1,m2,...,mn)g_(j,m1)...g_(j,mn)/n! определяется как gamma5 или g5_(j). 
+Нотация 5<a name="15671"></a> берет свои корни в 4-мерном пространстве-времени. 
+Единичная матрица обозначается gi_(j). 
+В четырех измерениях базис алгебры Дирака может задаваться как: 
 <pre>     gi_(j)
      g_(j,mu)
      [g_(j,mu),g_(j,nu)]/2
      g5_(j)*g_(j,mu)
      g5_(j)
 </pre>
-In a different number of dimensions this basis is correspondingly 
-different. We introduce the following notation for convenience: 
+При другом количестве измерений этот базис соответственно отличается. 
+Мы введем следующие соглашения: 
 <pre>     g6_(j) = gi(j) + g5_(j)     (from Schoonschip)
      g7_(j) = gi(j) - g5_(j)
      g_(j,mu,nu) = g_(j,mu)*g_(j,nu)  (from Reduce)
@@ -19769,8 +19766,8 @@ different. We introduce the following notation for convenience:
      g_(j,6_) = g6_(j)
      g_(j,7_) = g7_(j)
 </pre>
-The common operation on gamma matrices is to obtain the trace<a name="15676"></a> 
-of a string of gamma matrices. This is done with the statement:
+Общая операция над гамма-матрицами - это получение следа строки<a name="15676"></a> гамма-матриц. 
+Это делается конструкцией:
 
 <p>
 <table width="181">
@@ -19779,14 +19776,12 @@ of a string of gamma matrices. This is done with the statement:
 </tbody></table>
 <br>
 <table width="544">
-<tbody><tr><td>Take the trace in 4 dimensions of the combination of all 
-gamma matrices with spin line j in the current term. Any non-commuting 
-objects that may be between some of these matrices are ignored. It is the 
-users responsibility to issue this statement only after all functions of 
-the relevant matrices are resolved. The four refers to special 
-tricks<a name="15756"></a> that 
-can be applied in four dimensions. This allows for relatively compact 
-expressions. For the complete syntax, consult <a href="#substatrace">7.141</a></td></tr>
+<tbody><tr><td>Получение следа в 4 измерениях комбинации всех гамма-матриц со спиновой линией j в текущем терме. 
+Любые некоммутирующие объекты, которые могут встретиться между этими гамма-матрицами, игнорируются. 
+Ответственностью пользователя является вызов этой конструкции только после того как все функции над соответствующими функциями будут выполнены. 
+Четверка ссылается на специальные трюки<a name="15756"></a>, которые могут применяться в четырех измерениях. 
+Это приводит к относительно компактным выражениям. 
+Для полного синтаксиса, проконсультируйтесь с <a href="#substatrace">7.141</a></td></tr>
 </tbody></table>
     <br>
 
@@ -19797,33 +19792,29 @@ expressions. For the complete syntax, consult <a href="#substatrace">7.141</a></
 </tbody></table>
 <br>
 <table width="544">
-<tbody><tr><td>Take the trace in an unspecified number of dimensions. 
-This number of dimensions is considered to be even. The traces are 
-evaluated by only using the anticommutation properties of the matrices. As 
-the number of dimensions is not specified the occurrence of a g5_(j) is a 
-fatal error. In general the expressions that are generated this way are 
-longer than the four dimensional expressions. For the complete syntax, 
-consult <a href="#substatracen">7.142</a></td></tr>
+<tbody><tr><td>Берет след в пространстве с незаданным числом размерностей. 
+Считается, что число измерений - четное. 
+Следы вычисляются только с использованием антикоммутационных свойств сатриц. 
+Т.к. число измерений не задано, появление g5_(j) приводит к фатальной ошибке. 
+В общем выражения, генерируемые этим способом длиннее чем четырехмерные выражения. 
+Для полного синтаксиса, консультируйтесь с <a href="#substatracen">7.142</a></td></tr>
 </tbody></table>
     <br>
 
 </p><p>
-It is possible to alter the value of the trace of the
-unit<a name="15686"></a> matrix gi_(j).<a name="15687"></a> Its
-default value is 4, but by using the 
-statement (see <a href="#substaunittrace">7.147</a>)
+Можно изменить значение следа единичной<a name="15686"></a> матрицы gi_(j).<a name="15687"></a> 
+Еге значение по умолчанию 4, но при использовании конструкции (см. <a href="#substaunittrace">7.147</a>)
 </p><pre>    unittrace value;
 </pre>
-it can be altered. Value may be any positive short number (<img width="42" height="33" align="MIDDLE" border="0" src="./online_files/img54.png" alt="$&lt; 2^{15}$"> on 
-32<a name="15692"></a> bit machines and <img width="42" height="33" align="MIDDLE" border="0" src="./online_files/img55.png" alt="$&lt; 2^{31}$"> on 64<a name="15694"></a> bit 
-machines) or a single symbol with the exception of the symbol 
-i_.<a name="15695"></a>
+оно может быть изменено. Значение может быть любым положительным коротким числом 
+(<img width="42" height="33" align="MIDDLE" border="0" src="./online_files/img54.png" alt="$&lt; 2^{15}$"> на 32<a name="15692"></a> битных машинах 
+и <img width="42" height="33" align="MIDDLE" border="0" src="./online_files/img55.png" alt="$&lt; 2^{31}$"> на 64<a name="15694"></a> битных машинах) 
+и отдельным симолом за исключением i_.<a name="15695"></a>
 
 <p>
-There are several options for the 4-dimensional traces. These options find 
-their origin in the Chisholm<a name="15696"></a> relation that is valid in 4 
-dimensions but not in a general number of dimensions. This relation can be 
-found in the literature. It is given by:
+Есть несколько опций для 4-мерных следов. 
+Эти опции находят свои истоки в соотношениях Chisholm-а<a name="15696"></a> которые действительны для 4 измерений, но не при любом количестве измерений. 
+Эти соотношения можно найти в литературе. Они задаются как:
 <br>
 </p><div align="RIGHT">
 
@@ -19840,18 +19831,17 @@ found in the literature. It is given by:
 (14.1)</td></tr>
 </tbody></table>
 <br clear="ALL"></div><p></p>
-in which S is a string of gamma matrices with an odd number of 
-matrices (<img width="20" height="28" align="MIDDLE" border="0" src="./online_files/img48.png" alt="$\gamma_5$"> counts for an even number of matrices). <img width="25" height="17" align="BOTTOM" border="0" src="./online_files/img45.png" alt="$S^R$"> is the 
-reversed string. This relation can be used to combine traces with common 
-indices. The use of this relation is the default for trace4<a name="15699"></a>. 
-If it needs to be switched off, one should add the extra option
-`nocontract':
+в которых S - строка гамма-матриц с нечетным количеством матриц (<img width="20" height="28" align="MIDDLE" border="0" src="./online_files/img48.png" alt="$\gamma_5$"> содержит четное количество гамма-матриц). 
+<img width="25" height="17" align="BOTTOM" border="0" src="./online_files/img45.png" alt="$S^R$"> строка в обратном порядке. 
+Это соотношение может использоваться для комбинирования матриц с общими индексами. 
+Это соотношение используется по умолчанию для вычисления trace4<a name="15699"></a>. 
+Если его требуется выключить, добавьте одну дополнительную опцию `nocontract':
 <pre>    trace4,nocontract,j;
 </pre>
-The option `contract'<a name="15702"></a> is the default but it can be used to 
-enhance the readability of the program. The second option that refers to 
-this relation is the option `symmetrize'<a name="15703"></a>. Often it 
-happens that there are two or more common indices in two spin lines. 
+Опция `contract'<a name="15702"></a> установлена по умолчанию, 
+но может использоваться для улучшения читабельности программ. 
+Вторая опция, которая использует это соотношение это опция `symmetrize'<a name="15703"></a>. 
+Often it happens that there are two or more common indices in two spin lines. 
 Without the symmetrize option (or with the 
 `nosymmetrize'<a name="15704"></a> option) the first of these indices is 
 taken and the relation is applied to it. With the `symmetrize' option 
@@ -26003,4 +25993,4 @@ Index</a>
 
 
 
-</body></html>l>
+</body></html>l>l>
