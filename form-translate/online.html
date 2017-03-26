@@ -5297,124 +5297,109 @@ $-переменная получит то же содержимое, что и 
 </p><h1><a name="SECTION00700000000000000000"></a>
 <a name="dollars"></a>
 <br>
-The dollar variables
+Доллар-переменные
 </h1>
 
 <p>
-In the older versions of FORM there were two types of variables: the 
-preprocessor variables<a name="2714"></a> and the algebraic 
-variables<a name="2715"></a>. The preprocessor 
-variables are string variables that are used by the edit features of the 
-preprocessor to prepare the input for the compiler part of FORM. The 
-algebraic objects are the expressions and the various algebraic variables 
-like the symbols, functions, vectors etc. There existed however very few 
-possibilities to communicate from the algebraic level to the decision 
-taking at the preprocessor level. This has changed dramatically with 
-version 3 and the introduction of the dollar 
-variables<a name="2716"></a>.
+В старых версиях FORM-а было два типа переменных: 
+переменные препроцессора<a name="2714"></a> и алгебраические переменные<a name="2715"></a>. 
+Переменные препроцессора - это строковые переменные, 
+которые сипользуются редакторскими возможностями препроцессора для обработки ввода для компиляторной части FORM-а. 
+Алгебраические объекты - это выражения и раздичные алгебраические переменные, 
+такие как символы, функции, вектора и т.д..
+Тем не менее существовало чень мало возможностей для связи от алгебраического уровня 
+к решению, принимаемому на уровне препроцессора. 
+Это драматически изменилось в версии 3 при введении доллар-переменных<a name="2716"></a>.
 
 </p><p>
-Dollar variables are basically (little) expressions that can be used to 
-store various types of information. They can be used both as preprocessor 
-objects as well as algebraic objects. They can also be defined and given 
-contents both by the preprocessor and during execution on a term by term 
-basis. Dollar variables are kept in memory. Hence it is important not to 
-make them too big, because in that case performance might suffer.
+Доллар-переменные - это в основном (небольшие) выражения, которые могут использоваться для хранения различных типов информации. 
+Они могут использоваться и как объекты препроцессора и как алгебраические объекты. 
+Они могут определяться и получать значение и препроцессором и в процссе вычисления на терме by term basis. 
+Доллар-переменные остаются в памяти. 
+Следовательно важно не делать их слижком большими, потому что в этом случае может пострадать производительность.
 
 </p><p>
-What is a legal name for a dollar variable?
-Dollar variables have a name that consists of a dollar sign (<code>$</code>) 
-followed by an alphabetic character and then potentially more alphanumeric 
-characters. Hence <code>$a</code> and <code>$var</code> and <code>$r4t78y0</code> are legal 
-names and <code>$1a</code> is not a legal name. The variables do not have to be 
-declared. However FORM will complain if a dollar variable is being used, 
-before it has encountered a statement or an instruction in which the 
-variable has been given a value. Hence giving a variable a value counts at 
-the same time as a declaration.
+Какое имя допустимо для доллар-переменной?
+Доллар-переменные имеют имена, которые состоят из знака (<code>$</code>), 
+за которым идет один алфавитный символ и за тем возможны еще алфавитно-цифровые символы. 
+Следовательно <code>$a</code> и <code>$var</code> и <code>$r4t78y0</code> - допустимые имена, 
+а <code>$1a</code> - недопустимое. 
+Переменные не обязаны объявляться. 
+Тем не менее FORM будет жаловаться, если доллар-переменная используется перед тем как 
+встретится конструкция или инструкция, в которой этой переменной будет присвоено значение. 
+Следовательно присваивание переменной значения считается в то же время как объявление.
 
 </p><p>
-What can be stored in a dollar variable?
+Что можно хранить в доллар-переменной?
 
 </p><ul>
-<li>Algebraic expressions as in <code>$var = (a+b)^2;</code>
+<li>Алгебраические выражения такие как <code>$var = (a+b)^2;</code>
 </li>
-<li>Individual objects like indices, numbers, symbols.
+<li>Отдельные объекты такие как индексы, числа, сиволы.
 </li>
-<li>Zero.
+<li>Ноль.
 </li>
-<li>Parts of a term.
+<li>Части терма.
 </li>
-<li>Argument<a name="2718"></a> fields that consist of zero, one or 
-more arguments.
+<li>Поля аргументов<a name="2718"></a>, которые содержат ноль, один или более аргументов.
 </li>
 </ul>
-Actually, the parts of a term are treated as a complete term and hence as a 
-special case of an algebraic expression. Internally they are stored 
-slightly differently for speed, but at the user level this should not be 
-noticeable. Actually, with the exception of the argument fields, FORM can 
-convert one type into the other and will try so, depending on the use that 
-is made of the specific dollar variable. In the case that a variable is 
-used in a way that should not be possible (like the content of a variable 
-is a symbol, but it is used in a position where an index is expected) there 
-will be a runtime<a name="2720"></a> error<a name="2721"></a>.
+На самом деле, части терма обрабатываются как целый терм, 
+и следовательно как специальный случай алгебраического выражэения. 
+Внутренне они сохраняются немного по другому для скорости, но на пользовательском уровне это не заметно. 
+На самом деле, за исключением полей аргументов, FORM может преобразовывоть один тип в другой 
+и будет пытаться жэто делать, в зависимости от использования конкретной доллар переменной. 
+В сслучае, когда переменная используется способом, который не возмежен 
+(Например когда содержимое переменной это символ, но она используется в том месте, где ожидается индекс) 
+произойдет ошибка времени выполнения<a name="2720"></a><a name="2721"></a>.
 
 <p>
-How is a variable used?
+Как переменные используются?
 
 </p><ul>
-<li>As a preprocessor variable<a name="2723"></a>. This is done 
-by putting the variable between a pair of `' as in <code>`$var'</code>. In this 
-case the regular print routines of FORM make a textual 
-representation<a name="2724"></a> of 
-the variable as it exists at the moment that the preprocessor encounters 
-this object, and this string is then substituted by the preprocessor as if 
-it were the contents of a preprocessor variable.
+<li>Как переменные препроцессора<a name="2723"></a>. 
+Это делается при помощи помещения переменной между `' как в <code>`$var'</code>. 
+В этом случае обычная подпрограмма печати FORM-а производит текстовое представление<a name="2724"></a> переменной 
+какой она есть на момент, когда препроцессор встретил этот объект, 
+и эта строка после этого подставляется препроцессором как если бы это было содержимым переменной препроцессора.
 </li>
-<li>Like an expression during execution time. This would be the case in 
-the statement
+<li>Как выражение во время выполнения. Это произойдет в случае конструкции
 <pre>    id x = y + $var;
 </pre>
-in which <code>$var</code> is substituted 
-in a way that is similar to the substitution of a local expression <code>F</code> 
-in the statement
+где <code>$var</code> подставляется таким же способом 
+как подставление локального выражения <code>F</code> в конструкции
 <pre>    id x = y + F;
 </pre>
-except for that the dollar variable is always stored in the CPU memory.
+за исключением того, что доллар-переменная всегда хранится в памяти процессора.
 </li>
-<li>As an algebraic object during execution time. This could be the case 
-with any value of the variable that is not an expression. An example would 
-be
+<li>Как алгебраический объект во время выполнения. 
+Это может быть случацй с любым значением переменной, которая не является выражением. 
+примером может быть 
 <pre>    id f(?a) = f(?a,$var);
 </pre>
-in which the dollar variable contains an 
-argument field.
+в которой доллар-переменная содержит поле аргументов.
 </li>
-<li>As an algebraic object in a delayed substitution of a pattern or a 
-special statement. This may need some clarification. If we have the 
-statement
+<li>Как алгебраический объект в задержанной подстановке паттерна или специальной конструкции. 
+Это может потребовать некоторого пояснения. Если мы имеем конструкцию
 <pre>    id f($var) = anything;
 </pre>
-the compiler does not substitute 
-the current value of <code>$var</code>. The reason is that <code>$var</code> could have 
-a different value for each term that runs into this statement, while the 
-compiler compiles the statement only once. Hence FORM will substitute the 
-value of <code>$var</code> only at the moment that it will attempt the pattern 
-matching. This is called delayed<a name="2733"></a> 
-substitution<a name="2734"></a>. If one likes the compiler to 
-substitute a value, one can basically let the preprocessor take care of 
-this by typing
+компилятор не будет подставлять текущее значение <code>$var</code>. 
+Смысл в том, что <code>$var</code> будет принимать различное значение для кажддого терма, 
+который запускается в этой конструкции, в то время как компилятор компилирует конструкцию только один раз. 
+Следовательно FORM будет подставлять значение в <code>$var</code> только в момент, когда происходит сопоставление. 
+Это называется отложенная подстановка<a name="2733"></a><a name="2734"></a>. 
+Если хотите, компилятор подставит значение, это можно сделать, написав
 <pre>    id f(`$var') = anything;
 </pre>
-A similar delayed 
-substitution takes place in statements of the type <code>Trace,$var;</code>.
+Аналогичная задержанная подстановка имеет место в конструкции типа <code>Trace,$var;</code>.
 </li>
 </ul>
 
 <p>
-How does one give a value to a dollar variable?
+Как можно задать значение доллар-переменной?
 
 </p><ul>
-<li>In the preprocessor. This is done with an instruction of the type 
+<li>В препроцессоре. This is done with an instruction of the type 
 <code>#$var = 0;</code>. This is an instruction that can run over more than one 
 line. The r.h.s. can be any algebraic expression. Specifically it can 
 contain dollar variables or local/global expressions. Such 
@@ -9065,14 +9050,13 @@ identify
 <br>
 
 </p><p>
-The statement<a name="4168"></a><a name="4169"></a> tries to match the 
-pattern<a name="4170"></a>. If the pattern matches one or more times, it will 
-be replaced by the expression in the r.h.s. taking the possible 
-wildcard<a name="4171"></a> substitutions into account. For the description of 
-the patterns, see chapter <a href="#pattern">5</a>.
+Конструкция пытается распознать паттерн<a name="4168"></a><a name="4169"></a><a name="4170"></a>. 
+Если паттерн найден один или более раз, он будет заменен на выражение в правой части,
+принимая во внимание возможные замены подстановочных символов<a name="4171"></a>. 
+Описание паттернов см. в главе <a href="#pattern">5</a>.
 
 </p><p>
-The options are <br>
+Опции: <br>
 
 </p><p>
 <table width="181">
@@ -9081,10 +9065,12 @@ The options are <br>
 </tbody></table>
 <br>
 <table width="544">
-<tbody><tr><td>This option is for combinations of symbols and dotproducts only 
-and it does not use wildcard powers. FORM determines how many times the 
-pattern fits in one pattern matching action. Then the r.h.s. is substituted 
-to that power. It is the default for these kinds of patterns.</td></tr>
+<tbody><tr><td>
+Эта опция только для комбинаций символов и скалярных произведений, 
+и она не использует возможностей подстановочных символов. 
+FORM определяет, сколько раз встречается паттерн, за одну операцию. 
+Затем правая часть подставляется в этой степени. 
+Так происходит по умолчанию для такого типа паттернов.</td></tr>
 </tbody></table>
     <br>
 
@@ -9095,11 +9081,13 @@ to that power. It is the default for these kinds of patterns.</td></tr>
 </tbody></table>
 <br>
 <table width="544">
-<tbody><tr><td>This is the default for patterns that contain other objects 
-than symbols and dotproducts. The pattern is matched and taken out. Then 
-FORM tries again to match the pattern in the remainder of the term. This 
-is repeated until there is no further match. Then for each match the r.h.s. 
-is substituted (with its own wildcard substitutions).</td></tr>
+<tbody><tr><td>
+Так происходит по умолчанию для паттернов, которые содержат объекты кроме символов и скалярных произведений. 
+Шаблон сопоставляется и вынимается. 
+FORM пытается снова распознать паттерн в оставшемся терме. 
+Так будет продолжаться до тех пор, пока паттерн распознается. 
+Затем для каждого совпадения в правой части происходит подстановка 
+(с соответствующей заменой подстановочных символов).</td></tr>
 </tbody></table>
     <br>
 
@@ -9110,12 +9098,14 @@ is substituted (with its own wildcard substitutions).</td></tr>
 </tbody></table>
 <br>
 <table width="544">
-<tbody><tr><td>This option should be followed by one or more sets<a name="8014"></a>. After 
-the sets the pattern can be specified. The pattern will only be substituted 
-if none of the objects mentioned in the sets will be left after the pattern 
-has been taken out. This holds only for objects 'at ground level'; i.e. the 
-pattern matcher will not look inside function arguments for this. Note 
-that this is a special case of the option 'only'.</td></tr>
+<tbody><tr><td>
+За этой опцией должны следовать одно или более множеств<a name="8014"></a>. 
+После множеств можно задавать паттерн. 
+Шаблон будет заменен, только если ни один из объектов, упомянутых в множествах, 
+не останется после того, как шаблон был вынут.
+Это имеет место только для объектов 'на уровне корня'; 
+т.е. поисковик шаблонов на будет заглядывать в аргументы функции. 
+Обратите внимение, что это частный случай опции 'only'.</td></tr>
 </tbody></table>
     <br>
 
