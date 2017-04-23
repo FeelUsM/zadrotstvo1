@@ -221,7 +221,7 @@ function footnoteTarget(a) {
 }
 
 function footnotePreview(x, navpop) {
-	setPopupHTML('<hr />' + x.innerHTML, 'popupPreview', navpop.idNumber, getValueOf('popupSubpopups'));
+	setPopupHTML('<hr />' + x.innerHTML, 'popupPreview', navpop.idNumber);
 }
 
 // var modid=0;
