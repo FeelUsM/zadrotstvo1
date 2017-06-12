@@ -68,12 +68,10 @@
     <node id="n3">
       <data key="d6">
         <y:ShapeNode>
-          <y:Geometry height="50.103515625" width="149.45703125" x="361.271484375" y="179.9482421875"/>
+          <y:Geometry height="30.0" width="92.9140625" x="389.54296875" y="190.0"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="48.103515625" modelName="custom" textColor="#000000" visible="true" width="139.45703125" x="5.0" y="1.0">form: таблицы
-что с индексами?
-зарегистрироваться!!!!!!!<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="custom" textColor="#000000" visible="true" width="82.9140625" x="5.0" y="5.6494140625">form: таблицы<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -625,12 +623,13 @@
     <node id="n35">
       <data key="d6">
         <y:ShapeNode>
-          <y:Geometry height="50.103515625" width="251.263671875" x="-222.11057363591232" y="-411.57832805059525"/>
+          <y:Geometry height="64.8046875" width="263.298828125" x="-228.12815176091232" y="-418.92891398809525"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="48.103515625" modelName="custom" textColor="#000000" visible="true" width="241.263671875" x="5.0" y="1.0">Лагранжева механика
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="62.8046875" modelName="custom" textColor="#000000" visible="true" width="253.298828125" x="5.0" y="1.0">Лагранжева механика
 что такое действие?
-преобразование Лежандра геометрически<y:LabelModel>
+преобразование Лежандра геометрически
+Ланцош, Вариационные принципы механики<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
