@@ -21,22 +21,22 @@ Cfun mye; * опять костыли приходится клепать
 #define Hh "h(i,al)*c(i,al)";
 #define HJ "J(i,j)*d(al,be)*c(i,al)*c(j,be)/2";
 
-local Ch = comm(`Hh',c(k1,ga1));
+*local Ch = comm(`Hh',c(k1,ga1));
 *local ChToCCh = comm(`Hh',d_(ga1,ga2)+i_*e_(ga1,ga2,nu1)*c(k1,nu1));
 local CJ = comm(`HJ',c(k1,ga1));
 *local CJToCCJ = comm(`HJ',d_(ga1,ga2)+i_*e_(ga1,ga2,nu1)*c(k1,nu1));
 *local C  = comm(`H' ,c(k1,ga1));
 *---
-local CCh = comm(`Hh',c(k1,ga1)*c(k2,ga2));
-local CCJ = comm(`HJ',c(k1,ga1)*c(k2,ga2));
+*local CCh = comm(`Hh',c(k1,ga1)*c(k2,ga2));
+*local CCJ = comm(`HJ',c(k1,ga1)*c(k2,ga2));
 *local CC  = comm(`H' ,c(k1,ga1)*c(k2,ga2));
 *---
-local C2h = comm(`Hh',c(k1,nu1)*c(k2,nu1));
-local C2J = comm(`HJ',c(k1,nu1)*c(k2,nu1));
+*local C2h = comm(`Hh',c(k1,nu1)*c(k2,nu1));
+*local C2J = comm(`HJ',c(k1,nu1)*c(k2,nu1));
 *local C2  = comm(`H' ,c(k1,nu1)*c(k2,nu1));
 *---
-local C3h = comm(`Hh',c(k1,nu1)*c(k2,nu2)*c(k3,nu3)*e_(nu1,nu2,nu3));
-local C3J = comm(`HJ',c(k1,nu1)*c(k2,nu2)*c(k3,nu3)*e_(nu1,nu2,nu3));
+*local C3h = comm(`Hh',c(k1,nu1)*c(k2,nu2)*c(k3,nu3)*e_(nu1,nu2,nu3));
+*local C3J = comm(`HJ',c(k1,nu1)*c(k2,nu2)*c(k3,nu3)*e_(nu1,nu2,nu3));
 *local C3  = comm(`H' ,c(k1,nu1)*c(k2,nu2)*c(k3,nu3)*e_(nu1,nu2,nu3));
 #-
 id comm(A?,B?) = A*B-B*A;
