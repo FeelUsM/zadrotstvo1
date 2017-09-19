@@ -1,10 +1,10 @@
 dim 3;
 sym n;
 *Ntensors
-Nfunction c,cp,t,d;
-Index i1,...,i100,j1,...,j200,k1,...,k100,l1,...,l100;
+Nfunction c,cc,t,d,aux;
+Index i1,...,i100,j1,...,j200,k1,...,k100,l1,...,l100,i,j;
 Cfunctions C;
-sym a,a1,...,a23,b1,...,b20,e,p;
+sym a,a1,...,a23,b1,...,b20,e,p,smth,smth1,smth2,smth3;
 
 *Local F7  = d(1,2)^2;
 *Local F8  = d(1,2)*d(2,3);
@@ -15,7 +15,7 @@ sym a,a1,...,a23,b1,...,b20,e,p;
 *Local F9  = t(1,2,3)^2;
 *Local F12 = t(1,2,3)*t(1,2,4);
 *Local F13 = t(1,2,3)*t(1,4,5);
-
+*
 *Local F14 = d(1,2)*d(2,3)*d(3,4);
 *Local F15 = d(1,2)*d(3,4)*d(1,3)*d(2,4);
 
@@ -89,36 +89,33 @@ Local A1825 = (c1258*d(1,2)*d(5,8)+c1528*d(1,5)*d(2,8)+c1825*d(1,8)*d(2,5))*d(1,
 #enddo
 
 * === сортировка ===
+id once c(?smth) = cc(?smth); * подразумевается, что будет найдена именно первая c()
 repeat;
-  id 	c(i1?!{,j1},k1?)*
-	c(j1?!{i1,i2},k3?)*
-	c(i1?!{,j1},k2?)
-	= c(i1,k1)*c(i1,k2)*c(j1,k3);
-#do N=2,31
-  id 	c(i1?!{j1,...,j`N'},k1?)*
-	<c(j1?!{i1,i2},l1?)>*...*<c(j`N'?!{i1,i2},l`N'?)>*
-	c(i1?!{j1,...,j`N'},k2?)
-	= c(i1,k1)*c(i1,k2)*<c(j1,l1)>*...*<c(j`N',l`N')>;
-#enddo
+	id cc(?smth1)*c(?smth2) = cc(?smth1)*aux(?smth2);
+	repeat;
+		id cc(i?,?smth1)*aux(i?,?smth2) = cc(i,?smth1,?smth2);
+		id cc(i?,?smth1)*aux(j?,?smth2) = aux(j,?smth2)*cc(i,?smth1);
+	endrepeat;
+	id aux(?smth) = cc(?smth);
 endrepeat;
 
-* === раскрытие ===
+*print +s;
+*.sort;
+
+* === раскрытие и свертка ===
 #do i = 1,100
-	id once c(i1?,j1?)*c(i1?,j2?) = d_(j1,j2)+i_*c(i1,k`i')*e_(k`i',j1,j2);
+	id once cc(i1?,j1?,j2?) = d_(j1,j2)+i_*cc(i1,k`i')*e_(k`i',j1,j2);
+	contract;
 #enddo
 
-* === и свертка ===
-contract;
-contract;
-
 * === заменяем на коммутирующие ===
-id c(?name) = C(?name);
+id cc(?name) = C(?name);
 
 * === возвращаем к красивому виду ===
 id C(i1?,j1?)*C(i2?,j1?) = d(i1,i2);
 id C(i1?,j1?)*C(i2?,j2?)*C(i3?,j3?)*e_(j1?,j2?,j3?) = t(i1,i2,i3);
 	
-bracket t,d;
+*bracket t,d;
 print;
 
 .end
