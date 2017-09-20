@@ -2,14 +2,14 @@ dim 3;
 sym n;
 *Ntensors
 Nfunction c,cc,t,d,aux;
-Index i1,...,i100,j1,...,j200,k1,...,k100,l1,...,l100,i,j,k,l;
 Cfunctions C;
-sym a,a1,...,a23,b1,...,b20,e,p,smth,smth1,smth2,smth3;
+Index i1,...,i100,j1,...,j200,k1,...,k100,l1,...,l100;
+sym a,a1,...,a23,b1,...,b20,e,p,smth,smth1,smth2,smth3,i,j,k,l;
 
 *Local F7  = d(1,2)^2;
 *Local F8  = d(1,2)*d(2,3);
 *Local F11a= d(1,2)*t(1,2,3);
-*Local F11b= t(1,2,3)*d(1,2);
+Local F11b= t(1,2,3)*d(1,2);
 *Local F10a= d(1,2)*t(2,3,4);
 *Local F10b= t(2,3,4)*d(1,2);
 *Local F9  = t(1,2,3)^2;
@@ -80,14 +80,14 @@ sym a,a1,...,a23,b1,...,b20,e,p,smth,smth1,smth2,smth3;
 *Local A1528 = (c1258*d(1,2)*d(5,8)+c1528*d(1,5)*d(2,8)+c1825*d(1,8)*d(2,5))*d(1,5)*d(2,8);
 *Local A1825 = (c1258*d(1,2)*d(5,8)+c1528*d(1,5)*d(2,8)+c1825*d(1,8)*d(2,5))*d(1,8)*d(5,2);
 *
-Local test = t(i,j,k)*d(k,l);
+Local test = t(i,j-1,k)*d(k,l);
 
 * === расписываем наши функции в сигма-матрицы ===
 #do ipr = 1,50
-  id once d(i1?,i2?) = c(i1,j`ipr')*c(i2,j`ipr');
+  id once d(i?,j?) = c(i,j`ipr')*c(j,j`ipr');
 #enddo
 #do ipr = 50,199,3
-  id once t(i1?,i2?,i3?) = c(i1,j`ipr')*c(i2,j{`ipr'+1})*c(i3,j{`ipr'+2})*e_(j`ipr',j{`ipr'+1},j{`ipr'+2});
+  id once t(i?,j?,k?) = c(i,j`ipr')*c(j,j{`ipr'+1})*c(k,j{`ipr'+2})*e_(j`ipr',j{`ipr'+1},j{`ipr'+2});
 #enddo
 
 * === сортировка ===
@@ -95,18 +95,18 @@ id once c(?smth) = cc(?smth); * подразумевается, что буде�
 repeat;
 	id cc(?smth1)*c(?smth2) = cc(?smth1)*aux(?smth2);
 	repeat;
-		id cc(i1?,?smth1)*aux(i1?,?smth2) = cc(i1,?smth1,?smth2);
-		id cc(i1?,?smth1)*aux(j1?,?smth2) = aux(j1,?smth2)*cc(i1,?smth1);
+		id cc(i?,?smth1)*aux(i?,?smth2) = cc(i,?smth1,?smth2);
+		id cc(i?,?smth1)*aux(j?,?smth2) = aux(j,?smth2)*cc(i,?smth1);
 	endrepeat;
 	id aux(?smth) = cc(?smth);
 endrepeat;
 
-*print +s;
-*.sort:sort;
+print +s;
+.sort:sort;
 
 * === раскрытие и свертка ===
 #do ipr = 1,100
-	id once cc(i1?,j1?,j2?) = d_(j1,j2)+i_*cc(i1,k`ipr')*e_(k`ipr',j1,j2);
+	id once cc(i?,j1?,j2?) = d_(j1,j2)+i_*cc(i,k`ipr')*e_(k`ipr',j1,j2);
 	contract;
 #enddo
 
@@ -114,8 +114,8 @@ endrepeat;
 id cc(?name) = C(?name);
 
 * === возвращаем к красивому виду ===
-id C(i1?,j1?)*C(i2?,j1?) = d(i1,i2);
-id C(i1?,j1?)*C(i2?,j2?)*C(i3?,j3?)*e_(j1?,j2?,j3?) = t(i1,i2,i3);
+id C(i?,j1?)*C(j?,j1?) = d(i,j);
+id C(i?,j1?)*C(j?,j2?)*C(k?,j3?)*e_(j1?,j2?,j3?) = t(i,j,k);
 	
 *bracket t,d;
 print;
