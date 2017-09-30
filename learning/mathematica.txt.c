@@ -82,6 +82,7 @@ x=y === Set[x,y]
 x:=y === SetDelayed[x,y]
 x=. === Unset[x] (?)
 % === Out[] - последний результат
+expr1;expr2;expr3 === CompoundExpression[expr1,expr2,expr3]
 
 a+b+c === Plus[a,b,c]
 a-b === a+(-b)
@@ -105,6 +106,7 @@ x_ === Pattern[x,Balnk[]]
 x->y === Rule[x,y]
 x:->y === RuleDelayed[x,y]
 expr/.rules === ReplaceAll[expr,rules]
+expr//.rules === ReplaceRepeat[expr,rules]
 }
 {=== Встроенные функции - с большй буквы ===
 	{ввод-вывод

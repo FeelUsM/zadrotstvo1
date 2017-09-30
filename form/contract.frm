@@ -106,7 +106,8 @@ print +s;
 
 * === раскрытие и свертка ===
 #do ipr = 1,100
-	id once cc(i?,j1?,j2?) = d_(j1,j2)+i_*cc(i,k`ipr')*e_(k`ipr',j1,j2);
+	id once cc(i?,j1?,j2?,?smth) = d_(j1,j2)*cc(i,?smth)+i_*cc(i,k`ipr',?smth)*e_(k`ipr',j1,j2);
+	id cc(i?) = 1;
 	contract;
 #enddo
 
