@@ -68,6 +68,10 @@ dd		DifferencialD
 \infty
 ->		Rule
 not		Not
+elem	Element
+!elem	NotElement
+fa		ForAll
+ex		Exists
 }
 {=== операторы ===
 http://reference.wolfram.com/language/tutorial/OperatorInputForms.html#6349
@@ -94,7 +98,7 @@ f@g === f[g]
 		FullForm[] - машинная форма
 		InputForm[] - форма, которую снова можно скормить математике
 	}
-	{переменные, функции, опции, атрибуты
+	{переменные, функции, опции, атрибуты, контексты
 		Hold[] - квотирование
 		40	x=y === Set[x,y]
 		Set[x,y] - вычислить y и в последсвии заменять x на этот вычисленный сейчас y
@@ -111,17 +115,34 @@ f@g === f[g]
 		ClearAttributes[f] - удаляет аттрибуты
 		HoldAll - не вычислять аргументы
 		Listable - атрибут, т.ч. f[{a,b,c}] -> {f[a],f[b],f[c]}
+			Thread[f[{a,b,c}]] -> {f[a],f[b],f[c]}
 		Orderless - атрибут, т.ч. f[a,b] == f[b,a]
 		Flat - атрибут т.ч. f[a,f[b]] == f[a,b]
 		OneIdentity - атрибут т.ч. f[x] == x
+
+		Protected - атрибут, запрещает менять определение функции
+			Protect[fun] - устанавливает атрибут Protected
+			Unprotect[fun] - снимает атрибут Protected
 		
 		Options[f] - список опций по умолчанию фуркции f
+
+		Begin["contextName`"]
+		End[]
+		contextName`f - доступ к функции внутри контекста
+		Context[var]
+		$Context
+		$ContextPath
+		BeginPackage["contextName`"]
+		EndPackage[]
 	}
 	{строки
 			"abc" === String["abc"] - строка ???
 		String[]
 		ToString[x]
 		StringJoin[s1,s2,...]
+		
+		RegularExpression["str"]
+		StringMatchQ[str,regex]
 	}
 	{логика
 		230	!x === Not[x]
@@ -136,6 +157,9 @@ f@g === f[g]
 		With[listVars,body]
 		
 		While[cond,body]
+		
+		Reap[body] - возвращает список из двух элементов: 1й - результат body и 2й - {{все, что вернул каждый вызов Sow[] внутри body}}
+		Sow[expr]
 	}
 	{списки
 			{a,b,c} === List[a,b,c] - список
@@ -143,6 +167,7 @@ f@g === f[g]
 		Range[n] -> {1,...,n}
 		Table[f[x],{x,xl,xh}] -> {f[xl], f[xl+1], ... , f[xh]}
 		Array[f,n] -> {f[1],...,f[n]}
+		Tuples[list1,list2,...] - генерирует все списки где на 1м месте элемент из 1го списка, на 2м - из 2го ....
 		
 			x[[n,m,...]] === Part[x,n,m,...] - n-й элемент списка
 		Part[l,n,m,...]
@@ -201,25 +226,76 @@ f@g === f[g]
 		Nest[f,x,3] -> f[f[f[x]]]
 		NestList[]
 	}
+	{структура выражений
+		Symbol["name"] - ссылается на символ с определенным именем
+		Unique["name"] - создает уникальный символ с именем, начинающимся с name
+		SymboName[s] - возвращает имя символа
+		Names["pattern"] - возвращает список имен символов, подходящих под паттерн
+		
+		Head[x] - возвращает голову объекта (обычно имя функции или Symbol, Integer, ...)
+		Level[obj,level] - все объекты на соответствующем уровне: n - 1..n, {n} - only n, {n,m} - n..m, -1 - листья, 0 - все выражение
+		Scan[f,expr] - применит f ко всем элементам списка expr
+	}
 	{шаблоны и замены
-			x_ === Pattern[x,Balnk[]]
+		<Blank> - шаблонный объект, который может соответствовать любому выражению в языке Wolfram. Выражение <Blank>[] может компактно обозначаться символом подчеркивания _. 
+		Более специальный паттерн <Blank>[h] (компактно обозначаемый _h) соответствует любому выражению с головой h. 
+		<Blank> - очень мощьная и полезная конструкция для программирования, основанного на паттернах, а также является основанием, на которм строится шаблонная функциональность. 
+		Наиболее общая функция, работающая с <Blank> и соответствующими паттернами как с аргументами - это <SetDelayed>. 
+		Другими такими функциями являются <MatchQ>, <Cases>, <DeleteCases>, <Count>, и <RuleDelayed>.
+		
+		Последовательность одного или более бланков представляеетя шаблонным объектом <BlankSequence> (двойное подчеркивание: __). 
+		Последовательность нуля или более бланков представляется с использованием шаблонного объекта <BlankNullSequence> (тройное подчеркивание: ___). 
+		Вообще, паттерны, использующие много конструкций <Blank>, работают быстрее по сравнению с теми, которые используют <BlankSequence> и <BlankNullSequence>, так как в двух последних случаях необходимо протестировать гораздо больше возможностей для возможного совпадения.
+		
+		<Blank> может использоваться вместе с <Optional> для задания шаблонного объекта для выражения, которое, если пропущено, будет заменяться значением по умолчанию. 
+		Шаблонный объект <Alternatives> позволяет задавать несколько возможных паттернов, включая <Blank>. 
+		<Blank> может быть скомбинирован с <PatternTest> (записанный коротко как p?test). 
+		Например код <<Cases[Range[100], _?(IntegerQ[Sqrt[#]] &)]>> (который использует лямбда-функцию со спецификацией <Slot>) выделяет и возвращает список всех чисел-квадратов, которые меньше или равны 100.
+
+
+		730	_ === Blank[] - любое выражение
+		730	_h === Blank[h] - любое выражение с головой h
+			__ === BlankSequence[]
+			___ === BlankNullSequence[]
+		Blank[] - любое выражение
+		BlankSequence[]
+		BlankNullSequence[]
+		
+		150	x_ === Pattern[x,Balnk[]]
 		Pattern[] ???
-			_
-		Blank[]???
 			x__ === Pattern[x,BalnkSequence[]]
-		BlankSequence[]???
+		
+		680	pattern?test === PatternTest[pattern,test]
+		PatternTest[pattern,test] - pattern распарсится удачно, только если после того как оно распарсилось будет верно еще и условие
+		(условие - предикат, который применяется к распарсенному паттерну)
+		130	pattern/;cond === Condition[pattern,cond]
+		Condition[pattern,cond] - pattern распарсится удачно, только если после того как оно распарсилось будет верно еще и условие
+		(в условии можно использовать элементы паттерна, условие не является лямбда-функцией)
+		https://mathematica.stackexchange.com/questions/1835/using-a-patterntest-versus-a-condition-for-pattern-matching
+		160 a|b|c === Alternatives[a,b,c]
+		Alternatives[] - должен распарсится лбой из паттернов
+	
 		120	x->y === Rule[x,y]
 		Rule[]
 		120	x:>y === RuleDelayed[x,y]
-		RuleDelayed[] - правая часть квотирована
-		130	a/;cond
-		Condition[]
-		MatchQ[expr,rule(s)]
-		Replace[]
+		RuleDelayed[] - правая часть квотирована (Hold)
+		
+		MatchQ[expr,pattern] - проверяет, соответствует ли все выражение шаблону
+		Replace[expr,pattern] - заменяет всё выражение по шаблону
+		
+		MemberQ[list,pattern] - проверяет, есть ли в списке элементы, соответствующие шаблону
+		FreeQ[list,pattern] = !MemberQ[expr,pattern]
+		
+		Position[expr,pattern] - возвращает список путей в виде спиков позиций
+		FirstPosition[expr,pattern] - возвращает путь к первому найденному подвыражению в виде списка позиций (или Missing["NotFound"])
+		Cases[expr,pattern] - возвращает список подвыражений, соответствующих или замененных по шаблону
+		FirstCase[expr,pattern] - возвращает первое подвыражение, соответствующее или замененное по шаблону (или Missing["NotFound"])
+		Count[expr,pattern] - подсчитывает, сколько раз в выражении встречается подвыражение, соответствующее шаблону
 		110	expr/.rules === ReplaceAll[expr,rules]
-		ReplaceAll[]
+		ReplaceAll[expr,rules] - в выражении заменяет все подвыражения по шаблону
 		110	expr//.rules === ReplaceRepeated[expr,rules]
-		ReplaceRepeated[]
+		ReplaceRepeated[expr,rules] - применяет ReplaceAll пока в нем что-то заменяется
+		
 	}
 	{арифметика
 		310	a+b+c === Plus[a,b,c]
@@ -271,16 +347,38 @@ f@g === f[g]
 	}
 	{многочлены
 		Factor[expr] - разложить многочлен на множители
-		Expand[expr] - раскрыть скобки
+		Expand[expr] - раскрыть скобки только для Plus и Times
+		Distribute[expr] - раскрыть скобки
 	}
 	{алгебраические ур-я
 		Solve[lhs==rhs,x] - решить алгебраическое ур-е
+		Reduce[]
 		NSolve[lhs==rhs,x] - численно решить алгебраическое ур-е
 		FindRoot[lhs==rhs,{x,x0}] - численно найти корень алгебраического ур-я около x0
+	}
+	{кванторы, домены, Assumptions
+		240 \[Exists]_a b === Exists[a,b]
+		Exists[x,expr]
+		240 \[ForAll]_a b === ForAll[a,b]
+		ForAll[x,expr]
+		FullSimplify[smth] - вычисляет true или false для кванторов
+		Resolve[expr] - удаляет кванторы
+		
+	?	Домены:, Booleans, Primes, Integers, Rationals, Algebrics, Reals, Complexes
+		250 a\[Element]b === Element[a,b]
+		Element[a,домен, регион]
+		250 a\[NotElement]b === NotElement[a,b]
+		NotElement[a,домен, регион]
+		
+		$Assumptions - глобальные предположения
+		Assuming[assume, expr] - локльные предположения
+		Refine[] - меняет выражение в соответствии с предположениями
 	}
 	{Лин-Ал
 		490	x.y.z === Dot[x,y,z]
 		Dot[] - умножение матриц
+		Inner[] - обощение умножения матриц (параметризуемое сложением и умножением как функциями)
+		Outer[] - тензорное умножение, параметризуемое умножением
 		Eigenvalues[] - СЗ
 		Inverse[]
 	}
