@@ -262,8 +262,13 @@ f@g === f[g]
 		BlankNullSequence[]
 		
 		150	x_ === Pattern[x,Balnk[]]
-		Pattern[] ???
-			x__ === Pattern[x,BalnkSequence[]]
+		150	a:b === Pattern[a,b]
+		Pattern[a,b] - a должно соответствовать b
+		140	a:b:c === Optional[Pattern[a, b], c]
+			y_: с === Optional[Pattern[y, Blank[]], с]
+			y_. === Optional[Pattern[y, Blank[]]]
+		Optional[a,b] - если паттерн a пропущен, то он примет занчение b
+		Default[f,i] - lvalue для значения по умолчанию iго аргумента функции f, если он задан как y_.
 		
 		680	pattern?test === PatternTest[pattern,test]
 		PatternTest[pattern,test] - pattern распарсится удачно, только если после того как оно распарсилось будет верно еще и условие
@@ -296,6 +301,28 @@ f@g === f[g]
 		110	expr//.rules === ReplaceRepeated[expr,rules]
 		ReplaceRepeated[expr,rules] - применяет ReplaceAll пока в нем что-то заменяется
 		
+	}
+	{кванторы, домены, Assumptions
+		240 \[Exists]_a b === Exists[a,b]
+		Exists[x,expr]
+		240 \[ForAll]_a b === ForAll[a,b]
+		ForAll[x,expr]
+		FullSimplify[smth] - вычисляет true или false для кванторов
+		Resolve[expr] - удаляет кванторы
+		
+	?	Домены:, Booleans, Primes, Integers, Rationals, Algebrics, Reals, Complexes
+		250 a\[Element]b === Element[a,b]
+		Element[a,домен, регион] - a может быть символом, списком сиволов или паттерном
+		250 a\[NotElement]b === NotElement[a,b]
+		NotElement[a,домен, регион]
+		
+		$Assumptions - глобальные предположения
+		Assuming[assume, expr] - локльные предположения, котрые применяются только в 
+			Refine, Simplify, FullSimplify, FunctionExpand, Integrate...
+		Refine[] - уточняет выражение в соответствии с предположениями
+		Simplify[]
+		FullSimplify[]
+		FunctionExpand[]
 	}
 	{арифметика
 		310	a+b+c === Plus[a,b,c]
@@ -349,30 +376,13 @@ f@g === f[g]
 		Factor[expr] - разложить многочлен на множители
 		Expand[expr] - раскрыть скобки только для Plus и Times
 		Distribute[expr] - раскрыть скобки
+		Collect[expr,pattern] - вынести паттерн за скобки
 	}
 	{алгебраические ур-я
 		Solve[lhs==rhs,x] - решить алгебраическое ур-е
 		Reduce[]
 		NSolve[lhs==rhs,x] - численно решить алгебраическое ур-е
 		FindRoot[lhs==rhs,{x,x0}] - численно найти корень алгебраического ур-я около x0
-	}
-	{кванторы, домены, Assumptions
-		240 \[Exists]_a b === Exists[a,b]
-		Exists[x,expr]
-		240 \[ForAll]_a b === ForAll[a,b]
-		ForAll[x,expr]
-		FullSimplify[smth] - вычисляет true или false для кванторов
-		Resolve[expr] - удаляет кванторы
-		
-	?	Домены:, Booleans, Primes, Integers, Rationals, Algebrics, Reals, Complexes
-		250 a\[Element]b === Element[a,b]
-		Element[a,домен, регион]
-		250 a\[NotElement]b === NotElement[a,b]
-		NotElement[a,домен, регион]
-		
-		$Assumptions - глобальные предположения
-		Assuming[assume, expr] - локльные предположения
-		Refine[] - меняет выражение в соответствии с предположениями
 	}
 	{Лин-Ал
 		490	x.y.z === Dot[x,y,z]
