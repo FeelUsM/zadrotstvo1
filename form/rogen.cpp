@@ -30,3 +30,16 @@
 //выводим Ро:
 //)
 
+#include <iostream>
+using std::out;
+// 
+int main(int argc, char * argv[]){
+	
+}
+
+
+
+
+
+
+

@@ -159,7 +159,18 @@ f@g === f[g]
 		Module[listVars,body]   Module[{i = a}, i + m] --> a+i^2// lexical scoping
 		With[listVars,body]
 		
+		If[cond,then,else]
 		While[cond,body]
+		For[start,cond,inr,body]
+		Do[...?]
+		
+		Label[name]
+		Goto[name]
+		Break[]
+		Continue[]
+		Return[expr]
+		Catch[expr] - возвращает значение выражения или кинутое исключение
+		Throw[val]
 		
 		Reap[body] - возвращает список из двух элементов: 1й - результат body и 2й - {{все, что вернул каждый вызов Sow[] внутри body}}
 		Sow[expr]
@@ -168,7 +179,7 @@ f@g === f[g]
 			{a,b,c} === List[a,b,c] - список
 		List[a,b,c] -> {a,b,c}
 		Range[n] -> {1,...,n}
-		Table[f[x],{x,xl,xh}] -> {f[xl], f[xl+1], ... , f[xh]}
+		Table[f[xxx],{xxx,xl,xh}] -> {f[xl], f[xl+1], ... , f[xh]}
 		Array[f,n] -> {f[1],...,f[n]}
 		Tuples[list1,list2,...] - генерирует все списки где на 1м месте элемент из 1го списка, на 2м - из 2го ....
 		
@@ -190,9 +201,10 @@ f@g === f[g]
 		Join[]
 		
 		Prepend[]
-		Append[]
+		Append[list,el] - не меняет список
+		AppendTo[list,el] - меняет список
 		Insert[]
-		Delete[]
+		Delete[list,i]
 		ReplacePart[]
 		Riffle[] - расставить между элементами другой элемент
 
@@ -209,10 +221,10 @@ f@g === f[g]
 			ass[key] -> val // lvalue
 			ass[[Key[smth]]]
 			ass[["string"]]
-		Key[]?
+		Key[]
 			
 		Select[ассоц,предикат]
-		Position[assoc,n] -> Key[...]
+		Position[assoc,n] -> Key[...] на nой позиции
 		Append[assoc,rule]
 		Keys[assoc] -> {keys}
 	}
@@ -296,6 +308,7 @@ f@g === f[g]
 		
 		Position[expr,pattern] - возвращает список путей в виде спиков позиций
 		FirstPosition[expr,pattern] - возвращает путь к первому найденному подвыражению в виде списка позиций (или Missing["NotFound"])
+		ReplacePart[expr,path->expr2] - в выражении заменяет элемент, нахлжящийся по заданному адресу, выражением2
 		Cases[expr,pattern] - возвращает список подвыражений, соответствующих или замененных по шаблону
 		FirstCase[expr,pattern] - возвращает первое подвыражение, соответствующее или замененное по шаблону (или Missing["NotFound"])
 		Count[expr,pattern] - подсчитывает, сколько раз в выражении встречается подвыражение, соответствующее шаблону
