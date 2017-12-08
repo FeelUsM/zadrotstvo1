@@ -79,6 +79,7 @@ http://reference.wolfram.com/language/tutorial/OperatorInputForms.html#6349
 () - группировка
 F[x,y] - функция
 f@g === f[g]
+x~f~y === f[x,y]
 }
 {=== Встроенные функции - с большй буквы ===
 	{ввод-вывод
@@ -94,12 +95,26 @@ f@g === f[g]
 		Precedence[] - старшинство (для операторов?)
 		
 		MatrixForm[] - список в матрицу
+		TableForm[]
 		StandardForm[] - человеческая форма
 		FullForm[] - машинная форма
 		InputForm[] - форма, которую снова можно скормить математике
 		
+		Directory[] - выдает текущую директорию
+		SetDirectory[dir] - устанавливает текущую директорию
+		30	val>>file === Put[val,file]
+		Put[val,file] - записывает значение в файл (при помощи FullForm (?))
+		720	<<file === Get[file]
+		Get[file] - возвращает значение, прочитанное из файла
+		Import[file,format]
+		Export[filr,expr,format]
+		$ImportFormats - список доступных форматов
+		
 		RawBox[]
 		MakeBoxes[]
+	}
+	{производительность
+		
 	}
 	{переменные, функции, опции, атрибуты, контексты
 		Hold[] - квотирование
@@ -111,7 +126,7 @@ f@g === f[g]
 		Unset[]
 		Clear[] - сбрасывает определение, "Global`*" - все текущие переменные
 		ClearAll[] - сбрасывает значения и атрибуты и ...
-		Remove[x] - удаляет x
+		Remove[x] - удаляет x (и он становится сининьким)
 		
 		SetAttributes[f,attr] - устанавливает атрибут
 		Attributes[f] - возвращает список атрибутов
@@ -142,6 +157,7 @@ f@g === f[g]
 			"abc" === String["abc"] - строка ???
 		String[]
 		ToString[x]
+		600	s1<>s2<>s3 === StringJoin[s1,s2,s3]
 		StringJoin[s1,s2,...]
 		
 		RegularExpression["str"]
@@ -176,43 +192,49 @@ f@g === f[g]
 		Sow[expr]
 	}
 	{списки
-			{a,b,c} === List[a,b,c] - список
-		List[a,b,c] -> {a,b,c}
-		Range[n] -> {1,...,n}
-		Table[f[xxx],{xxx,xl,xh}] -> {f[xl], f[xl+1], ... , f[xh]}
-		Array[f,n] -> {f[1],...,f[n]}
-		Tuples[list1,list2,...] - генерирует все списки где на 1м месте элемент из 1го списка, на 2м - из 2го ....
-		
-			x[[n,m,...]] === Part[x,n,m,...] - n-й элемент списка
-		Part[l,n,m,...]
-		All - как индекс - выбрать все элементы
-		305	a;;b;;c === Span[a,b,c] - диапозон
-		Span[left,right,step]
-		Partition[l,n] - разбивает список l на список подсписков длиной n
-		Sort[v] или ассоциацию
-		Union[v] - Sort Uniq
-		Reverse[]
-		RotateLeft[]
-		RotateRight[]
-		PadLeft[]
-		PadRight[]
-		Split[] - повторяющиеся элементы объединяет
-		Flatten[] - убирает внутренние скобки
-		Join[]
-		
-		Prepend[]
-		Append[list,el] - не меняет список
-		AppendTo[list,el] - меняет список
-		Insert[]
-		Delete[list,i]
-		ReplacePart[]
-		Riffle[] - расставить между элементами другой элемент
+	https://mathematica.stackexchange.com/questions/3069/elegant-operations-on-matrix-rows-and-columns
+		{генерация
+			670	{a,b,c} === List[a,b,c] - список
+			List[a,b,c] -> {a,b,c}
+			Range[n] -> {1,...,n}
+			Table[f[xxx],{xxx,xl,xh}] -> {f[xl], f[xl+1], ... , f[xh]}
+			Array[f,n] -> {f[1],...,f[n]}
+			Tuples[list1,list2,...] - генерирует все списки где на 1м месте элемент из 1го списка, на 2м - из 2го ....
+			Permutations[list] - генерирует список перестановок
+			Signature[]
+			OrderedQ[f[a,b,c]] - Упорядочены ли аргументы
+		}
+		{индексация
+			670	x[[n,m,...]] === Part[x,n,m,...] - n-й элемент списка
+			Part[l,n,m,...]
+			в качесте индекса можно использовать число или отрицательное число(индекс с конца) или список или
+			All - выбрать все элементы, или
+			305	a;;b;;c === Span[a,b,c] - диапозон ((a или b) и c можно опускать)
+			Span[left,right,step]
+		}
+		{добавление/удаление
+			Prepend[]
+			Append[list,el] - не меняет список
+			AppendTo[list,el] - меняет список
+			Insert[]
+			Delete[list,i]
+		}
+		{преобразования списков
+			Partition[l,n] - разбивает список l на список подсписков длиной n
+			Split[] - повторяющиеся элементы объединяет
+			Flatten[] - убирает внутренние скобки
+			FlattenAt[list,pos] - убирает внутренние скобки (вклеивает) на позиции pos
+			Riffle[] - расставить между элементами другой элемент
 
-		OrderedQ[f[a,b,c]] - Упорядочены ли аргументы
-		Permutations[]
-		Signature[]
-		
-		Total[] - сумма (и с ассоц.)
+			Sort[v] или ассоциацию
+			Union[v] - Sort Uniq
+			Reverse[]
+			RotateLeft[]
+			RotateRight[]
+			PadLeft[]
+			PadRight[]
+			Join[]
+		}
 	}
 	{map, hash
 			<|a->1,b->2|> === Association[{a->1,b->2}]
@@ -228,18 +250,25 @@ f@g === f[g]
 		Append[assoc,rule]
 		Keys[assoc] -> {keys}
 	}
-	{функ.прог.
+	{функ.прог., Map-Reduce
 		90	body& === Function[body]
 		Function[body] - лямбда-функция
 			#n === Slot[n]
 		Slot[n] - n-й аргумент лямбда-функции
-		620	f/@list === Map[f,list]
-		Map[f,{a,...,c}] -> {f[a],...,f[c]} или со значениями ассоциации
+		
 		620	f@@g[] === Apply[f,g[]]
 			f@@@g[] === Apply[f,g[],{1}] --- на первом уровне
 		Apply[f,g[x,...,z]] -> f[x,...,z]
 		Nest[f,x,3] -> f[f[f[x]]]
 		NestList[]
+		
+		620	f/@list === Map[f,list]
+		Map[f,{a,...,c}] -> {f[a],...,f[c]} или со значениями ассоциации
+		MapThread[f,{l1,l2,...}] -> {f[l1[[1]],l2[[1]],...],...}
+		MapThread[f,{l1,l2,...},levelspec]
+		
+		Total[list] - сумма (и с ассоц.)
+		Accumulate[{a,b,c}] -> {a,a+b,a+b+c} 
 	}
 	{структура выражений
 		Symbol["name"] - ссылается на символ с определенным именем
@@ -308,7 +337,7 @@ f@g === f[g]
 		
 		Position[expr,pattern] - возвращает список путей в виде спиков позиций
 		FirstPosition[expr,pattern] - возвращает путь к первому найденному подвыражению в виде списка позиций (или Missing["NotFound"])
-		ReplacePart[expr,path->expr2] - в выражении заменяет элемент, нахлжящийся по заданному адресу, выражением2
+		ReplacePart[expr,path->expr2] - в выражении заменяет элемент, находящийся по заданному адресу, выражением2
 		Cases[expr,pattern] - возвращает список подвыражений, соответствующих или замененных по шаблону
 		FirstCase[expr,pattern] - возвращает первое подвыражение, соответствующее или замененное по шаблону (или Missing["NotFound"])
 		Count[expr,pattern] - подсчитывает, сколько раз в выражении встречается подвыражение, соответствующее шаблону
@@ -316,7 +345,6 @@ f@g === f[g]
 		ReplaceAll[expr,rules] - в выражении заменяет все подвыражения по шаблону
 		110	expr//.rules === ReplaceRepeated[expr,rules]
 		ReplaceRepeated[expr,rules] - применяет ReplaceAll пока в нем что-то заменяется
-		
 	}
 	{кванторы, домены, Assumptions
 		240 \[Exists]_a b === Exists[a,b]
@@ -403,10 +431,17 @@ f@g === f[g]
 	{Лин-Ал
 		490	x.y.z === Dot[x,y,z]
 		Dot[] - умножение матриц
-		Inner[] - обощение умножения матриц (параметризуемое сложением и умножением как функциями)
+		Inner[] - обобщение умножения матриц (параметризуемое сложением и умножением как функциями)
 		Outer[] - тензорное умножение, параметризуемое умножением
+		TensorProduct[...] = Outer[Times,...]
+		KroneckerProduct[] - тензорное умножение, но матрицу в матрицу, вектор в вектор, ...
 		Eigenvalues[] - СЗ
 		Inverse[]
+		
+		Det[m]
+		Tr[m]
+		PositiveDefiniteMatrixQ[m]
+		PositiveSemidefiniteMatrixQ[m]
 	}
 	{матан
 		Limit[f,x->x0] - найти предел
@@ -463,3 +498,13 @@ f@g === f[g]
 динамическая интерактивностть
 блокноты и документы
 система и развертывание
+
+
+
+
+http://reference.wolfram.com/language/tutorial/LinearAlgebraMatrixComputations.html
+http://reference.wolfram.com/language/guide/EvaluationControl.html
+http://reference.wolfram.com/language/guide/GroupTheory.html
+http://reference.wolfram.com/language/guide/NamedGroups.html
+http://reference.wolfram.com/language/ref/GroupElements.html
+http://reference.wolfram.com/language/guide/Permutations.html
