@@ -1,5 +1,3 @@
-http://kobriniq.ru/mathematica
-https://habrahabr.ru/company/wolfram/blog/257733/
 {=== ядро, интерфейс ===
 блокнот
 	запуск: mathematica или ярлыком
@@ -11,12 +9,6 @@ https://habrahabr.ru/company/wolfram/blog/257733/
 	C-D, C-Z - прекращение работы ядра
 	Quit[]
 MathLink
-}
-{=== документация, помощь ===
-Help -> Documentation Center
-?имя_или_оператор
-??имя_или_оператор - с дополнительной информацией
-?aaa* - список объектов, начинающихся с aaa
 }
 {=== блокнот ===
 S-Enter или num-Enter- ввод-вычисление
@@ -39,6 +31,16 @@ Input: известные имена - черный
 Input: новые имена - синий
 
 можно выделить вначале ячейку
+M-1	Format -> Style -> Title
+M-2	Format -> Style -> Chapter
+M-3	Format -> Style -> Subchapter
+M-4	Format -> Style -> Section
+M-5	Format -> Style -> Subsection
+M-6	Format -> Style -> Subsubsection
+M-7	Format -> Style -> Text
+M-8	Format -> Style -> Code
+M-9	Format -> Style -> Input
+
 M-9	Format -> Style -> Input
 M-7	Format -> Style -> Text
 		Window -> Show Toolbar
@@ -72,6 +74,14 @@ elem	Element
 !elem	NotElement
 fa		ForAll
 ex		Exists
+		Ellipsis	...
+}
+{=== документация, помощь ===
+Help -> Documentation Center
+?имя_или_оператор
+??имя_или_оператор - с дополнительной информацией
+?aaa* - список объектов, начинающихся с aaa
+?aaa`* - список объектов, содержащихся в пакете aaa
 }
 {=== операторы ===
 http://reference.wolfram.com/language/tutorial/OperatorInputForms.html#6349
@@ -80,20 +90,27 @@ http://reference.wolfram.com/language/tutorial/OperatorInputForms.html#6349
 F[x,y] - функция
 f@g === f[g]
 x~f~y === f[x,y]
+
+70	x//f === Postfix[f[x]]
+Postfix[]
+Precedence[] - старшинство (для операторов?)
 }
 {=== Встроенные функции - с большй буквы ===
 	{ввод-вывод
 		In[]
 			% === Out[] - последний результат
 		Out[]
+		
 		Quiet[выражение]	вычисляет выражение без вывода каких-либо сообщений
 		Off[Функция::тег]	выключение (подавление) сообщения
 		On[Функция::тег]	включение сообщения
+		750	f::tag === MessageName[f,"tag"]
+		MessageName[f,"tag"] - имя(тег), которому можно присвоить сообщение, которое может использовать аргументы, типа `1` `2` ... 
+			f::usage - справка функции
+		Message[f::tag,args] - вывод соответствующего сообщения
+		General - символ, к которому присоединяются основные системные сообщения
+			General::newsym - печатает сообение, когда создается новый символ
 
-		70	x//f === Postfix[f[x]]
-		Postfix[]
-		Precedence[] - старшинство (для операторов?)
-		
 		MatrixForm[] - список в матрицу
 		TableForm[]
 		StandardForm[] - человеческая форма
@@ -106,6 +123,8 @@ x~f~y === f[x,y]
 		Put[val,file] - записывает значение в файл (при помощи FullForm (?))
 		720	<<file === Get[file]
 		Get[file] - возвращает значение, прочитанное из файла
+			Get[PackageName`] - загрузить пакет
+		Needs[PackageName`] - читает пакет, только если он отсутствует в $Packages
 		Import[file,format]
 		Export[filr,expr,format]
 		$ImportFormats - список доступных форматов
@@ -113,45 +132,68 @@ x~f~y === f[x,y]
 		RawBox[]
 		MakeBoxes[]
 	}
-	{производительность
-		
+	{производительность и дебаг
+		http://reference.wolfram.com/language/guide/EvaluationControl.html
 	}
 	{переменные, функции, опции, атрибуты, контексты
-		Hold[] - квотирование
-		40	x=y === Set[x,y]
-		Set[x,y] - вычислить y и в последсвии заменять x на этот вычисленный сейчас y
-		40	x:=y === SetDelayed[x,y]
-		SetDelayed[x,y] - не вычислять сейчас y и в последсвии заменять x на этот y, такой, какой он есть, а потом вычислять
-		670	x=. === Unset[x] (?)
-		Unset[]
-		Clear[] - сбрасывает определение, "Global`*" - все текущие переменные
-		ClearAll[] - сбрасывает значения и атрибуты и ...
-		Remove[x] - удаляет x (и он становится сининьким)
+		{переменные
+			Hold[] - квотирование
+			40	x=y === Set[x,y]
+			Set[x,y] - вычислить y и в последсвии заменять x на этот вычисленный сейчас y
+			40	x:=y === SetDelayed[x,y]
+			SetDelayed[x,y] - не вычислять сейчас y и в последсвии заменять x на этот y, такой, какой он есть, а потом вычислять
+			670	x=. === Unset[x] (?)
+			Unset[]
+			Clear[] - сбрасывает определение, "Global`*" - все текущие переменные
+			ClearAll[] - сбрасывает значения и атрибуты и ...
+			Remove[x] - удаляет x (и он становится сининьким)
+		}
+		{атрибуты
+			SetAttributes[f,attr] - устанавливает атрибут
+			Attributes[f] - возвращает список атрибутов
+			ClearAttributes[f] - удаляет аттрибуты
+			HoldAll - не вычислять аргументы
+			Listable - атрибут, т.ч. f[{a,b,c}] -> {f[a],f[b],f[c]}
+				Thread[f[{a,b,c}]] -> {f[a],f[b],f[c]}
+			Orderless - атрибут, т.ч. f[a,b] == f[b,a]
+			Flat - атрибут т.ч. f[a,f[b]] == f[a,b]
+			OneIdentity - атрибут т.ч. f[x] == x
+			Protected - атрибут, запрещает менять определение функции
+				Protect[fun] - устанавливает атрибут Protected
+				Unprotect[fun] - снимает атрибут Protected
+		}
+		{опции - могут передаваться в конце аргументов например в Plot[]
+			Options[f] - список опций_по_умолчанию функции f
+			SetOptions[s,name->val,...]
+		}			
+		{контексты
+				contextName`f - доступ к функции внутри контекста
+			Context[shortname] - контекст переменной
+			Context[] - текущий контекст
+			Contexts[] - список всех возможных контекстов
+			$Context - текущий контекст
+			$ContextPath - context search path
+				context`name or c_1`c_2 ... `name	    a symbol in an explicitly specified context
+				`name                                   a symbol in the current context
+				`context`name or `c_1 `c_2 ... `name    a symbol in a specific context relative to the current context
+				name                                    a symbol in the current context, or found on the context search path
+			Begin["contextName`"] - устанавливает текущий контекст
+				Begin["c`"]; Print[Context[x]]; End[] - здесь Begin[] не сработает, т.к. это выр-е сначала прочитается (всё), а потом будет выполняться
+			End[] - возвращает текущий контекст и восстанавливает старый
+			BeginPackage["contextName`",{need1,need2,...}] - делает активными пакетами только contextName` и System`
+				а также вызывает Needs[] для каждого need1, need2 ...
+			EndPackage[] - восстанавливает $Context и $ContextPath, и добавляет текущий контекст в $ContextPath
+		}
+	}
+	{структура выражений
+		Symbol["name"] - ссылается на символ с определенным именем
+		Unique["name"] - создает уникальный символ с именем, начинающимся с name
+		SymboName[s] - возвращает имя символа
+		Names["pattern"] - возвращает список имен символов, подходящих под паттерн
 		
-		SetAttributes[f,attr] - устанавливает атрибут
-		Attributes[f] - возвращает список атрибутов
-		ClearAttributes[f] - удаляет аттрибуты
-		HoldAll - не вычислять аргументы
-		Listable - атрибут, т.ч. f[{a,b,c}] -> {f[a],f[b],f[c]}
-			Thread[f[{a,b,c}]] -> {f[a],f[b],f[c]}
-		Orderless - атрибут, т.ч. f[a,b] == f[b,a]
-		Flat - атрибут т.ч. f[a,f[b]] == f[a,b]
-		OneIdentity - атрибут т.ч. f[x] == x
-
-		Protected - атрибут, запрещает менять определение функции
-			Protect[fun] - устанавливает атрибут Protected
-			Unprotect[fun] - снимает атрибут Protected
-		
-		Options[f] - список опций по умолчанию фуркции f
-
-		Begin["contextName`"]
-		End[]
-		contextName`f - доступ к функции внутри контекста
-		Context[var]
-		$Context
-		$ContextPath
-		BeginPackage["contextName`"]
-		EndPackage[]
+		Head[x] - возвращает голову объекта (обычно имя функции или Symbol, Integer, ...)
+		Level[obj,level] - все объекты на соответствующем уровне: n - 1..n, {n} - only n, {n,m} - n..m, -1 - листья, 0 - все выражение
+		Scan[f,expr] - применит f ко всем элементам списка expr
 	}
 	{строки
 			"abc" === String["abc"] - строка ???
@@ -164,8 +206,18 @@ x~f~y === f[x,y]
 		StringMatchQ[str,regex]
 	}
 	{логика
-		230	!x === Not[x]
-		Not[]
+		290 a===b  === SameQ[a,b]
+		290 a=!=b  === UnsameQ[a,b]
+		290	a==b   === Equal[a,b]
+		290	a==b   === Unequal[a,b]
+		290	a<b    === Less[a,b]
+		290	a<=b   === LessEqual[a,b]
+		290	a>b    === Grater[a,b]
+		290	a>=b   === GraterEqual[a,b]
+		
+		230	!x     === Not[x]
+		215	a||b   === Or[a,b]
+		215	a&&b   === And[a,b]
 	}
 	{блоки, циклы и ветвления
 		10	expr1;expr2;expr3 === CompoundExpression[expr1,expr2,expr3]
@@ -176,6 +228,8 @@ x~f~y === f[x,y]
 		With[listVars,body]
 		
 		If[cond,then,else]
+		Which[cond,then, cond,then, ...]
+		Switch[expr, patt1,then, patt2,then, ...]
 		While[cond,body]
 		For[start,cond,inr,body]
 		Do[...?]
@@ -202,6 +256,7 @@ x~f~y === f[x,y]
 			Tuples[list1,list2,...] - генерирует все списки где на 1м месте элемент из 1го списка, на 2м - из 2го ....
 			Permutations[list] - генерирует список перестановок
 			Signature[]
+			Order[a,b] -> -1,0,+1
 			OrderedQ[f[a,b,c]] - Упорядочены ли аргументы
 		}
 		{индексация
@@ -264,21 +319,12 @@ x~f~y === f[x,y]
 		
 		620	f/@list === Map[f,list]
 		Map[f,{a,...,c}] -> {f[a],...,f[c]} или со значениями ассоциации
+		Scan[f,expr,lavelspec] - применяет f к каждому элементу
 		MapThread[f,{l1,l2,...}] -> {f[l1[[1]],l2[[1]],...],...}
 		MapThread[f,{l1,l2,...},levelspec]
 		
 		Total[list] - сумма (и с ассоц.)
 		Accumulate[{a,b,c}] -> {a,a+b,a+b+c} 
-	}
-	{структура выражений
-		Symbol["name"] - ссылается на символ с определенным именем
-		Unique["name"] - создает уникальный символ с именем, начинающимся с name
-		SymboName[s] - возвращает имя символа
-		Names["pattern"] - возвращает список имен символов, подходящих под паттерн
-		
-		Head[x] - возвращает голову объекта (обычно имя функции или Symbol, Integer, ...)
-		Level[obj,level] - все объекты на соответствующем уровне: n - 1..n, {n} - only n, {n,m} - n..m, -1 - листья, 0 - все выражение
-		Scan[f,expr] - применит f ко всем элементам списка expr
 	}
 	{шаблоны и замены
 		<Blank> - шаблонный объект, который может соответствовать любому выражению в языке Wolfram. Выражение <Blank>[] может компактно обозначаться символом подчеркивания _. 
@@ -298,7 +344,7 @@ x~f~y === f[x,y]
 
 
 		730	_ === Blank[] - любое выражение
-		730	_h === Blank[h] - любое выражение с головой h
+		730	_h === Blank[h] - любое выражение с головой h (например _Integer)
 			__ === BlankSequence[]
 			___ === BlankNullSequence[]
 		Blank[] - любое выражение
@@ -473,6 +519,10 @@ x~f~y === f[x,y]
 		MessageDialog[строка] - ...
 	}
 }
+
+
+http://kobriniq.ru/mathematica
+https://habrahabr.ru/company/wolfram/blog/257733/
 Основной язык
 	краткий курс
 		+работа с переменными и функциями
