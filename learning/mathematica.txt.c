@@ -75,6 +75,8 @@ elem	Element
 fa		ForAll
 ex		Exists
 		Ellipsis	...
+
+
 }
 {=== документация, помощь ===
 Help -> Documentation Center
@@ -84,7 +86,7 @@ Help -> Documentation Center
 ?aaa`* - список объектов, содержащихся в пакете aaa
 }
 {=== операторы ===
-http://reference.wolfram.com/language/tutorial/OperatorInputForms.html#6349
+http://reference.wolfram.com/language/tutorial/OperatorInputForms.html
 (**) - комментарий
 () - группировка
 F[x,y] - функция
