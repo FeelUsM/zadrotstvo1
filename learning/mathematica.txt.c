@@ -119,6 +119,12 @@ Precedence[] - старшинство (для операторов?)
 		FullForm[] - машинная форма
 		InputForm[] - форма, которую снова можно скормить математике
 		
+		Print[smth] - печатает сообщение во все потоки, содержащиеся в $Output
+		$Output - список потоков, куда поступает вывод от Print[]
+		Write[stream,expr] - печатает в сообщение в заданный поток
+		OpenWite[filename] - открывает файл и создает поток
+		Close[stream] - закрывает поток
+
 		Directory[] - выдает текущую директорию
 		SetDirectory[dir] - устанавливает текущую директорию
 		30	val>>file === Put[val,file]
@@ -128,19 +134,34 @@ Precedence[] - старшинство (для операторов?)
 			Get[PackageName`] - загрузить пакет
 		Needs[PackageName`] - читает пакет, только если он отсутствует в $Packages
 		Import[file,format]
-		Export[filr,expr,format]
+		Export[file,expr,format]
 		$ImportFormats - список доступных форматов
+		
+		Monitor[выполняющийся код, (выр-е от переменных, меняющихся в процессе кода, которое выводится и заменяется ниже)]
+		ProgressIndicator[0<val<1] - возвращает и выводит прогресс бар
 		
 		RawBox[]
 		MakeBoxes[]
 	}
 	{производительность и дебаг
 		http://reference.wolfram.com/language/guide/EvaluationControl.html
+		
+		Pause[s]
+		
+		MemoryConstrained[expr,bytes]
+		Timing[expr]
+		
+		ParallelSubmit[]
+		WaitAll[]
+		WaitNext[]
 	}
 	{переменные, функции, опции, атрибуты, контексты
 		{переменные
 			Hold[] - квотирование
 			40	x=y === Set[x,y]
+			Inactivate[expr[,fun]]
+			Activate[expr[,fun]]
+			
 			Set[x,y] - вычислить y и в последсвии заменять x на этот вычисленный сейчас y
 			40	x:=y === SetDelayed[x,y]
 			SetDelayed[x,y] - не вычислять сейчас y и в последсвии заменять x на этот y, такой, какой он есть, а потом вычислять
@@ -149,6 +170,7 @@ Precedence[] - старшинство (для операторов?)
 			Clear[] - сбрасывает определение, "Global`*" - все текущие переменные
 			ClearAll[] - сбрасывает значения и атрибуты и ...
 			Remove[x] - удаляет x (и он становится сининьким)
+				With[{var=...},(Remove[var];#)&[code]]
 		}
 		{атрибуты
 			SetAttributes[f,attr] - устанавливает атрибут
@@ -189,7 +211,8 @@ Precedence[] - старшинство (для операторов?)
 	}
 	{структура выражений
 		Symbol["name"] - ссылается на символ с определенным именем
-		Unique["name"] - создает уникальный символ с именем, начинающимся с name
+		Unique["name"] - создает уникальный символ с именем, начинающимся с name 
+			Unique[ConstantArray["x", 10]] -> x1,x2,x3,...,x10
 		SymboName[s] - возвращает имя символа
 		Names["pattern"] - возвращает список имен символов, подходящих под паттерн
 		
@@ -220,6 +243,7 @@ Precedence[] - старшинство (для операторов?)
 		230	!x     === Not[x]
 		215	a||b   === Or[a,b]
 		215	a&&b   === And[a,b]
+		TrueQ[arg] === If[arg===True,True,False]
 	}
 	{блоки, циклы и ветвления
 		10	expr1;expr2;expr3 === CompoundExpression[expr1,expr2,expr3]
@@ -255,6 +279,7 @@ Precedence[] - старшинство (для операторов?)
 			Range[n] -> {1,...,n}
 			Table[f[xxx],{xxx,xl,xh}] -> {f[xl], f[xl+1], ... , f[xh]}
 			Array[f,n] -> {f[1],...,f[n]}
+			ConstantArray[c,n] -> {c,c,c,c,c,c,...,c} n times
 			Tuples[list1,list2,...] - генерирует все списки где на 1м месте элемент из 1го списка, на 2м - из 2го ....
 			Permutations[list] - генерирует список перестановок
 			Signature[]
@@ -268,6 +293,12 @@ Precedence[] - старшинство (для операторов?)
 			All - выбрать все элементы, или
 			305	a;;b;;c === Span[a,b,c] - диапозон ((a или b) и c можно опускать)
 			Span[left,right,step]
+			
+			Position[list,pattern,levelspec] - возвращает список путей, элементов, удовлетворяющих паттерну (головы тоже просматривает)
+			
+			Length[list]
+			First[list]
+			Last[list]
 		}
 		{добавление/удаление
 			Prepend[]
@@ -275,6 +306,12 @@ Precedence[] - старшинство (для операторов?)
 			AppendTo[list,el] - меняет список
 			Insert[]
 			Delete[list,i]
+		}
+		{как множества
+			http://reference.wolfram.com/language/guide/OperationsOnSets.html
+			Union
+			Intersection
+			Complement
 		}
 		{преобразования списков
 			Partition[l,n] - разбивает список l на список подсписков длиной n
@@ -284,13 +321,16 @@ Precedence[] - старшинство (для операторов?)
 			Riffle[] - расставить между элементами другой элемент
 
 			Sort[v] или ассоциацию
-			Union[v] - Sort Uniq
+			SortBy[v,f]
+			Union[v] - Sort и удалить повторы
 			Reverse[]
 			RotateLeft[]
 			RotateRight[]
 			PadLeft[]
 			PadRight[]
 			Join[]
+			Select[список,предикат] - оставляет только элементы, удовлетворяющие предикату
+			Pick[list,selector,pattern] - оставляет только элементы list, для которых элементы selector удовлетворяют pattern-у
 		}
 	}
 	{map, hash
@@ -316,6 +356,7 @@ Precedence[] - старшинство (для операторов?)
 		620	f@@g[] === Apply[f,g[]]
 			f@@@g[] === Apply[f,g[],{1}] --- на первом уровне
 		Apply[f,g[x,...,z]] -> f[x,...,z]
+			Apply[f,1] -> 1 (а не в f[1])
 		Nest[f,x,3] -> f[f[f[x]]]
 		NestList[]
 		
@@ -383,7 +424,7 @@ Precedence[] - старшинство (для операторов?)
 		MemberQ[list,pattern] - проверяет, есть ли в списке элементы, соответствующие шаблону
 		FreeQ[list,pattern] = !MemberQ[expr,pattern]
 		
-		Position[expr,pattern] - возвращает список путей в виде спиков позиций
+		Position[expr,pattern] - возвращает список путей в виде спиков позиций (головы тоже просматривает)
 		FirstPosition[expr,pattern] - возвращает путь к первому найденному подвыражению в виде списка позиций (или Missing["NotFound"])
 		ReplacePart[expr,path->expr2] - в выражении заменяет элемент, находящийся по заданному адресу, выражением2
 		Cases[expr,pattern] - возвращает список подвыражений, соответствующих или замененных по шаблону
@@ -447,6 +488,7 @@ Precedence[] - старшинство (для операторов?)
 		Max[a,b,c...]
 		Min[a,b,c...]
 		Mod[a,b]
+		Quotient[a,b]
 		
 		610	x! === Factorial[x]
 		Factorial[x]
@@ -465,13 +507,20 @@ Precedence[] - старшинство (для операторов?)
 		Prime[n] - n-е простое число
 	}
 	{многочлены
+		Variables[poly] - возвращает список переменных многочлена
+		Coefficient[expr,form] - возвращает коэффициент при form
+		Numerator[expr] - приводит к общему знаменателю и возвращает числитель
+		
 		Factor[expr] - разложить многочлен на множители
 		Expand[expr] - раскрыть скобки только для Plus и Times
 		Distribute[expr] - раскрыть скобки
-		Collect[expr,pattern] - вынести паттерн за скобки
+		Collect[expr,pattern,[action]] - вынести паттерн за скобки и выполнить action с каждым множителем pattern-а
+			Reap[Collect[expr,pattern,Sow];][[2]]
 	}
 	{алгебраические ур-я
-		Solve[lhs==rhs,x] - решить алгебраическое ур-е
+		Solve[lhs==rhs,{x...}] - решить алгебраическое ур-е (или систему) отн x
+		SolveAlways[lhs==rhs,{x...}] - подразумевая x-ы произвольными решить алгебраическое ур-е (или систему) отн. всех остальных переменных.
+			params/.Solve[equations,params]
 		Reduce[]
 		NSolve[lhs==rhs,x] - численно решить алгебраическое ур-е
 		FindRoot[lhs==rhs,{x,x0}] - численно найти корень алгебраического ур-я около x0
@@ -483,13 +532,19 @@ Precedence[] - старшинство (для операторов?)
 		Outer[] - тензорное умножение, параметризуемое умножением
 		TensorProduct[...] = Outer[Times,...]
 		KroneckerProduct[] - тензорное умножение, но матрицу в матрицу, вектор в вектор, ...
-		Eigenvalues[] - СЗ
-		Inverse[]
-		
+
 		Det[m]
 		Tr[m]
+
+		Inverse[]
+		RowReduce[]
+
 		PositiveDefiniteMatrixQ[m]
 		PositiveSemidefiniteMatrixQ[m]
+
+		Eigenvalues[] - СЗ
+		EigenSystem[]
+		MatrixExp[]
 	}
 	{матан
 		Limit[f,x->x0] - найти предел
@@ -505,13 +560,15 @@ Precedence[] - старшинство (для операторов?)
 		Mean[] - среднее арифметическое
 	}
 	{графика и интерфейс
-		Print[smth]
 		Grid[]
 
 		Plot[expr[x],{x,minx,maxx}]
 		ParametricPlot[{fx[t],fy[t]},{t,mint,maxt}]
 		Plot3D[expr[x,y],{x,minx,maxx},{y,miny,maxy}]
 		ListLinePlot[] - график по точкам
+		
+		ArrayPlot[]
+		MatrixPlot[]
 
 		Manipulate[] - выводит динамическое содержимое (?)
 		Import[]
