@@ -467,6 +467,7 @@ Precedence[] - старшинство (для операторов?)
 		Times[...]
 		590	a^b === Power[a,b]
 			a.^b === a*10^b
+		
 		Power[a,b]
 		Sqrt[a]
 		Exp[a]
@@ -483,12 +484,14 @@ Precedence[] - старшинство (для операторов?)
 		N[x] - перевести в число с плавающей точкой или посчитать численно
 		Abs[]
 		Round[]
+		Floor[]
+		Mod[a,b] - остаток
+		Quotient[a,b] - целочисленное деление
+		
 		RandomReal[]
 		RndomInteger[]
 		Max[a,b,c...]
 		Min[a,b,c...]
-		Mod[a,b]
-		Quotient[a,b]
 		
 		610	x! === Factorial[x]
 		Factorial[x]
