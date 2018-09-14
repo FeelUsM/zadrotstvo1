@@ -303,6 +303,7 @@ Precedence[] - старшинство (для операторов?)
 		{добавление/удаление
 			Prepend[]
 			Append[list,el] - не меняет список
+			Drop[list,n] - вернуть кроме первых n элементов
 			AppendTo[list,el] - меняет список
 			Insert[]
 			Delete[list,i]
@@ -397,6 +398,7 @@ Precedence[] - старшинство (для операторов?)
 		150	x_ === Pattern[x,Balnk[]]
 		150	a:b === Pattern[a,b]
 		Pattern[a,b] - a должно соответствовать b
+		Except[b] - не должно соответствовать b
 		140	a:b:c === Optional[Pattern[a, b], c]
 			y_: с === Optional[Pattern[y, Blank[]], с]
 			y_. === Optional[Pattern[y, Blank[]]]
