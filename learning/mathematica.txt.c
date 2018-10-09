@@ -90,7 +90,7 @@ http://reference.wolfram.com/language/tutorial/OperatorInputForms.html
 (**) - комментарий
 () - группировка
 F[x,y] - функция
-f@g === f[g]
+f@g === g//f === f[g]
 x~f~y === f[x,y]
 
 70	x//f === Postfix[f[x]]
@@ -112,6 +112,9 @@ Precedence[] - старшинство (для операторов?)
 		Message[f::tag,args] - вывод соответствующего сообщения
 		General - символ, к которому присоединяются основные системные сообщения
 			General::newsym - печатает сообение, когда создается новый символ
+		SyntaxInformation[f] - подсказка для подсветки синтаксиса
+			SyntaxInformation[f] = {"ArgumentsPattern" -> {_, _}}
+			SyntaxInformation[f] = {"ArgumentsPattern" -> {_, _, OptionsPattern[]}}
 
 		MatrixForm[] - список в матрицу
 		TableForm[]
@@ -415,23 +418,26 @@ Precedence[] - старшинство (для операторов?)
 		160 a|b|c === Alternatives[a,b,c]
 		Alternatives[] - должен распарсится лбой из паттернов
 	
+	
 		120	x->y === Rule[x,y]
 		Rule[]
 		120	x:>y === RuleDelayed[x,y]
 		RuleDelayed[] - правая часть квотирована (Hold)
 		
+		
 		MatchQ[expr,pattern] - проверяет, соответствует ли все выражение шаблону
 		Replace[expr,pattern] - заменяет всё выражение по шаблону
 		
-		MemberQ[list,pattern] - проверяет, есть ли в списке элементы, соответствующие шаблону
-		FreeQ[list,pattern] = !MemberQ[expr,pattern]
-		
-		Position[expr,pattern] - возвращает список путей в виде спиков позиций (головы тоже просматривает)
 		FirstPosition[expr,pattern] - возвращает путь к первому найденному подвыражению в виде списка позиций (или Missing["NotFound"])
+		Position[expr,pattern] - возвращает список путей в виде спиков позиций (головы тоже просматривает)
 		ReplacePart[expr,path->expr2] - в выражении заменяет элемент, находящийся по заданному адресу, выражением2
-		Cases[expr,pattern] - возвращает список подвыражений, соответствующих или замененных по шаблону
-		FirstCase[expr,pattern] - возвращает первое подвыражение, соответствующее или замененное по шаблону (или Missing["NotFound"])
-		Count[expr,pattern] - подсчитывает, сколько раз в выражении встречается подвыражение, соответствующее шаблону
+		
+		MemberQ[{exprs},pattern] - проверяет, есть ли в списке элементы, соответствующие шаблону
+		FreeQ[{exprs},pattern] = !MemberQ[expr,pattern]
+		Cases[{exprs},pattern] - возвращает список подвыражений, соответствующих или замененных по шаблону
+		FirstCase[{exprs},pattern] - возвращает первое подвыражение, соответствующее или замененное по шаблону (или Missing["NotFound"])
+		Count[{exprs},pattern] - подсчитывает, сколько раз в выражении встречается подвыражение, соответствующее шаблону
+		
 		110	expr/.rules === ReplaceAll[expr,rules]
 		ReplaceAll[expr,rules] - в выражении заменяет все подвыражения по шаблону
 		110	expr//.rules === ReplaceRepeated[expr,rules]
@@ -550,6 +556,8 @@ Precedence[] - старшинство (для операторов?)
 		Eigenvalues[] - СЗ
 		EigenSystem[]
 		MatrixExp[]
+		
+		CoefficientArrays[expr,vars, "Symmetric"->True] - Полином/квадратичный функционал -> Массив/матрицу
 	}
 	{матан
 		Limit[f,x->x0] - найти предел
@@ -563,6 +571,10 @@ Precedence[] - старшинство (для операторов?)
 		Sum[f,{i,imin,imax}] - просуммировать или посчитать ряд
 		NSum[f,{i,imin,imax}] - просуммировать или численно посчитать ряд
 		Mean[] - среднее арифметическое
+	}
+	{дифуры
+		NDSolve[]
+		DSolve[]
 	}
 	{графика и интерфейс
 		Grid[]
