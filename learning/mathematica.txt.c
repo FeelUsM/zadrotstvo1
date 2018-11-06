@@ -129,6 +129,7 @@ Precedence[] - старшинство (для операторов?)
 		Close[stream] - закрывает поток
 
 		Directory[] - выдает текущую директорию
+		NotebookDirectory[] - выдает директорию текущего блокнота
 		SetDirectory[dir] - устанавливает текущую директорию
 		30	val>>file === Put[val,file]
 		Put[val,file] - записывает значение в файл (при помощи FullForm (?))
