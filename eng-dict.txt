@@ -1,0 +1,43 @@
+vehicle		транспортное средство
+vessel
+crew		экипаж
+pod		стручок, подвеска, отделяемый грузовой отсек
+payload		полезная нагрузка
+propellant	ракетное топливо
+torque		крутящий момент
+pitch/yaw/roll	тангаж/рыскание/крен
+steer		управлять
+
+mock-up		макет
+mock		издеваться, высмеивать
+thrust		толчок, упор
+impact		obey наоборот
+overlay		наложение, перекрытие
+snap		щелчок
+surplus		избыток
+ascent/descent	подъем/спуск
+
+demand		потребность
+endeavour	стремление
+ahead		впереди
+summing up	подведение итогов
+
+mess		беспорядок
+mess up		портить
+roam		странствовать
+conceive	зачать
+pick		select
+
+pinnacle	вершина, кульминация
+plucky		отважный
+majestic	величавый
+severity	строгость
+thumper		толсто, много
+rubbish		мусор
+herald		вестник, глашатай, возвестить
+
+hop		прыжок
+chunch		грызть, хруст
+stitch		стежок
+
+looks like, and may well be, ...
