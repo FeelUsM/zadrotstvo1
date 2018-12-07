@@ -35,19 +35,18 @@ mod  r/m	16-битный режим		32-битный режим
 11...110	ESI/SI/DH		ESI/SI/DH
 11...111	EDI/DI/BH		EDI/DI/BH
 --------------------------------------------------------------
-  reg		r8	r16	r32	SS	index	base
-..000...	AL	AX	EAX	00.. 1	[EAX]	[EAX]	
-..001...	CL	CX	ECX	01.. 2	[ECX]	[ECX]	
-..010...	DL	DX	EDX	10.. 4	[EDX]	[EDX]	
-..011...	BL	BX	EBX	11.. 8	[EBX]	[EBX]	
-..100...	AH	SP	ESP		none*	[ESP]
-..101...	CH	BP	EBP		[EBP]	[**]	
-..110...	DH	SI	ESI		[ESI]	[ESI]	
-..111...	BH	DI	EDI		[EDI]	[EDI]	
+  reg		r8	r16	r32	Sreg		SS	index	base
+..000...	AL	AX	EAX	es		00.. 1	[EAX]	[EAX]	
+..001...	CL	CX	ECX	cs		01.. 2	[ECX]	[ECX]	
+..010...	DL	DX	EDX	ss		10.. 4	[EDX]	[EDX]	
+..011...	BL	BX	EBX	ds		11.. 8	[EBX]	[EBX]	
+..100...	AH	SP	ESP	fs			none*	[ESP]
+..101...	CH	BP	EBP	gs			[EBP]	[**]	
+..110...	DH	SI	ESI				[ESI]	[ESI]	
+..111...	BH	DI	EDI				[EDI]	[EDI]	
 none* - [EIZ], EIZ=0 всегда
 ** - обозначает disp32 без базового регистра, если mod = 00, и [EBP] в противном случае.
 =========================================================================
-
 
 -------------
   F3,0F,58, /r 	ADDSS xmm1, xmm2/m32 	Add the lower SP FP number from XMM2/Mem to XMM1.
@@ -415,7 +414,7 @@ OF D0		(bad)
 
  - 0 -	- 1 -	- 2 -	- 3 - 	- 4 - 	- 5 - 	- 6 - 	- 7 - 	- 8 - 		- 9 - 	- A -	- B - 	- C - 	- D -  		- E - 	- F - 	
 0 SLDT 	SGDT	LAR	LSL	(bad)	SYSCALL	CLTS	SYSRET	INVD		WBINVD	(bad)	UD2	(bad)	??? prefetch	??? femms (bad)	
-  STR 	SIDT				                                	                                PREFETCHW			
+  STR 	SIDT							             	                                PREFETCHW			
   LLDT 	LGDT				                                	                                PREFETCHWT1 			
   LTR 	LIDT				                                	                                ??? prefetch			
   VERR 	SMSW				                                	                                ??? prefetch			
@@ -496,13 +495,6 @@ F SLDT	 PSLLW		PSLLD	PSLLQ	PMULUDQ	PMADDWD	PSADBW	MASKMOVQ PSUBB		PSUBW	PSUBD	PS
   (bad)	
   /x	/r		/r	/r	/r	/r	/r	/r	/r		/r	/r	/r	/r	/r		/r		
  - 0 -	- 1 -		- 2 -	- 3 - 	- 4 - 	- 5 - 	- 6 - 	- 7 - 	- 8 - 		- 9 - 	- A -	- B - 	- C - 	- D - 		- E - 	- F - 
-
-
-
-
-
-
-
 
 ------------------------------------------------
 00 /r		ADD r/m8,r8		Сложение
@@ -802,7 +794,7 @@ C1 /0 ib	ROL r/m32,imm8		Циклический сдвиг влево 16/32
 СЗ		RET 			(близкий возврат)
 C4 /r		LES r32,m16:32 		Load ES:r32 with far pointer from memory 16/32
 C5 /r 		LDS r32,m16:32 		Load DS:r32 with far pointer from memory 16/32
-C6 /0		MOV r/m8,imm8		Копирование
+C6 /0 ib	MOV r/m8,imm8		Копирование
    /1		(bad)
    /2		(bad)
    /3		(bad)
@@ -810,7 +802,7 @@ C6 /0		MOV r/m8,imm8		Копирование
    /5		(bad)
    /6		(bad)
    /7		(bad)
-C7 /0		MOV r/m32,imm32		Копирование 16/32
+C7 /0 id	MOV r/m32,imm32		Копирование 16/32
    /1		(bad)
    /2		(bad)
    /3		(bad)
@@ -1098,7 +1090,7 @@ C ROL	ROL	RET	RET	LES	LDS	MOV	MOV	ENTER	LEAVE	RET	RET	INT3	INT	INTO	IRET
   SHR	SHR					/5(bad)	/5(bad)									
   (bad)	(bad)					/6(bad)	/6(bad)									
   SAR	SAR					/7(bad)	/7(bad)									
-  /x ib	/x ib	iw		/r	/r	/0	/0	iw ib		iw			ib			
+  /x ib	/x ib	iw		/r	/r	/0 ib	/0 id	iw ib		iw			ib			
 D ROL 	ROL 	ROL 	ROL 	AAM	AAD	(bad)	XLAT	FADD 	...	...	...	...	...	...	...	
   ROR 	ROR 	ROR 	ROR 			                FMUL 	.set2.	.set3.	.set4.	.set5.	.set6.	.set7.	.set8.	
   RCL 	RCL 	RCL 	RCL 			                FCOM 	
@@ -1120,12 +1112,232 @@ F LOCK:	ICEBP	REPNE	REP	HLT	CMC	TEST	TEST	CLC	STC	CLI	STI	CLD	STD	INC	INC
 						IDIV	IDIV	                                                (bad)	(bad)
 						/x (ib)	/x(ib)							
  - 0 -	- 1 -	- 2 -	- 3 - 	- 4 - 	- 5 - 	- 6 - 	- 7 - 	- 8 - 	- 9 - 	- A -	- B - 	- C - 	- D -  - E - 	- F - 
+/
 
 
 
 
+=========================================================================
+16-битный режим		
+v-r/m mod->	seg	00		01		10		11
+xx...000	DS	[BX + SI]	[BX+SI]+disp8	[BX+SI]+disp16	EAX/AX/AL
+xx...001	DS	[BX + DI]	[BX+DI]+disp8	[BX+DI]+disp16	ECX/CX/CL
+xx...010	SS	[BP + SI]	[BP+SI]+disp8	[BP+SI]+disp16	EDX/DX/DL
+xx...011	SS	[BP + DI]	[BP+DI]+disp8	[BP+DI]+disp16	EBX/BX/BL
+xx...100	DS	[SI]		[SI]+disp8	[SI]+disp16	ESP/SP/AH
+xx...101	DS	[DI]		[DI]+disp8	[DI]+disp16	EBP/BP/CH
+xx...110	SS	[disp16]	[BP]+disp8	[BP]+disp16	ESI/SI/DH
+xx...111	DS	[BX]		[BX]+disp8	[BX]+disp16	EDI/DI/BH
+32-битный режим
+v-r/m mod->	seg	00		01		10		11
+xx...000	DS	[EAX]		[EAX]+disp8	[EAX]+disp32	EAX/AX/AL
+xx...001	DS	[ECX]		[ECX]+disp8	[ECX]+disp32	ECX/CX/CL
+xx...010	DS	[EDX]		[EDX]+disp8	[EDX]+disp32	EDX/DX/DL
+xx...011	DS	[EBX]		[EPX]+disp8	[EBX]+disp32	EBX/BX/BL
+xx...100	<sib>	<sib>		<sib>+disp8	<sib>+disp32	ESP/SP/AH
+xx...101	SS	[disp32]	[EBP]+disp8	[EBP]+disp32	EBP/BP/CH
+xx...110	DS	[ESI]		[ESI]+disp8	[ESI]+disp32	ESI/SI/DH
+xx...111	DS	[EDI]		[EDI]+disp8	[EDI]+disp32	EDI/DI/BH
+--------------------------------------------------------------
+  reg		r8	r16	r32	Sreg		SS	*index	+base
+..000...	AL	AX	EAX	es		00.. 1	[EAX]	DS:[EAX]	
+..001...	CL	CX	ECX	cs		01.. 2	[ECX]	DS:[ECX]	
+..010...	DL	DX	EDX	ss		10.. 4	[EDX]	DS:[EDX]	
+..011...	BL	BX	EBX	ds		11.. 8	[EBX]	DS:[EBX]	
+..100...	AH	SP	ESP	fs			none*	??:[ESP]
+..101...	CH	BP	EBP	gs			[EBP]	[**]	
+..110...	DH	SI	ESI				[ESI]	??:[ESI]	
+..111...	BH	DI	EDI				[EDI]	DS:[EDI]	
+none* - [EIZ], EIZ=0 всегда
+** - обозначает DS:disp32 без базового регистра, если mod = 00, и SS:[EBP] в противном случае.
+--------------------------------------------------------------
+0	CF	carry		
+1	1	---
+2	PF	parity		
+3	0	---
+4	AF	auxilary-c. 	
+5	0	---
+6	ZF	zero		
+7	SF	sign		
+8	TF	trace
+9	IF	interrupt enable
+10	DF	direction
+11	OF	overflow	
+12/13	IOPL	in/out privilege level
+14	NT	nested task
+15	0	---
+----------------
+8	TF	trace			int 1 в реальном режиме
+9	IF	interrupt enable	
+10	DF	direction		0 - увеличение адресов, 1 - уменьшение адресов в строковых командах
+12/13	IOPL	in/out privilege level	в защищенном режиме...
+14	NT	nested task		в защищенном режиме...
+----------------
+4	AF	auxilary-c. 	перенос из 3 в 4 разряд
+
+2	PF	parity		четность битов
+
+6	ZF	zero		равенство нулю
+7	SF	sign		знак
+0	CF	carry		перенос
+11	OF	overflow	знаковое переполнение =CF xor перенос в старший разряд
+
+a	above	выше	без знака
+b	below	ниже	без знака
+g	greater	больше	со знаком
+l	less	меньше	со знаком
+
+A 1010	 (PF=1)			p	pe				есть четность	четный
+B 1011	 (PF=0)			np	po				нет четности	нечетный
+
+0 0000	 (OF=1)			o					есть переполнение
+1 0001	 (OF=0)			no					нет переполнения
+8 1000	 (SF=1)			s					есть знак
+9 1001	 (SF=0)			ns					нет знака
+4 0100	 (ZF=1)			z		e	равно		ноль
+5 0101	 (ZF=0)			nz		ne	не равно	не ноль
+
+2 0010	 (CF=1)			c	b	nae	ниже 		есть перенос
+3 0011	 (CF=0)			nc	nb	ae	ниже или равно	нет переноса
+6 0110	 (CF=1 or ZF=1)			na	be	выше или равно
+7 0111	 (CF=0 and ZF=0)		a	nbe	выше 
+
+C 1100	 (SF<>OF)			l	nge	меньше
+D 1101	 (SF=OF)			nl	ge	меньше или равно
+E 1110	 (ZF=1 or SF<>OF)		ng	le	больше или равно
+F 1111	 (ZF=0 and SF=OF)		g	nle	больше
+
+=========================================================================
+0f + byte:
+	0	1	2	3	4	5	6	7	8	9	a	b	c	d	e	f	
+0
+1
+2
+3
+4	CMOVcc--CMOVcc--CMOVcc--CMOVcc--CMOVcc--CMOVcc--CMOVcc--CMOVcc--CMOVcc--CMOVcc--CMOVcc--CMOVcc--CMOVcc--CMOVcc--CMOVcc--CMOVcc--
+5
+6
+7
+8
+9
+a	PUSH----POP-----	BT------SHLD----SHLD----		PUSH----POP-----	BTS-----SHRD----SHRD----	IMUL----
+b	CMPXCHG-CMPXCHG-	BTR----		MOVZX---MOVZX---		xxxx....	BTC-----	MOVSX---MOVSX---
+c	XADD----XADD----					.x......
+d
+e
+f
+one byte:
+	0	1	2	3	4	5	6	7	8	9	a	b	c	d	e	f	
+0	ADD-----ADD-----ADD-----ADD-----ADD-----ADD-----PUSH----POP-----OR------OR------OR------OR------OR------OR------PUSH----~set~
+1	ADC-----ADC-----ADC-----ADC-----ADC-----ADC-----PUSH----POP-----SBB-----SBB-----SBB-----SBB-----SBB-----SBB-----PUSH----POP-----
+2	AND-----AND-----AND-----AND-----AND-----AND-----	DAA-----SUB-----SUB-----SUB-----SUB-----SUB-----SUB-----	DAS-----
+3	XOR-----XOR-----XOR-----XOR-----XOR-----XOR-----	AAA-----CMP-----CMP-----CMP-----CMP-----CMP-----CMP-----	AAS-----
+4	INC-----INC-----INC-----INC-----INC-----INC-----INC-----INC-----DEC-----DEC-----DEC-----DEC-----DEC-----DEC-----DEC-----DEC-----
+5	PUSH----PUSH----PUSH----PUSH----PUSH----PUSH----PUSH----PUSH----POP-----POP-----POP-----POP-----POP-----POP-----POP-----POP-----
+6	PUSHAD--POPAD---						PUSH----IMUL----PUSH----IMUL----
+7
+8	xxxxxxxxxxxxxxxx	xxxxxxxxTEST----TEST----XCHG----XCHG----MOV-----MOV-----MOV-----MOV-----MOV-----LEA--nr-MOV-----x.......
+9	XCHG----XCHG----XCHG----XCHG----XCHG----XCHG----XCHG----XCHG----CWDE----CDQ-----
+a	MOV-----MOV-----MOV-----MOV-----				TEST----TEST----
+b	MOV-----			 				MOV-----
+c	xxxxxx.xxxxxxx.x				MOV-----MOV-----
+d	xxxxxx.xxxxxxx.xxxxxxx.xxxxxxx.xAAM+++++AAD+++++	XLATB---
+e					IN------IN------OUT-----OUT-----				IN------IN------OUT-----OUT-----
+f							x.xxxxxxx.xxxxxx						xx......xx....x.
 
 
+			FLAGS
+		argc	PZSOCA	Процессор
+--- 2.3.1. пересылка данных ---
+MOV		2	------	0
+XCHG		2	------	0
+PUSH		1	------	0	PUSH ESP - начиная с i286 поправили: сначала помещаем, потом сдвигаем
+POP		1	------	0	POP [... ESP...] - сначала сдвигаем, потом помещаем
+		
+CMOVcc		2	------	6
+BSWAP		1	------	4
+PUSHA/PUSHAD	0	------	1	A,C,D,B,SP,BP,SI,DI - в стек. Сначала помещаем, потом сдвигаем
+POPA/POPAD	0	------	1	sp не считывает, а только сдвигает
+	
+IN		2	------	0
+OUT		2	------	0
+	
+CWD/CDQ		0	------	0	dx=sign ax
+CBW/CWDE	0	------	0	ah=sign al
+MOVSX		2	------	3	копирование с расширением знаком
+MOVZX		2	------	3	копирование с расширением нулем
+	
+XLATB		0	------	0	al=es:[bx+al]
+
+LEA		2	------	0
+
+LDS
+LSS
+LES
+LFS
+LGS
+
+		argc	PZSOCA	Процессор
+--- 2.3.2. двоичная арифметика ---
+--- 2.3.4. логические ---
+INC		1	....-.	0
+DEC		1	....-.	0
+
+ADD		2	......	0
+ADC		2	......	0
+SUB		2	......	0
+SBB		2	......	0
+OR		2	.....?	0
+AND		2	.....?	0
+XOR		2	.....?	0
+CMP		2	......	0
+
+IMUL		3	???..?	1	со знаком, старшая часть отбрасывается
+IMUL		2	???..?	3	со знаком, старшая часть отбрасывается
+IMUL		1	???..?	0	со знаком, al,ax,eax*arg -> ah:al,dx:ax,edx:eax
+MUL		1	???..?	0	без знака
+IDIV		1	??????	0	al,ax,eax/arg -> al,ax,eax; al,ax,eax%arg -> ah,dx,edx
+DIV		1	??????	0	-..-
+					при делении на 0 int 0 или искл. #DE
+NEG		1	......	0
+NOT		1	------	0
+TEST		2	.....?	0
+
+XADD		2	......	4	XCHG, ADD
+CMPXCHG		2	......	4	if ax==arg1 then arg1=arg2 else ax=arg1
+CMPXCHG		1	......	5	if edx:eax==arg then arg=exc:ebx else edx:eax=arg
+		argc	PZSOCA	Процессор
+--- 2.3.3. Десятичная арифметика ---
+AAA		0	????..	0	ax, неупакованные, после сложения
+					ASCII Adjust After Addition
+DAA		0	...?..	0	al, упакованные, после сложения
+					—Decimal Adjust AL after Addition
+AAS		0	????..	0	ax, неупакованные, после вычитания
+DAS		0	...?..	0	al, упакованные, после вычитания
+
+AAM		0	...???	0	al->ah:al, двоичное->неупакованное десятичное (после умножения)
+AAD		0	...???	0	ah:al->al, неупакованное десятичное->двоичное (перед делением)
+--- 2.3.5. Сдвиговые ---
+SHL/SAL		1,2	.....?	0,1	0
+SHR		1,2	.....?	0,1	0
+SAR		1,2	.....?	0,1	знак
+ROL		1,2	.....?	0
+ROR		1,2	.....?	0
+RCL		1,2	.....?	0
+RCR		1,2	.....?	0
+		
+SHLD		3	.....?	3	arg1 = сдвиг(arg1_arg2)
+SHRD		3	.....?	3	arg1 = сдвиг(arg2_arg1)
+--- 2.3.6. Над битами и байтами ---
+BT		2	????.?	3	Проверка бита
+BTS		2	????.?	3	Проверка и инверсия бита
+BTR		2	????.?	3	Проверка и сброс бита
+BTC		2	????.?	3	Проверка и установка бита
+
+BSF		2		3	Прямое сканирование битов
+BSR		2		3	Обратное сканирование битов
+
+SETcc
 
 
 
