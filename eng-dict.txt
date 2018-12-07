@@ -35,9 +35,28 @@ severity	строгость
 thumper		толсто, много
 rubbish		мусор
 herald		вестник, глашатай, возвестить
+comprehensive	всеобъемлющий
 
 hop		прыжок
 chunch		грызть, хруст
 stitch		стежок
 
 looks like, and may well be, ...
+
+worst case	в наихудшем случае
+instance	экземпляр
+
+mama jokes	шутки про мамку
+ugly		страшная
+keep on krying	начинает плакать
+insane		ненормальный, душевнобольной
+
+fascination	очарование
+deceptively simple	обманчиво простой
+the bulk of	основная часть
+pivot		стержень, точка опоры, основа
+
+yield		уступать, замещать
+bypass		обход (по структуре объекта)
+residue = remainder
+

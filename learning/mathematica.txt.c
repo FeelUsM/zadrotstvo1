@@ -317,6 +317,7 @@ Precedence[] - старшинство (для операторов?)
 			Union
 			Intersection
 			Complement
+			MemberQ
 		}
 		{преобразования списков
 			Partition[l,n] - разбивает список l на список подсписков длиной n
@@ -536,6 +537,8 @@ Precedence[] - старшинство (для операторов?)
 		Reduce[]
 		NSolve[lhs==rhs,x] - численно решить алгебраическое ур-е
 		FindRoot[lhs==rhs,{x,x0}] - численно найти корень алгебраического ур-я около x0
+		
+		PolynomialQutientRemainder[moly1(x),poly2(x),x] - {q(x),r(x)}
 	}
 	{Лин-Ал
 		490	x.y.z === Dot[x,y,z]
@@ -548,14 +551,15 @@ Precedence[] - старшинство (для операторов?)
 		Det[m]
 		Tr[m]
 
-		Inverse[]
-		RowReduce[]
+		Inverse[m]
+		RowReduce[m] - верхнетреугольная, преобразованиями строк
 
 		PositiveDefiniteMatrixQ[m]
 		PositiveSemidefiniteMatrixQ[m]
 
 		Eigenvalues[] - СЗ
 		EigenSystem[]
+		
 		MatrixExp[]
 		
 		CoefficientArrays[expr,vars, "Symmetric"->True] - Полином/квадратичный функционал -> Массив/матрицу
