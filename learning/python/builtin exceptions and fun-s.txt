@@ -1,0 +1,180 @@
+__builtin__ === __builtins__
+[
+'BaseException',
+	'SystemExit',
+	'KeyboardInterrupt', # C-c
+	'GeneratorExit',
+	'Exception', # базовый класс пользовательских исключений
+		'StopIteration',
+		'StopAsyncIteration',
+		'ArithmeticError',
+			'FloatingPointError',
+			'OverflowError',
+			'ZeroDivisionError',
+		'BufferError',
+		'LookupError',
+			'IndexError',
+			'KeyError',
+		--- 
+		'AssertionError',
+		'EOFError',
+		'ImportError',
+			'ModuleNotFoundError',
+		'NameError',
+			'UnboundLocalError',
+		'MemoryError',
+		'AttributeError',
+		'ReferenceError',
+		'SyntaxError',
+			'IndentationError',
+				'TabError',
+		'TypeError',
+		'RuntimeError',
+			'NotImplementedError',
+			'RecursionError',
+		'ValueError',
+			'UnicodeError',
+				'UnicodeDecodeError',
+				'UnicodeEncodeError',
+				'UnicodeTranslateError',
+		'SystemError',
+		---
+		'EnvironmentError',
+		'IOError',
+		'WindowsError',
+		'OSError',
+			'BlockingIOError',
+			'ChildProcessError',
+			'ConnectionError',
+				'BrokenPipeError',
+				'ConnectionAbortedError',
+				'ConnectionRefusedError',
+				'ConnectionResetError',
+			'FileExistsError',
+			'FileNotFoundError',
+			'InterruptedError',
+			'IsADirectoryError',
+			'NotADirectoryError',
+			'PermissionError',
+			'ProcessLookupError',
+			'TimeoutError',
+		---
+		'Warning',
+			'DeprecationWarning',
+			'PendingDeprecationWarning',
+			'RuntimeWarning',
+			'SyntaxWarning',
+			'UserWarning',
+			'FutureWarning',
+			'ImportWarning',
+			'UnicodeWarning',
+			'BytesWarning',
+			'ResourceWarning',
+-- константы --
+'False',
+'True',
+'None',
+'NotImplemented',
+'Ellipsis',
+'__debug__', - True/False - влияет на assert
+
+'__IPYTHON__',
+'__build_class__',
+'__doc__',
+'__import__',
+'__loader__',
+'__name__',
+'__package__',
+'__spec__',
+
+'abs',		(x)
+'divmod',
+'pow',
+'round',
+
+'bin',		(x)
+'oct',
+'hex',
+'format',
+
+'chr',
+'ord',
+
+'repr',
+'ascii',	(object)
+
+'open',
+'print',
+
+'sum',
+'max',
+'min',
+'all',		(iterable)
+'any',		(iterable)
+
+'bool',		class ([x])
+'int',
+'float',
+'complex',
+'str',
+'bytes',
+'bytearray', - изменяемый bytes
+'tuple',
+'list',
+'frozenset',
+'set',
+'dict',
+
+'id',
+'hash',
+
+'type',
+'object',
+'isinstance',
+'issubclass',
+'staticmethod',
+'property',
+
+'dir',
+'hasattr',
+'getattr',
+'setattr',
+'delattr',
+
+'iter',
+'len',
+'slice',
+'range',
+'next',
+
+---
+'globals',
+'locals',
+
+'callable',
+'classmethod',
+'display',
+'enumerate',
+'filter',
+'get_ipython',
+'input',
+'map',
+'memoryview',
+'reversed',
+'sorted',
+'super',
+'vars',
+'zip'
+
+
+'eval',
+'exec',
+'compile',
+'breakpoint',	(*args, **kws)
+
+'help',
+
+'credits',
+'copyright',
+'license',
+]
