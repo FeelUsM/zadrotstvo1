@@ -1,0 +1,29 @@
+conda
+pip
+libtiff
+
+
+conda install                menuinst
+conda install -c anaconda    jupyter
+conda install -c conda-forge jupyter_contrib_nbextensions
+conda install -c conda-forge jupyterlab
+conda install -c conda-forge nodejs
+conda install -c anaconda    spyder
+
+conda install -c anaconda    ipyparallel
+
+conda install -c anaconda    sympy
+conda install -c conda-forge keras
+	conda install -c conda-forge tensorflow
+	conda install -c conda-forge theano
+conda install -c anaconda    pandas
+conda install -c conda-forge qutip
+	conda install -c anaconda scipy
+		conda install -c anaconda numpy
+	conda install -c anaconda cython
+conda install -c conda-forge matplotlib
+
+conda install -c anaconda    networkx 
+conda install -c anaconda    graphviz
+
+conda install -c c3i_test2   console_shortcut

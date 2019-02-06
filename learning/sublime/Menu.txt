@@ -343,9 +343,9 @@ C-M-S-P			Show Scope Name			show_scope_name
 		Key Bindings
 		Color Scheme...
 		Theme...
-		Font
-			Larger	C-=
-			Smaller	C-S-=
+		Font		
+C-=			Larger				increase_font_size
+C-S-=			Smaller				decrease_font_size
 			Reset
 		Package Settingas
 			Package Control
