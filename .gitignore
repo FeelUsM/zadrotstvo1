@@ -1,12 +1,12 @@
 .directory
 .*.exe
 
-sublime_settings/User/Package Control.last-run
-sublime_settings/User/Package Control.cache/*
-sublime_settings/User/Package Control.sublime-settings
-sublime_settings/User/Preferences.sublime-settings
+program_saves/sublime_settings/User/Package Control.last-run
+program_saves/sublime_settings/User/Package Control.cache/*
+program_saves/sublime_settings/User/Package Control.sublime-settings
+program_saves/sublime_settings/User/Preferences.sublime-settings
 
-dot-qucs/*/*.dat
+program_saves/dot-qucs/*/*.dat
 
 LaTeX-поделки/beamer/mypresentation_1.aux
 LaTeX-поделки/beamer/mypresentation_1.log

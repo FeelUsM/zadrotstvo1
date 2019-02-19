@@ -21,38 +21,3 @@ google:	g++ профилирование
 	Оптимизация C/C++ приложений с помощью GProf: http://www.linuxfocus.org/Russian/March2005/article371.shtml
 	Профилирование программ: http://ssd.sscc.ru/sites/default/files/content/attach/317/lectureprofiling2013.pdf
 google: пользовательское и системное время
-habr:Doxygen: https://habrahabr.ru/post/252101/
-sublime:
-	API Reference:	http://www.sublimetext.com/docs/2/api_reference.html
-	Sublime Text Unofficial Documentation:	http://sublime-text-unofficial-documentation.readthedocs.io/en/sublime-text-2/
-	Настройка Sublime Text 3 для веб-разработки: LiveReload, плагины, фишки:	https://www.youtube.com/watch?v=BXcK3Xvp3-g
-		сайт с пакетами для sublime:	https://packagecontrol.io/about
-	Basic Concepts:	http://docs.sublimetext.info/en/latest/basic_concepts.html
-		google: sublime text документация базовые концепции
-			горячие клавиши: http://www.sublimetext.ru/documentation/hotkeys
-	python reference card:	https://perso.limsi.fr/pointal/_media/python:cours:abregepython-english.pdf
-	st 2 vs st 3 what are the real differences: https://forum.sublimetext.com/t/st-2-vs-st-3-what-are-the-real-differences/13448
-	google:sublime text debugger c++:
-		issue-on-githab:gdb not launch in sublime text 3:	https://github.com/quarnster/SublimeGDB/issues/87
-		Sublime Text 3 build 3047 with SublimeGDB:	https://forum.sublimetext.com/t/sublime-text-3-build-3047-with-sublimegdb/11356
-		DebuggingWithEmacs:	https://www.emacswiki.org/emacs/DebuggingWithEmacs
-			GdbMode:	https://www.emacswiki.org/emacs/GdbMode
-
-			
-			
-			
-фалы в js
-	https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
-	https://developer.mozilla.org/en-US/docs/Web/API/WindowBase64/Base64_encoding_and_decoding#Appendix.3A_Decode_a_Base64_string_to_Uint8Array_or_ArrayBuffer
-	https://developer.mozilla.org/en-US/docs/Web/API/FileReader#readAsArrayBuffer()
-	https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Symbol
-парсеры на хабре:
-	Особенности написания и возможные фичи LR-генераторов	https://habrahabr.ru/post/140441/
-	Написание компилятора LALR(1)-парсеров. Базовая теория	https://habrahabr.ru/post/140058/
-	Как я создавал синтаксический анализатор		https://habrahabr.ru/post/137799/
-	Пишите меньше кода, блин				https://habrahabr.ru/post/308308/
-	http://www.ict.edu.ru/ft/005128//ch7.pdf
-парапланы в МАИ
-	http://www.maiclub.ru/index1.html?buks
-	http://www.maiclub.ru/schule-exersice.html
-	
