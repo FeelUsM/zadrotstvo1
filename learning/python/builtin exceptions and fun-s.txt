@@ -81,100 +81,101 @@ __builtin__ === __builtins__
 '__IPYTHON__',
 '__build_class__',
 '__doc__',
-'__import__',
+'__import__',	(name, globals=None, locals=None, fromlist=(), level=0)
 '__loader__',
 '__name__',
 '__package__',
 '__spec__',
 
 'abs',		(x)
-'divmod',
-'pow',
-'round',
+'divmod',	(a, b)
+'pow',		(x, y[, z])
+'round',	(number[, ndigits])
 
 'bin',		(x)
-'oct',
-'hex',
-'format',
+'oct',		(x)
+'hex',		(x)
+'format',	(value[, format_spec])
 
-'chr',
-'ord',
+'chr',		(i)
+'ord',		(c)
 
-'repr',
+'repr',		(object)
 'ascii',	(object)
 
-'open',
-'print',
+'open',		(file, mode='r', buffering=-1, encoding=None, errors=None, newline=None, closefd=True, opener=None)
+'print',	(*objects, sep=' ', end='\n', file=sys.stdout, flush=False)
+'input',	([prompt])
 
-'sum',
-'max',
-'min',
+'sum',		(iterable[, start])
+'max',		(iterable, *[, key, default])/(arg1, arg2, *args[, key])
+'min',		(iterable, *[, key, default])/(arg1, arg2, *args[, key])
 'all',		(iterable)
 'any',		(iterable)
 
 'bool',		class ([x])
-'int',
-'float',
-'complex',
-'str',
-'bytes',
-'bytearray', - изменяемый bytes
-'tuple',
-'list',
-'frozenset',
-'set',
-'dict',
+'int',		class ([x])/(x, base=10)
+'float',	class ([x])
+'complex',	class ([real[, imag]])
+'str',		class (object='')/(object=b'', encoding='utf-8', errors='strict')
+'bytes',	class ([source[, encoding[, errors]]])
+'bytearray', 	class ([source[, encoding[, errors]]])	- изменяемый bytes
+'tuple',	([iterable])
+'list',		class ([iterable])
+'frozenset',	class ([iterable])
+'set',		class ([iterable])
+'dict',		class (**kwarg)/(mapping, **kwarg)/(iterable, **kwarg)
 
-'id',
-'hash',
+'type',		class (object)/(name, bases, dict)
+'object',	class 
+'isinstance',	(object, classinfo)
+'issubclass',	(class, classinfo)
+'super',	([type[, object-or-type]])
 
-'type',
-'object',
-'isinstance',
-'issubclass',
-'staticmethod',
-'property',
+'staticmethod',	@
+'classmethod',	@
+'property',	class (fget=None, fset=None, fdel=None, doc=None)
 
-'dir',
-'hasattr',
-'getattr',
-'setattr',
-'delattr',
+'hasattr',	(object, name)
+'getattr',	(object, name[, default])
+'setattr',	(object, name, value)
+'delattr',	(object, name)
+'callable',	(object)
 
-'iter',
-'len',
-'slice',
-'range',
-'next',
+'id',		(object)
+'hash',		(object)
+
+'globals',	()
+'locals',	()
+'dir',		([object])
+'vars',		([object])
+
+'iter',		(object[, sentinel])
+'reversed',	(seq)
+'len',		(s)
+'slice',	class (stop)/(start, stop[, step])
+'range',	(stop)/(start, stop[, step])
+'next',		(iterator[, default])
+
+'filter',	(function, iterable)	[i for i in iterable if finction(i)]
+'map',		(function, iterable, ...)
+'enumerate',	(iterable, start=0)	[a,b,c]->[(0,a),(1,b),(2,c)]
+'zip'		(*iterables)
+'sorted',	(iterable, *, key=None, reverse=False)
+
+'memoryview',	(obj)
+
+'eval',		(expression, globals=None, locals=None)
+'exec',		(object[, globals[, locals]])
+'compile',	(source, filename, mode, flags=0, dont_inherit=False, optimize=-1)
+'breakpoint',	(*args, **kws) вызывает отладчик в данной точке
+
+'help',		([object])
 
 ---
-'globals',
-'locals',
-
-'callable',
-'classmethod',
-'display',
-'enumerate',
-'filter',
-'get_ipython',
-'input',
-'map',
-'memoryview',
-'reversed',
-'sorted',
-'super',
-'vars',
-'zip'
-
-
-'eval',
-'exec',
-'compile',
-'breakpoint',	(*args, **kws)
-
-'help',
-
-'credits',
-'copyright',
-'license',
+'display',	???
+'get_ipython',	???
+'credits',	???
+'copyright',	???
+'license',	???
 ]
