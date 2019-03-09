@@ -11,7 +11,7 @@ GAME
 	scene = 5
 	editor = None
 	flag = Squad/Flags/default
-	launchID = 67
+	launchID = 65
 	defaultVABLaunchSite = LaunchPad
 	defaultSPHLaunchSite = Runway
 	modded = True
@@ -202,7 +202,7 @@ GAME
 	{
 		name = ContractSystem
 		scene = 7, 8, 5, 6
-		update = 705427.39692021301
+		update = 702737.0084418928
 		version = 1.6.0
 		WEIGHTS
 		{
@@ -210,7 +210,7 @@ GAME
 			SurveyContract = 87
 			StationContract = 30
 			SentinelContract = 30
-			SatelliteContract = 78
+			SatelliteContract = 66
 			ISRUContract = 30
 			ExplorationContract = 30
 			BaseContract = 30
@@ -235,73 +235,96 @@ GAME
 			Moho = 30
 			Minmus = 30
 			Mun = 86
-			Kerbin = 90
+			Kerbin = 81
 			Sun = 30
 		}
 		CONTRACTS
 		{
 			CONTRACT
 			{
-				guid = 2bbaf4c2-083a-49c6-9ddf-19728751b143
-				type = SatelliteContract
+				guid = 235d1dc9-b8c8-4737-a59e-bf07868d33cf
+				type = SurveyContract
 				prestige = 0
-				seed = -356400346
-				state = Offered
+				seed = 33746882
+				state = Active
 				viewed = Read
-				agent = АгроСпейс Инк.
-				agentName = Sean's Cannery
+				agent = НПО «Эксперимент»
+				agentName = Experimental Engineering Group
 				deadlineType = Floating
 				expiryType = Floating
-				values = 20970.874786377,44667963.2949829,6591.99981689453,17736.5987018585,6719.99969482422,0,1.904762,1,722615.323188594,0,0,0
+				values = 42772.2773551941,45552475.3832817,30299.9997138977,56206.496916771,31499.9985694885,0,8.571429,9,457315.405364393,414557.928009213,45967033.3112909,0
 				targetBody = 1
-				deviation = 7
-				orbitType = 6
-				placementMode = 1
+				centerLatitude = 36.341388577286999
+				centerLongitude = -53.470933005898686
+				dataName = атмосферные ^p
+				anomalyName = аномалии^pf
+				reportName = анализы^pm
+				locationName = Кербин^M
+				focusedSurvey = False
+				targetBand = HIGH
+				contextual = False
 				PARAM
 				{
-					name = SpecificVesselParameter
+					name = SurveyWaypointParameter
 					state = Incomplete
-					values = 0,0,0,0,0
-					TargetBody = 1
-					targetVesselID = 91b9375291434abfba2af21c8a97adfb
-					targetVesselPartCount = 14
-					targetVesselName = для рассчетов, ост. 1471
-					targetVesselSituation = ORBITING
-					partIDs = 1955577762|3633653066|881928910|3590225087|625148428|3277079934|2986054344|4123868904|910803278|203855124|1763675985|1475778765|3534466678|646483512
+					values = 8800,0,3,3,0
+					targetBody = 1
+					actionDescription = Измерить давление
+					experiment = barometerScan
+					flightThreshold = 18000
+					band = 3
+					clusterState = MIXED
+					verified = True
+					contextual = False
+					wpSeed = 993762364
+					wpIndex = 0
+					wpTexture = pressure
+					wpLatitude = 37.041221380799001
+					wpLongitude = -52.696486383083204
+					wpLandlocked = False
+					wpNavigationId = 549c81f5-3f81-488d-bde2-04de64835b36
 				}
 				PARAM
 				{
-					name = VesselSystemsParameter
+					name = SurveyWaypointParameter
 					state = Incomplete
-					values = 0,0,0,0,0
-					typeString = зонд^m
-					mannedStatus = 1
-					requireNew = False
-					checkModuleTypes = Antenna|Generator
-					checkModuleDescriptions = имеет антенну|может снабжать себя электроэнергией
+					values = 8800,0,3,3,0
+					targetBody = 1
+					actionDescription = Измерить давление
+					experiment = barometerScan
+					flightThreshold = 17700
+					band = 3
+					clusterState = MIXED
+					verified = True
+					contextual = False
+					wpSeed = 993762364
+					wpIndex = 1
+					wpTexture = pressure
+					wpLatitude = 33.626084498357777
+					wpLongitude = -53.968265443823654
+					wpLandlocked = False
+					wpNavigationId = 58fb8cbf-8806-490c-8cba-1925c4c4da62
 				}
 				PARAM
 				{
-					name = SpecificOrbitParameter
+					name = SurveyWaypointParameter
 					state = Incomplete
-					values = 0,0,0,0,0
-					TargetBody = 1
-					deviationWindow = 7
-					orbitType = 6
-					inclination = 0.0097811892566327541
-					eccentricity = 0.04800401164771869
-					sma = 716599.06037202757
-					lan = 359.08899458559881
-					argumentOfPeriapsis = 3.9891065249163833
-					meanAnomalyAtEpoch = 0.54636558231860299
-					epoch = 694732.19382126222
-				}
-				PARAM
-				{
-					name = StabilityParameter
-					state = Incomplete
-					values = 0,0,0,0,0
-					holdSeconds = 10
+					values = 8800,0,3,3,0
+					targetBody = 1
+					actionDescription = Измерить давление
+					experiment = barometerScan
+					flightThreshold = 18500
+					band = 3
+					clusterState = MIXED
+					verified = True
+					contextual = False
+					wpSeed = 993762364
+					wpIndex = 2
+					wpTexture = pressure
+					wpLatitude = 39.804289581339319
+					wpLongitude = -52.588069415246039
+					wpLandlocked = False
+					wpNavigationId = f8e26540-debe-470e-87d8-cff217f99887
 				}
 			}
 			CONTRACT
@@ -393,93 +416,6 @@ GAME
 			}
 			CONTRACT
 			{
-				guid = d1e4582e-f5f9-4cee-aad1-ff947c9b84d8
-				type = SurveyContract
-				prestige = 0
-				seed = -1819646953
-				state = Offered
-				viewed = Seen
-				agent = Завод «C7 Космотех»
-				agentName = C7 Aerospace Division
-				deadlineType = Floating
-				expiryType = Floating
-				values = 64800,92016000,60000,111299.994945526,62999.9971389771,0,8.571429,9,755433.424190786,0,0,0
-				targetBody = 2
-				centerLatitude = 14.929114417441435
-				centerLongitude = 173.73951829678356
-				dataName = мониторинговые ^p
-				anomalyName = непостоянства^pn
-				reportName = наблюдения^pn
-				locationName = Муна^F
-				focusedSurvey = False
-				targetBand = HIGH
-				contextual = False
-				PARAM
-				{
-					name = SurveyWaypointParameter
-					state = Incomplete
-					values = 17600,0,3,3,0
-					targetBody = 2
-					actionDescription = Подготовить доклад экипажа
-					experiment = crewReport
-					flightThreshold = 8300
-					band = 3
-					clusterState = MIXED
-					verified = True
-					contextual = False
-					wpSeed = -1666444605
-					wpIndex = 0
-					wpTexture = report
-					wpLatitude = 42.968139072568761
-					wpLongitude = 171.81976983150008
-					wpLandlocked = False
-					wpNavigationId = e40ffdd3-9c35-4ceb-b476-f7167521fa4a
-				}
-				PARAM
-				{
-					name = SurveyWaypointParameter
-					state = Incomplete
-					values = 17600,0,3,3,0
-					targetBody = 2
-					actionDescription = Подготовить доклад экипажа
-					experiment = crewReport
-					flightThreshold = 10400
-					band = 3
-					clusterState = MIXED
-					verified = True
-					contextual = False
-					wpSeed = -1666444605
-					wpIndex = 1
-					wpTexture = report
-					wpLatitude = 14.18555411759827
-					wpLongitude = -179.00239850091393
-					wpLandlocked = False
-					wpNavigationId = 293da7dc-9e4c-4083-b2c2-e2a5cb092c8d
-				}
-				PARAM
-				{
-					name = SurveyWaypointParameter
-					state = Incomplete
-					values = 17600,0,3,3,0
-					targetBody = 2
-					actionDescription = Подготовить доклад экипажа
-					experiment = crewReport
-					flightThreshold = 9300
-					band = 3
-					clusterState = MIXED
-					verified = True
-					contextual = False
-					wpSeed = -1666444605
-					wpIndex = 2
-					wpTexture = report
-					wpLatitude = 12.178057049187753
-					wpLongitude = 172.81290864671854
-					wpLandlocked = False
-					wpNavigationId = 51ffbc21-a236-4428-93e3-c4d2ce7002c6
-				}
-			}
-			CONTRACT
-			{
 				guid = cc16ba45-a818-4ef7-bc93-9e7b7073d213
 				type = CollectScience
 				prestige = 0
@@ -500,282 +436,6 @@ GAME
 					values = 0,0,0,0,0
 					body = 2
 					location = Space
-				}
-			}
-			CONTRACT
-			{
-				guid = c085398f-47ef-4452-8a09-e82427deb0a9
-				type = RecoverAsset
-				prestige = 0
-				seed = -636121708
-				state = Offered
-				viewed = Seen
-				agent = Ионик Синхрофазотроника
-				agentName = Ionic Symphonic Protonic Electronics
-				deadlineType = Floating
-				expiryType = Floating
-				values = 64800,46008000,23400,53460,23400,0,9,9,768397.182973384,0,0,0
-				targetBody = 1
-				kerbalName = Энгер Керман
-				partName = MK1CrewCabin
-				partID = 0
-				recoveryLocation = 1
-				recoveryType = 1
-				PARAM
-				{
-					name = AcquireCrew
-					state = Incomplete
-					values = 5940,0,0,4,0
-					title = Спасти кербала Энгер Керман
-					winOn = 0
-				}
-				PARAM
-				{
-					name = RecoverKerbal
-					state = Incomplete
-					values = 0,0,0,0,0
-					title = Вернуть Энгер Керман на поверхность Кербина
-					failOn = All
-					winOn = All
-				}
-			}
-			CONTRACT
-			{
-				guid = 689ad5f8-59ba-4559-88f4-6c36c5cf442f
-				type = SatelliteContract
-				prestige = 1
-				seed = -114322196
-				state = Active
-				viewed = Read
-				agent = Авиасалон «Филлин»
-				agentName = WinterOwl Aircraft Emporium
-				deadlineType = Floating
-				expiryType = Floating
-				values = 61714.2897605896,43817145.7300186,10619.469165802,29933.6293598983,13200.0002861023,0,5.087906,1.886792,760090.297177279,704066.416918946,44521212.1469375,0
-				targetBody = 1
-				deviation = 5
-				orbitType = 6
-				placementMode = 1
-				PARAM
-				{
-					name = SpecificVesselParameter
-					state = Incomplete
-					disableOnStateChange = False
-					values = 0,0,0,0,0
-					TargetBody = 1
-					targetVesselID = 91b9375291434abfba2af21c8a97adfb
-					targetVesselPartCount = 14
-					targetVesselName = для рассчетов, ост. 1471
-					targetVesselSituation = ORBITING
-					partIDs = 1955577762|3633653066|881928910|3590225087|625148428|3277079934|2986054344|4123868904|910803278|203855124|1763675985|1475778765|3534466678|646483512
-				}
-				PARAM
-				{
-					name = VesselSystemsParameter
-					state = Incomplete
-					disableOnStateChange = False
-					values = 0,0,0,0,0
-					typeString = зонд^m
-					mannedStatus = 1
-					requireNew = False
-					checkModuleTypes = Antenna|Generator
-					checkModuleDescriptions = имеет антенну|может снабжать себя электроэнергией
-				}
-				PARAM
-				{
-					name = SpecificOrbitParameter
-					state = Incomplete
-					disableOnStateChange = False
-					values = 0,0,0,0,0
-					TargetBody = 1
-					deviationWindow = 5
-					orbitType = 6
-					inclination = 0.0097811892566327541
-					eccentricity = 0.0026842343165120919
-					sma = 755221.95066333865
-					lan = 359.08899458559881
-					argumentOfPeriapsis = 3.9891065249163833
-					meanAnomalyAtEpoch = 0.54636558231860299
-					epoch = 694732.19382126222
-				}
-				PARAM
-				{
-					name = StabilityParameter
-					state = Complete
-					disableOnStateChange = False
-					values = 0,0,0,0,0
-					holdSeconds = 10
-				}
-			}
-			CONTRACT
-			{
-				guid = 0dc8ab34-e2d9-48b7-bc69-cf2fa0846e54
-				type = TourismContract
-				prestige = 1
-				seed = 1906139765
-				state = Offered
-				viewed = Seen
-				agent = Корпорация «Rokea»
-				agentName = Rokea Inc
-				deadlineType = Floating
-				expiryType = Floating
-				values = 89285.7119441033,76071426.576376,0,0,0,0,24.01372,12,756405.056350203,0,0,0
-				preposition = системы Кербина
-				homeDestinations = False
-				isGeeAdventure = False
-				tourists = Олег Керман|Гембэль Керман
-				PARAM
-				{
-					name = KerbalTourParameter
-					state = Incomplete
-					allowPartialFailure = True
-					values = 73125,0,0,0,0
-					kerbalName = Олег Керман
-					kerbalGender = Male
-					PARAM
-					{
-						name = KerbalDestinationParameter
-						state = Incomplete
-						values = 8125,0,0,0,0
-						targetBody = 1
-						targetType = Orbit
-						kerbalName = Олег Керман
-					}
-					PARAM
-					{
-						name = KerbalDestinationParameter
-						state = Incomplete
-						values = 8125,0,0,0,0
-						targetBody = 1
-						targetType = Suborbit
-						kerbalName = Олег Керман
-					}
-					PARAM
-					{
-						name = KerbalDestinationParameter
-						state = Incomplete
-						values = 8125,0,0,0,0
-						targetBody = 2
-						targetType = Orbit
-						kerbalName = Олег Керман
-					}
-				}
-				PARAM
-				{
-					name = KerbalTourParameter
-					state = Incomplete
-					allowPartialFailure = True
-					values = 48750,0,0,0,0
-					kerbalName = Гембэль Керман
-					kerbalGender = Female
-					PARAM
-					{
-						name = KerbalDestinationParameter
-						state = Incomplete
-						values = 8125,0,0,0,0
-						targetBody = 1
-						targetType = Suborbit
-						kerbalName = Гембэль Керман
-					}
-					PARAM
-					{
-						name = KerbalDestinationParameter
-						state = Incomplete
-						values = 8125,0,0,0,0
-						targetBody = 2
-						targetType = Flyby
-						kerbalName = Гембэль Керман
-					}
-				}
-			}
-			CONTRACT
-			{
-				guid = b3fd56c1-6549-49a1-866a-427809d9e36f
-				type = TourismContract
-				prestige = 1
-				seed = -892832189
-				state = Offered
-				viewed = Seen
-				agent = Zаряд Электроникс
-				agentName = Zaltonic Electronics
-				deadlineType = Floating
-				expiryType = Floating
-				values = 129600,92016000,0,0,0,0,20.25603,10.90909,806403.966140363,0,0,0
-				preposition = системы Кербина
-				homeDestinations = False
-				isGeeAdventure = False
-				tourists = Кагрид Керман|Джилбет Керман
-				PARAM
-				{
-					name = KerbalTourParameter
-					state = Incomplete
-					allowPartialFailure = True
-					values = 73125,0,0,0,0
-					kerbalName = Кагрид Керман
-					kerbalGender = Female
-					PARAM
-					{
-						name = KerbalDestinationParameter
-						state = Incomplete
-						values = 8125,0,0,0,0
-						targetBody = 1
-						targetType = Orbit
-						kerbalName = Кагрид Керман
-					}
-					PARAM
-					{
-						name = KerbalDestinationParameter
-						state = Incomplete
-						values = 8125,0,0,0,0
-						targetBody = 1
-						targetType = Suborbit
-						kerbalName = Кагрид Керман
-					}
-					PARAM
-					{
-						name = KerbalDestinationParameter
-						state = Incomplete
-						values = 8125,0,0,0,0
-						targetBody = 2
-						targetType = Flyby
-						kerbalName = Кагрид Керман
-					}
-				}
-				PARAM
-				{
-					name = KerbalTourParameter
-					state = Incomplete
-					allowPartialFailure = True
-					values = 73125,0,0,0,0
-					kerbalName = Джилбет Керман
-					kerbalGender = Female
-					PARAM
-					{
-						name = KerbalDestinationParameter
-						state = Incomplete
-						values = 8125,0,0,0,0
-						targetBody = 2
-						targetType = Flyby
-						kerbalName = Джилбет Керман
-					}
-					PARAM
-					{
-						name = KerbalDestinationParameter
-						state = Incomplete
-						values = 8125,0,0,0,0
-						targetBody = 2
-						targetType = Land
-						kerbalName = Джилбет Керман
-					}
-					PARAM
-					{
-						name = KerbalDestinationParameter
-						state = Incomplete
-						values = 8125,0,0,0,0
-						targetBody = 2
-						targetType = Orbit
-						kerbalName = Джилбет Керман
-					}
 				}
 			}
 			CONTRACT
@@ -888,43 +548,6 @@ GAME
 			}
 			CONTRACT
 			{
-				guid = 4d3a84d2-864f-4f3d-b9ef-4e557e95f96d
-				type = RecoverAsset
-				prestige = 1
-				seed = -1085450131
-				state = Offered
-				viewed = Seen
-				agent = Авиасалон «Филлин»
-				agentName = WinterOwl Aircraft Emporium
-				deadlineType = Floating
-				expiryType = Floating
-				values = 61714.2897605896,87634291.4600372,51769.9121832848,130101.774437412,64350.0013947487,0,12.21097,11.32075,753648.287565564,0,0,0
-				targetBody = 2
-				kerbalName = Оргин Керман
-				partName = kv1Pod
-				partID = 0
-				recoveryLocation = 2
-				recoveryType = 1
-				PARAM
-				{
-					name = AcquireCrew
-					state = Incomplete
-					values = 14850,0,0,5,0
-					title = Спасти кербала Оргин Керман
-					winOn = 0
-				}
-				PARAM
-				{
-					name = RecoverKerbal
-					state = Incomplete
-					values = 0,0,0,0,0
-					title = Вернуть Оргин Керман на поверхность Кербина
-					failOn = All
-					winOn = All
-				}
-			}
-			CONTRACT
-			{
 				guid = 020db234-ea33-492b-8112-a0997b6a5b93
 				type = PartTest
 				prestige = 2
@@ -965,7 +588,7 @@ GAME
 					PARAM
 					{
 						name = ReachSituation
-						state = Complete
+						state = Incomplete
 						disableOnStateChange = False
 						values = 0,0,0,0,0
 						sit = ORBITING
@@ -1182,6 +805,429 @@ GAME
 					wpLongitude = -160.64772517962851
 					wpLandlocked = False
 					wpNavigationId = 165d8d03-4405-4d73-a4cd-a03f82c97835
+				}
+			}
+			CONTRACT
+			{
+				guid = 0dc8ab34-e2d9-48b7-bc69-cf2fa0846e54
+				type = TourismContract
+				prestige = 1
+				seed = 1906139765
+				state = Offered
+				viewed = Unseen
+				agent = Корпорация «Rokea»
+				agentName = Rokea Inc
+				deadlineType = Floating
+				expiryType = Floating
+				values = 89285.7119441033,76071426.576376,0,0,0,0,24.01372,12,756405.056350203,0,0,0
+				preposition = системы Кербина
+				homeDestinations = False
+				isGeeAdventure = False
+				tourists = Олег Керман|Гембэль Керман
+				PARAM
+				{
+					name = KerbalTourParameter
+					state = Incomplete
+					allowPartialFailure = True
+					values = 73125,0,0,0,0
+					kerbalName = Олег Керман
+					kerbalGender = Male
+					PARAM
+					{
+						name = KerbalDestinationParameter
+						state = Incomplete
+						values = 8125,0,0,0,0
+						targetBody = 1
+						targetType = Orbit
+						kerbalName = Олег Керман
+					}
+					PARAM
+					{
+						name = KerbalDestinationParameter
+						state = Incomplete
+						values = 8125,0,0,0,0
+						targetBody = 1
+						targetType = Suborbit
+						kerbalName = Олег Керман
+					}
+					PARAM
+					{
+						name = KerbalDestinationParameter
+						state = Incomplete
+						values = 8125,0,0,0,0
+						targetBody = 2
+						targetType = Orbit
+						kerbalName = Олег Керман
+					}
+				}
+				PARAM
+				{
+					name = KerbalTourParameter
+					state = Incomplete
+					allowPartialFailure = True
+					values = 48750,0,0,0,0
+					kerbalName = Гембэль Керман
+					kerbalGender = Female
+					PARAM
+					{
+						name = KerbalDestinationParameter
+						state = Incomplete
+						values = 8125,0,0,0,0
+						targetBody = 1
+						targetType = Suborbit
+						kerbalName = Гембэль Керман
+					}
+					PARAM
+					{
+						name = KerbalDestinationParameter
+						state = Incomplete
+						values = 8125,0,0,0,0
+						targetBody = 2
+						targetType = Flyby
+						kerbalName = Гембэль Керман
+					}
+				}
+			}
+			CONTRACT
+			{
+				guid = b3fd56c1-6549-49a1-866a-427809d9e36f
+				type = TourismContract
+				prestige = 1
+				seed = -892832189
+				state = Offered
+				viewed = Unseen
+				agent = Zаряд Электроникс
+				agentName = Zaltonic Electronics
+				deadlineType = Floating
+				expiryType = Floating
+				values = 129600,92016000,0,0,0,0,20.25603,10.90909,806403.966140363,0,0,0
+				preposition = системы Кербина
+				homeDestinations = False
+				isGeeAdventure = False
+				tourists = Кагрид Керман|Джилбет Керман
+				PARAM
+				{
+					name = KerbalTourParameter
+					state = Incomplete
+					allowPartialFailure = True
+					values = 73125,0,0,0,0
+					kerbalName = Кагрид Керман
+					kerbalGender = Female
+					PARAM
+					{
+						name = KerbalDestinationParameter
+						state = Incomplete
+						values = 8125,0,0,0,0
+						targetBody = 1
+						targetType = Orbit
+						kerbalName = Кагрид Керман
+					}
+					PARAM
+					{
+						name = KerbalDestinationParameter
+						state = Incomplete
+						values = 8125,0,0,0,0
+						targetBody = 1
+						targetType = Suborbit
+						kerbalName = Кагрид Керман
+					}
+					PARAM
+					{
+						name = KerbalDestinationParameter
+						state = Incomplete
+						values = 8125,0,0,0,0
+						targetBody = 2
+						targetType = Flyby
+						kerbalName = Кагрид Керман
+					}
+				}
+				PARAM
+				{
+					name = KerbalTourParameter
+					state = Incomplete
+					allowPartialFailure = True
+					values = 73125,0,0,0,0
+					kerbalName = Джилбет Керман
+					kerbalGender = Female
+					PARAM
+					{
+						name = KerbalDestinationParameter
+						state = Incomplete
+						values = 8125,0,0,0,0
+						targetBody = 2
+						targetType = Flyby
+						kerbalName = Джилбет Керман
+					}
+					PARAM
+					{
+						name = KerbalDestinationParameter
+						state = Incomplete
+						values = 8125,0,0,0,0
+						targetBody = 2
+						targetType = Land
+						kerbalName = Джилбет Керман
+					}
+					PARAM
+					{
+						name = KerbalDestinationParameter
+						state = Incomplete
+						values = 8125,0,0,0,0
+						targetBody = 2
+						targetType = Orbit
+						kerbalName = Джилбет Керман
+					}
+				}
+			}
+			CONTRACT
+			{
+				guid = d1e4582e-f5f9-4cee-aad1-ff947c9b84d8
+				type = SurveyContract
+				prestige = 0
+				seed = -1819646953
+				state = Offered
+				viewed = Unseen
+				agent = Завод «C7 Космотех»
+				agentName = C7 Aerospace Division
+				deadlineType = Floating
+				expiryType = Floating
+				values = 64800,92016000,60000,111299.994945526,62999.9971389771,0,8.571429,9,755433.424190786,0,0,0
+				targetBody = 2
+				centerLatitude = 14.929114417441435
+				centerLongitude = 173.73951829678356
+				dataName = мониторинговые ^p
+				anomalyName = непостоянства^pn
+				reportName = наблюдения^pn
+				locationName = Муна^F
+				focusedSurvey = False
+				targetBand = HIGH
+				contextual = False
+				PARAM
+				{
+					name = SurveyWaypointParameter
+					state = Incomplete
+					values = 17600,0,3,3,0
+					targetBody = 2
+					actionDescription = Подготовить доклад экипажа
+					experiment = crewReport
+					flightThreshold = 8300
+					band = 3
+					clusterState = MIXED
+					verified = True
+					contextual = False
+					wpSeed = -1666444605
+					wpIndex = 0
+					wpTexture = report
+					wpLatitude = 42.968139072568761
+					wpLongitude = 171.81976983150008
+					wpLandlocked = False
+					wpNavigationId = e40ffdd3-9c35-4ceb-b476-f7167521fa4a
+				}
+				PARAM
+				{
+					name = SurveyWaypointParameter
+					state = Incomplete
+					values = 17600,0,3,3,0
+					targetBody = 2
+					actionDescription = Подготовить доклад экипажа
+					experiment = crewReport
+					flightThreshold = 10400
+					band = 3
+					clusterState = MIXED
+					verified = True
+					contextual = False
+					wpSeed = -1666444605
+					wpIndex = 1
+					wpTexture = report
+					wpLatitude = 14.18555411759827
+					wpLongitude = -179.00239850091393
+					wpLandlocked = False
+					wpNavigationId = 293da7dc-9e4c-4083-b2c2-e2a5cb092c8d
+				}
+				PARAM
+				{
+					name = SurveyWaypointParameter
+					state = Incomplete
+					values = 17600,0,3,3,0
+					targetBody = 2
+					actionDescription = Подготовить доклад экипажа
+					experiment = crewReport
+					flightThreshold = 9300
+					band = 3
+					clusterState = MIXED
+					verified = True
+					contextual = False
+					wpSeed = -1666444605
+					wpIndex = 2
+					wpTexture = report
+					wpLatitude = 12.178057049187753
+					wpLongitude = 172.81290864671854
+					wpLandlocked = False
+					wpNavigationId = 51ffbc21-a236-4428-93e3-c4d2ce7002c6
+				}
+			}
+			CONTRACT
+			{
+				guid = 4d3a84d2-864f-4f3d-b9ef-4e557e95f96d
+				type = RecoverAsset
+				prestige = 1
+				seed = -1085450131
+				state = Offered
+				viewed = Unseen
+				agent = Авиасалон «Филлин»
+				agentName = WinterOwl Aircraft Emporium
+				deadlineType = Floating
+				expiryType = Floating
+				values = 61714.2897605896,87634291.4600372,51769.9121832848,130101.774437412,64350.0013947487,0,12.21097,11.32075,753648.287565564,0,0,0
+				targetBody = 2
+				kerbalName = Оргин Керман
+				partName = kv1Pod
+				partID = 0
+				recoveryLocation = 2
+				recoveryType = 1
+				PARAM
+				{
+					name = AcquireCrew
+					state = Incomplete
+					values = 14850,0,0,5,0
+					title = Спасти кербала Оргин Керман
+					winOn = 0
+				}
+				PARAM
+				{
+					name = RecoverKerbal
+					state = Incomplete
+					values = 0,0,0,0,0
+					title = Вернуть Оргин Керман на поверхность Кербина
+					failOn = All
+					winOn = All
+				}
+			}
+			CONTRACT
+			{
+				guid = 689ad5f8-59ba-4559-88f4-6c36c5cf442f
+				type = SatelliteContract
+				prestige = 1
+				seed = -114322196
+				state = Offered
+				viewed = Unseen
+				agent = Авиасалон «Филлин»
+				agentName = WinterOwl Aircraft Emporium
+				deadlineType = Floating
+				expiryType = Floating
+				values = 61714.2897605896,43817145.7300186,10619.469165802,29933.6293598983,13200.0002861023,0,5.087906,1.886792,760090.297177279,0,0,0
+				targetBody = 1
+				deviation = 5
+				orbitType = 6
+				placementMode = 1
+				PARAM
+				{
+					name = SpecificVesselParameter
+					state = Incomplete
+					values = 0,0,0,0,0
+					TargetBody = 1
+					targetVesselID = 91b9375291434abfba2af21c8a97adfb
+					targetVesselPartCount = 14
+					targetVesselName = для рассчетов, ост. 1471
+					targetVesselSituation = ORBITING
+					partIDs = 1955577762|3633653066|881928910|3590225087|625148428|3277079934|2986054344|4123868904|910803278|203855124|1763675985|1475778765|3534466678|646483512
+				}
+				PARAM
+				{
+					name = VesselSystemsParameter
+					state = Incomplete
+					values = 0,0,0,0,0
+					typeString = зонд^m
+					mannedStatus = 1
+					requireNew = False
+					checkModuleTypes = Antenna|Generator
+					checkModuleDescriptions = имеет антенну|может снабжать себя электроэнергией
+				}
+				PARAM
+				{
+					name = SpecificOrbitParameter
+					state = Incomplete
+					values = 0,0,0,0,0
+					TargetBody = 1
+					deviationWindow = 5
+					orbitType = 6
+					inclination = 0.0097811892566327541
+					eccentricity = 0.0026842343165120919
+					sma = 755221.95066333865
+					lan = 359.08899458559881
+					argumentOfPeriapsis = 3.9891065249163833
+					meanAnomalyAtEpoch = 0.54636558231860299
+					epoch = 694732.19382126222
+				}
+				PARAM
+				{
+					name = StabilityParameter
+					state = Incomplete
+					values = 0,0,0,0,0
+					holdSeconds = 10
+				}
+			}
+			CONTRACT
+			{
+				guid = 2bbaf4c2-083a-49c6-9ddf-19728751b143
+				type = SatelliteContract
+				prestige = 0
+				seed = -356400346
+				state = Offered
+				viewed = Unseen
+				agent = АгроСпейс Инк.
+				agentName = Sean's Cannery
+				deadlineType = Floating
+				expiryType = Floating
+				values = 20970.874786377,44667963.2949829,6591.99981689453,17736.5987018585,6719.99969482422,0,1.904762,1,722615.323188594,0,0,0
+				targetBody = 1
+				deviation = 7
+				orbitType = 6
+				placementMode = 1
+				PARAM
+				{
+					name = SpecificVesselParameter
+					state = Incomplete
+					values = 0,0,0,0,0
+					TargetBody = 1
+					targetVesselID = 91b9375291434abfba2af21c8a97adfb
+					targetVesselPartCount = 14
+					targetVesselName = для рассчетов, ост. 1471
+					targetVesselSituation = ORBITING
+					partIDs = 1955577762|3633653066|881928910|3590225087|625148428|3277079934|2986054344|4123868904|910803278|203855124|1763675985|1475778765|3534466678|646483512
+				}
+				PARAM
+				{
+					name = VesselSystemsParameter
+					state = Incomplete
+					values = 0,0,0,0,0
+					typeString = зонд^m
+					mannedStatus = 1
+					requireNew = False
+					checkModuleTypes = Antenna|Generator
+					checkModuleDescriptions = имеет антенну|может снабжать себя электроэнергией
+				}
+				PARAM
+				{
+					name = SpecificOrbitParameter
+					state = Incomplete
+					values = 0,0,0,0,0
+					TargetBody = 1
+					deviationWindow = 7
+					orbitType = 6
+					inclination = 0.0097811892566327541
+					eccentricity = 0.04800401164771869
+					sma = 716599.06037202757
+					lan = 359.08899458559881
+					argumentOfPeriapsis = 3.9891065249163833
+					meanAnomalyAtEpoch = 0.54636558231860299
+					epoch = 694732.19382126222
+				}
+				PARAM
+				{
+					name = StabilityParameter
+					state = Incomplete
+					values = 0,0,0,0,0
+					holdSeconds = 10
 				}
 			}
 			CONTRACT_FINISHED
@@ -4792,96 +4838,6 @@ GAME
 					wpNavigationId = df6533df-76f1-443f-9657-6f3aaf281eb0
 				}
 			}
-			CONTRACT_FINISHED
-			{
-				guid = 235d1dc9-b8c8-4737-a59e-bf07868d33cf
-				type = SurveyContract
-				prestige = 0
-				seed = 33746882
-				state = Completed
-				viewed = Read
-				agent = НПО «Эксперимент»
-				agentName = Experimental Engineering Group
-				deadlineType = Floating
-				expiryType = Floating
-				values = 42772.2773551941,45552475.3832817,30299.9997138977,56206.496916771,31499.9985694885,0,8.571429,9,457315.405364393,414557.928009213,45967033.3112909,0
-				targetBody = 1
-				centerLatitude = 36.341388577286999
-				centerLongitude = -53.470933005898686
-				dataName = атмосферные ^p
-				anomalyName = аномалии^pf
-				reportName = анализы^pm
-				locationName = Кербин^M
-				focusedSurvey = False
-				targetBand = HIGH
-				contextual = False
-				PARAM
-				{
-					name = SurveyWaypointParameter
-					enabled = False
-					state = Complete
-					values = 0,0,0,0,0
-					targetBody = 1
-					actionDescription = Измерить давление
-					experiment = barometerScan
-					flightThreshold = 18000
-					band = 3
-					clusterState = MIXED
-					verified = True
-					contextual = False
-					wpSeed = 993762364
-					wpIndex = 0
-					wpTexture = pressure
-					wpLatitude = 37.041221380799001
-					wpLongitude = -52.696486383083204
-					wpLandlocked = False
-					wpNavigationId = 549c81f5-3f81-488d-bde2-04de64835b36
-				}
-				PARAM
-				{
-					name = SurveyWaypointParameter
-					enabled = False
-					state = Complete
-					values = 0,0,0,0,0
-					targetBody = 1
-					actionDescription = Измерить давление
-					experiment = barometerScan
-					flightThreshold = 17700
-					band = 3
-					clusterState = MIXED
-					verified = True
-					contextual = False
-					wpSeed = 993762364
-					wpIndex = 1
-					wpTexture = pressure
-					wpLatitude = 33.626084498357777
-					wpLongitude = -53.968265443823654
-					wpLandlocked = False
-					wpNavigationId = 58fb8cbf-8806-490c-8cba-1925c4c4da62
-				}
-				PARAM
-				{
-					name = SurveyWaypointParameter
-					enabled = False
-					state = Complete
-					values = 0,0,0,0,0
-					targetBody = 1
-					actionDescription = Измерить давление
-					experiment = barometerScan
-					flightThreshold = 18500
-					band = 3
-					clusterState = MIXED
-					verified = True
-					contextual = False
-					wpSeed = 993762364
-					wpIndex = 2
-					wpTexture = pressure
-					wpLatitude = 39.804289581339319
-					wpLongitude = -52.588069415246039
-					wpLandlocked = False
-					wpNavigationId = f8e26540-debe-470e-87d8-cff217f99887
-				}
-			}
 		}
 	}
 	SCENARIO
@@ -4894,7 +4850,7 @@ GAME
 	{
 		name = Funding
 		scene = 7, 8, 5, 6
-		funds = 406394.64259308495
+		funds = 331236.67652577074
 	}
 	SCENARIO
 	{
@@ -5151,7 +5107,7 @@ GAME
 	{
 		name = ResearchAndDevelopment
 		scene = 7, 8, 5, 6
-		sci = 154.761581
+		sci = 145.417847
 		Tech
 		{
 			id = start
@@ -5188,28 +5144,6 @@ GAME
 			part = solidBooster
 			part = solidBooster.v2
 			part = liquidEngine2
-			part = fuelTankSmallFlat
-			part = fuelTankSmallFlat
-			part = fuelTankSmallFlat
-			part = fuelTankSmallFlat
-			part = fuelTankSmallFlat
-			part = fuelTankSmallFlat
-			part = fuelTankSmallFlat
-			part = fuelTankSmallFlat
-			part = fuelTankSmallFlat
-			part = fuelTankSmallFlat
-			part = fuelTankSmallFlat
-			part = fuelTankSmallFlat
-			part = fuelTankSmallFlat
-			part = fuelTankSmallFlat
-			part = fuelTankSmallFlat
-			part = fuelTankSmallFlat
-			part = fuelTankSmallFlat
-			part = fuelTankSmallFlat
-			part = fuelTankSmallFlat
-			part = fuelTankSmallFlat
-			part = fuelTankSmallFlat
-			part = fuelTankSmallFlat
 			part = fuelTankSmallFlat
 			part = fuelTankSmallFlat
 			part = fuelTankSmallFlat
@@ -6945,28 +6879,6 @@ GAME
 			part = fuelTankSmall
 			part = fuelTankSmall
 			part = fuelTankSmall
-			part = fuelTankSmall
-			part = fuelTankSmall
-			part = fuelTankSmall
-			part = fuelTankSmall
-			part = fuelTankSmall
-			part = fuelTankSmall
-			part = fuelTankSmall
-			part = fuelTankSmall
-			part = fuelTankSmall
-			part = fuelTankSmall
-			part = fuelTankSmall
-			part = fuelTankSmall
-			part = fuelTankSmall
-			part = fuelTankSmall
-			part = fuelTankSmall
-			part = fuelTankSmall
-			part = fuelTankSmall
-			part = fuelTankSmall
-			part = fuelTankSmall
-			part = fuelTankSmall
-			part = fuelTankSmall
-			part = fuelTankSmall
 		}
 		Tech
 		{
@@ -6994,28 +6906,6 @@ GAME
 			part = radialLiquidEngine1-2
 			part = liquidEngine3.v2
 			part = liquidEngine3
-			part = fuelTank
-			part = fuelTank
-			part = fuelTank
-			part = fuelTank
-			part = fuelTank
-			part = fuelTank
-			part = fuelTank
-			part = fuelTank
-			part = fuelTank
-			part = fuelTank
-			part = fuelTank
-			part = fuelTank
-			part = fuelTank
-			part = fuelTank
-			part = fuelTank
-			part = fuelTank
-			part = fuelTank
-			part = fuelTank
-			part = fuelTank
-			part = fuelTank
-			part = fuelTank
-			part = fuelTank
 			part = fuelTank
 			part = fuelTank
 			part = fuelTank
@@ -8371,28 +8261,6 @@ GAME
 			part = largeAdapter
 			part = largeAdapter
 			part = largeAdapter
-			part = largeAdapter
-			part = largeAdapter
-			part = largeAdapter
-			part = largeAdapter
-			part = largeAdapter
-			part = largeAdapter
-			part = largeAdapter
-			part = largeAdapter
-			part = largeAdapter
-			part = largeAdapter
-			part = largeAdapter
-			part = largeAdapter
-			part = largeAdapter
-			part = largeAdapter
-			part = largeAdapter
-			part = largeAdapter
-			part = largeAdapter
-			part = largeAdapter
-			part = largeAdapter
-			part = largeAdapter
-			part = largeAdapter
-			part = largeAdapter
 		}
 		Tech
 		{
@@ -8427,28 +8295,6 @@ GAME
 			part = rocketNoseCone
 			part = fairingSize1
 			part = pointyNoseConeA
-			part = largeAdapter2
-			part = largeAdapter2
-			part = largeAdapter2
-			part = largeAdapter2
-			part = largeAdapter2
-			part = largeAdapter2
-			part = largeAdapter2
-			part = largeAdapter2
-			part = largeAdapter2
-			part = largeAdapter2
-			part = largeAdapter2
-			part = largeAdapter2
-			part = largeAdapter2
-			part = largeAdapter2
-			part = largeAdapter2
-			part = largeAdapter2
-			part = largeAdapter2
-			part = largeAdapter2
-			part = largeAdapter2
-			part = largeAdapter2
-			part = largeAdapter2
-			part = largeAdapter2
 			part = largeAdapter2
 			part = largeAdapter2
 			part = largeAdapter2
@@ -9353,28 +9199,6 @@ GAME
 			part = fuelTank.long
 			part = fuelTank.long
 			part = fuelTank.long
-			part = fuelTank.long
-			part = fuelTank.long
-			part = fuelTank.long
-			part = fuelTank.long
-			part = fuelTank.long
-			part = fuelTank.long
-			part = fuelTank.long
-			part = fuelTank.long
-			part = fuelTank.long
-			part = fuelTank.long
-			part = fuelTank.long
-			part = fuelTank.long
-			part = fuelTank.long
-			part = fuelTank.long
-			part = fuelTank.long
-			part = fuelTank.long
-			part = fuelTank.long
-			part = fuelTank.long
-			part = fuelTank.long
-			part = fuelTank.long
-			part = fuelTank.long
-			part = fuelTank.long
 		}
 		Tech
 		{
@@ -9452,50 +9276,6 @@ GAME
 			part = adapterSmallMiniTall
 			part = adapterSmallMiniShort
 			part = Separator.0
-			part = adapterSmallMiniShort
-			part = adapterSmallMiniTall
-			part = adapterSmallMiniShort
-			part = adapterSmallMiniTall
-			part = adapterSmallMiniShort
-			part = adapterSmallMiniTall
-			part = adapterSmallMiniShort
-			part = adapterSmallMiniTall
-			part = adapterSmallMiniShort
-			part = adapterSmallMiniTall
-			part = adapterSmallMiniShort
-			part = adapterSmallMiniTall
-			part = adapterSmallMiniShort
-			part = adapterSmallMiniTall
-			part = adapterSmallMiniShort
-			part = adapterSmallMiniTall
-			part = adapterSmallMiniShort
-			part = adapterSmallMiniTall
-			part = adapterSmallMiniShort
-			part = adapterSmallMiniTall
-			part = adapterSmallMiniShort
-			part = adapterSmallMiniTall
-			part = adapterSmallMiniShort
-			part = adapterSmallMiniTall
-			part = adapterSmallMiniShort
-			part = adapterSmallMiniTall
-			part = adapterSmallMiniShort
-			part = adapterSmallMiniTall
-			part = adapterSmallMiniShort
-			part = adapterSmallMiniTall
-			part = adapterSmallMiniShort
-			part = adapterSmallMiniTall
-			part = adapterSmallMiniShort
-			part = adapterSmallMiniTall
-			part = adapterSmallMiniShort
-			part = adapterSmallMiniTall
-			part = adapterSmallMiniShort
-			part = adapterSmallMiniTall
-			part = adapterSmallMiniShort
-			part = adapterSmallMiniTall
-			part = adapterSmallMiniShort
-			part = adapterSmallMiniTall
-			part = adapterSmallMiniShort
-			part = adapterSmallMiniTall
 			part = adapterSmallMiniShort
 			part = adapterSmallMiniTall
 			part = adapterSmallMiniShort
@@ -11604,7 +11384,7 @@ GAME
 	{
 		name = Reputation
 		scene = 7, 8, 5, 6
-		rep = 623.812012
+		rep = 617.571289
 	}
 	SCENARIO
 	{
@@ -12189,28 +11969,28 @@ GAME
 				}
 				Item
 				{
-					VesselID = 91b93752-9143-4abf-ba2a-f21c8a97adfb
-					ID = 70a0c40000b649da9b1bf9cba4a43299
-					Name = для рассчетов, ост. 1471
-					NotesStorage = Time to pay attention to\r\n    для рассчетов, ост. 1471\r\nNearing Maneuver Node
-					TypeOfAlarm = Maneuver
-					AlarmTimeStorage = 705825.15313948679
-					AlarmMarginSecs = 60
+					VesselID = 
+					ID = 07de3f309b40468992a89cb05264235a
+					Name = Старт с давлением
+					NotesStorage = 
+					TypeOfAlarm = Raw
+					AlarmTimeStorage = 700859.27382193937
+					AlarmMarginSecs = 0
 					Enabled = True
 					AlarmAction = Converted
 					AlarmActionConverted = True
-					ManNodesStorage = 705885.153139487,0,0,57.2884356334365,-8.273398E-05,-0.1499202,1.096342E-05,0.9886981
+					ManNodesStorage = 
 					XferOriginBodyName = 
 					XferTargetBodyName = 
 					RepeatAlarm = False
-					RepeatAlarmPeriodStorage = 0
+					RepeatAlarmPeriodStorage = 1080000
 					PlaySound = False
 					TargetObjectStorage = 
 					ContractGUIDStorage = 00000000-0000-0000-0000-000000000000
 					ContractAlarmType = Expire
-					Triggered = False
-					Actioned = False
-					AlarmWindowClosed = False
+					Triggered = True
+					Actioned = True
+					AlarmWindowClosed = True
 					Actions
 					{
 						Warp = KillWarp
@@ -12225,9 +12005,9 @@ GAME
 	FLIGHTSTATE
 	{
 		version = 1.6.0
-		UT = 705429.51692021498
-		activeVessel = 40
-		mapViewFiltering = 64
+		UT = 702739.50844189513
+		activeVessel = 39
+		mapViewFiltering = 8448
 		commNetUIModeTracking = None
 		commNetUIModeFlight = Path
 		VESSEL
@@ -21835,36 +21615,36 @@ GAME
 			landedAt = 
 			displaylandedAt = 
 			splashed = False
-			met = 382691.04755719175
+			met = 372395.82445861347
 			lct = 322336.36936264875
-			lastUT = 705027.4169198405
-			distanceTraveled = 11412763.365820743
+			lastUT = 694732.19382126222
+			distanceTraveled = 10065771.848910762
 			root = 0
-			lat = -0.0070138531012369498
-			lon = -134.09804234250763
-			alt = 86844.457517979899
+			lat = 0.005654955175035975
+			lon = -141.42320487979052
+			alt = 77170.643539890531
 			hgt = -1
-			nrm = -0.356486589,-0.508734405,0.783649445
-			rot = 0.628691494,-0.469436258,-0.301065385,0.541974425
-			CoM = -0.0162115991,-0.848887503,-0.00936090946
+			nrm = -0.808477283,0.536379695,0.242201269
+			rot = -0.842314482,-0.00902510807,-0.020390423,0.538524926
+			CoM = -0.0159251094,-0.850150824,-0.00919508934
 			stg = 0
 			prst = False
 			ref = 646483512
 			ctrl = True
 			PQSMin = 2
 			PQSMax = 8
-			cPch = 0
-			cHdg = 0
+			cPch = -0.3599999
+			cHdg = 2.04
 			cMod = 0
 			ORBIT
 			{
-				SMA = 717892.80242751958
-				ECC = 0.049713723097469777
-				INC = 0.0095634874205637582
-				LPE = 196.19286062396321
-				LAN = 346.76035728186514
-				MNA = 0.49117082155176117
-				EPH = 705027.4169198405
+				SMA = 679485.81827668787
+				ECC = 0.0039936263296544566
+				INC = 0.0097811892566327541
+				LPE = 3.9891065249163833
+				LAN = 359.08899458559881
+				MNA = 0.54636558231860299
+				EPH = 694732.19382126222
 				REF = 1
 			}
 			PART
@@ -21892,8 +21672,8 @@ GAME
 				attN = top, 5
 				mass = 0.100000001
 				shielded = False
-				temp = 216.37629696313428
-				tempExt = 216.04733478676923
+				temp = 255.56655698542815
+				tempExt = 255.24304486128287
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0
@@ -22065,7 +21845,7 @@ GAME
 				RESOURCE
 				{
 					name = ElectricCharge
-					amount = 9.7796432966974418
+					amount = 10
 					maxAmount = 10
 					flowState = True
 					isTweakable = True
@@ -22111,8 +21891,8 @@ GAME
 				attN = bottom, 2
 				mass = 0.075000003
 				shielded = False
-				temp = 216.45583644358075
-				tempExt = 216.15034982371495
+				temp = 255.60391831910096
+				tempExt = 255.52880472505461
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -22451,8 +22231,8 @@ GAME
 				attN = bottom, 3
 				mass = 0.0625
 				shielded = False
-				temp = 216.48198986577984
-				tempExt = 216.23139095467459
+				temp = 255.61467810612305
+				tempExt = 255.57700042271628
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -22476,7 +22256,7 @@ GAME
 				RESOURCE
 				{
 					name = LiquidFuel
-					amount = 39.905006546236621
+					amount = 42.031618067748163
 					maxAmount = 45
 					flowState = True
 					isTweakable = True
@@ -22487,7 +22267,7 @@ GAME
 				RESOURCE
 				{
 					name = Oxidizer
-					amount = 48.772785478794901
+					amount = 51.371977463611152
 					maxAmount = 55
 					flowState = True
 					isTweakable = True
@@ -22521,8 +22301,8 @@ GAME
 				attN = bottom, -1
 				mass = 0.5
 				shielded = False
-				temp = 216.51126541004422
-				tempExt = 216.29208904289001
+				temp = 255.63750505236644
+				tempExt = 255.73031965534622
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -22706,7 +22486,7 @@ GAME
 				{
 					name = FXModuleAnimateThrottle
 					isEnabled = True
-					animState = 0.000626137888
+					animState = 0
 					stagingEnabled = True
 					EVENTS
 					{
@@ -22743,8 +22523,8 @@ GAME
 				attN = bottom, -1
 				mass = 0.0700000003
 				shielded = False
-				temp = 216.00659438352812
-				tempExt = 215.97252614236982
+				temp = 255.62975510138168
+				tempExt = 255.72051075862964
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -22869,8 +22649,8 @@ GAME
 				attN = bottom, 0
 				mass = 0.00999999978
 				shielded = False
-				temp = 215.9208148804594
-				tempExt = 215.86996552692895
+				temp = 255.34159872751621
+				tempExt = 255.14568790196614
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -22894,7 +22674,7 @@ GAME
 				RESOURCE
 				{
 					name = ElectricCharge
-					amount = 195.59286593394768
+					amount = 200
 					maxAmount = 200
 					flowState = True
 					isTweakable = True
@@ -22926,8 +22706,8 @@ GAME
 				srfN = srfAttach, 5
 				mass = 0.00499999989
 				shielded = False
-				temp = 215.89965532279203
-				tempExt = 215.80123311901718
+				temp = 255.32949176003558
+				tempExt = 255.10716732032799
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -22951,7 +22731,7 @@ GAME
 				RESOURCE
 				{
 					name = ElectricCharge
-					amount = 97.796432966973839
+					amount = 100
 					maxAmount = 100
 					flowState = True
 					isTweakable = True
@@ -22984,8 +22764,8 @@ GAME
 				srfN = srfAttach, 0
 				mass = 0.00499999989
 				shielded = False
-				temp = 216.19924593168093
-				tempExt = 216.02155125826067
+				temp = 255.4224040604571
+				tempExt = 255.15522610433018
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -23070,8 +22850,8 @@ GAME
 				srfN = srfAttach, 0
 				mass = 0.00499999989
 				shielded = False
-				temp = 216.19925936107421
-				tempExt = 216.02155653416978
+				temp = 255.42113477832888
+				tempExt = 255.15349594383616
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -23156,8 +22936,8 @@ GAME
 				srfN = srfAttach, 0
 				mass = 0.00499999989
 				shielded = False
-				temp = 216.20340994873212
-				tempExt = 216.02318714566675
+				temp = 255.42863492561554
+				tempExt = 255.15643954170929
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -23242,8 +23022,8 @@ GAME
 				srfN = srfAttach, 0
 				mass = 0.00499999989
 				shielded = False
-				temp = 216.19924568856379
-				tempExt = 216.02155116274903
+				temp = 255.43842015375347
+				tempExt = 255.19781848251102
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -23328,8 +23108,8 @@ GAME
 				srfN = srfAttach, 0
 				mass = 0.00499999989
 				shielded = False
-				temp = 216.2032419259491
-				tempExt = 216.02312113576727
+				temp = 255.42212609830318
+				tempExt = 255.15388500349673
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -23414,8 +23194,8 @@ GAME
 				srfN = srfAttach, 0
 				mass = 0.00499999989
 				shielded = False
-				temp = 216.19924560236595
-				tempExt = 216.02155112888516
+				temp = 255.42113477832888
+				tempExt = 255.15349594383616
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -23499,8 +23279,8 @@ GAME
 				srfN = srfAttach, 0
 				mass = 0.00499999989
 				shielded = False
-				temp = 216.20429571615756
-				tempExt = 216.02353513073228
+				temp = 255.42113477832888
+				tempExt = 255.15349594383616
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -23591,17 +23371,12 @@ GAME
 			}
 			FLIGHTPLAN
 			{
-				MANEUVER
-				{
-					UT = 705885.15313948679
-					dV = 0,0,57.288435633436549
-				}
 			}
 			CTRLSTATE
 			{
-				pitch = -3.57762019E-06
-				yaw = -2.17442375E-05
-				roll = 1.34324164E-05
+				pitch = 8.04058709E-06
+				yaw = 1.22116626E-06
+				roll = -1.25856259E-05
 				trimPitch = 0
 				trimYaw = 0
 				trimRoll = 0
@@ -33953,13 +33728,13 @@ GAME
 			cMod = -1
 			ORBIT
 			{
-				SMA = 0
+				SMA = NaN
 				ECC = 1
-				INC = 12.350152154224464
+				INC = 12.350152154224523
 				LPE = 90
-				LAN = 251.21106391082824
+				LAN = 195.72801245282199
 				MNA = 0
-				EPH = 705036.83691984927
+				EPH = 701715.64840228308
 				REF = 1
 			}
 			PART
@@ -43215,13 +42990,13 @@ GAME
 			cMod = -1
 			ORBIT
 			{
-				SMA = NaN
-				ECC = 1
-				INC = 0.53504886583680156
-				LPE = 90
-				LAN = 109.73479796312824
-				MNA = 0
-				EPH = 705036.83691984927
+				SMA = 100917.07595502121
+				ECC = 0.99999999999999989
+				INC = 0.53504886583475808
+				LPE = 90.000000000000014
+				LAN = 101.13219171491352
+				MNA = 3.1415926207170166
+				EPH = 701715.64840228308
 				REF = 2
 			}
 			PART
@@ -43389,13 +43164,13 @@ GAME
 			cMod = -1
 			ORBIT
 			{
-				SMA = 102197.92481715862
+				SMA = 102197.92481715893
 				ECC = 0.99999999999999989
-				INC = 5.4233793668746637
-				LPE = 90
-				LAN = 272.47046006728357
+				INC = 5.4233793668745971
+				LPE = 90.000000000000014
+				LAN = 263.86785381906901
 				MNA = 3.1415926207170166
-				EPH = 705036.83691984927
+				EPH = 701715.64840228308
 				REF = 2
 			}
 			PART
@@ -43567,9 +43342,9 @@ GAME
 				ECC = 1
 				INC = 3.1796709824521634
 				LPE = 270
-				LAN = 11.234437148072629
+				LAN = 2.6318308998576185
 				MNA = 0
-				EPH = 705036.83691984927
+				EPH = 701715.64840228308
 				REF = 2
 			}
 			PART
@@ -43737,13 +43512,13 @@ GAME
 			cMod = -1
 			ORBIT
 			{
-				SMA = 100784.89277843351
+				SMA = 100784.89277843307
 				ECC = 0.99999999999999989
-				INC = 2.2111977758518062
+				INC = 2.2111977758514767
 				LPE = 270
-				LAN = 64.036382866776705
+				LAN = 55.433776618562206
 				MNA = 3.1415926207170166
-				EPH = 705036.83691984927
+				EPH = 701715.64840228308
 				REF = 2
 			}
 			PART
@@ -43911,13 +43686,13 @@ GAME
 			cMod = 1
 			ORBIT
 			{
-				SMA = 0
-				ECC = 1
-				INC = 0.31102517507318206
+				SMA = 102200.25381355929
+				ECC = 0.99999999999999989
+				INC = 0.31102517507083838
 				LPE = 270
-				LAN = 30.725271745080022
-				MNA = 0
-				EPH = 705036.83691984927
+				LAN = 22.122665496865181
+				MNA = 3.1415926207170166
+				EPH = 701715.64840228308
 				REF = 2
 			}
 			PART
@@ -71478,11 +71253,11 @@ GAME
 			{
 				SMA = NaN
 				ECC = 1
-				INC = 0.19583564665010544
+				INC = 0.19583564665196654
 				LPE = 270
-				LAN = 351.74754766055054
+				LAN = 343.1449414123361
 				MNA = 0
-				EPH = 705036.83691984927
+				EPH = 701715.64840228308
 				REF = 2
 			}
 			PART
@@ -82493,7 +82268,7 @@ GAME
 			persistentId = 1075778456
 			name = атмосферный
 			type = Relay
-			sit = ORBITING
+			sit = SUB_ORBITAL
 			landed = False
 			skipGroundPositioning = False
 			vesselSpawning = False
@@ -82501,36 +82276,36 @@ GAME
 			landedAt = 
 			displaylandedAt = 
 			splashed = False
-			met = 2285.4285166015616
+			met = 1017.6400396062527
 			lct = 701721.86840228888
-			lastUT = 704007.29691889044
-			distanceTraveled = 4099006.0926388069
+			lastUT = 702739.50844189513
+			distanceTraveled = 1619473.1017372552
 			root = 0
-			lat = -40.545228765571068
-			lon = -93.374210086277486
-			alt = 98110.622202447266
+			lat = -16.400164841831185
+			lon = 112.1257622885815
+			alt = 164252.86978257564
 			hgt = -1
-			nrm = -0.296567142,-0.952096581,-0.0745649934
-			rot = 0.4077048,0.388768643,0.321784735,0.760979772
-			CoM = -0.00731348991,-3.144835,-2.38418579E-07
+			nrm = 0.921728015,0.387831986,0.0018774569
+			rot = -0.582790852,0.0510418043,-0.804630756,-0.101581708
+			CoM = -0.00540030003,-3.173944,-3.57627869E-07
 			stg = 0
 			prst = False
 			ref = 1094532499
 			ctrl = True
 			PQSMin = 2
 			PQSMax = 8
-			cPch = -0.802797
-			cHdg = -0.9199999
+			cPch = -0.6287966
+			cHdg = -0.9819997
 			cMod = 0
 			ORBIT
 			{
-				SMA = 708442.65039975778
-				ECC = 0.052425540915231515
-				INC = 109.47574092037854
-				LPE = 146.82985092633115
-				LAN = 75.227428285977908
-				MNA = 1.2386161181600692
-				EPH = 704007.29691889044
+				SMA = 712086.76440464077
+				ECC = 0.073261224811029368
+				INC = 104.18785816147346
+				LPE = 163.68365385414367
+				LAN = 57.671627719979824
+				MNA = 3.1291975238426608
+				EPH = 702739.50844189513
 				REF = 1
 			}
 			PART
@@ -82558,9 +82333,9 @@ GAME
 				attN = top, -1
 				mass = 0.100000001
 				shielded = False
-				temp = 354.44687575170235
-				tempExt = 352.89213350660367
-				tempExtUnexp = 4
+				temp = 297.49231357098336
+				tempExt = 296.96325064601677
+				tempExtUnexp = 301.02534286248567
 				staticPressureAtm = 0
 				expt = 0
 				state = 0
@@ -82731,7 +82506,7 @@ GAME
 				RESOURCE
 				{
 					name = ElectricCharge
-					amount = 9.9499911395225666
+					amount = 10
 					maxAmount = 10
 					flowState = True
 					isTweakable = True
@@ -82763,9 +82538,9 @@ GAME
 				srfN = srfAttach, 0
 				mass = 0.00499999989
 				shielded = False
-				temp = 354.08672812822471
-				tempExt = 352.73872914166043
-				tempExtUnexp = 4
+				temp = 297.32071068020264
+				tempExt = 296.7754794176289
+				tempExtUnexp = 301.02534286248567
 				staticPressureAtm = 0
 				expt = 0.5
 				state = 0
@@ -82837,9 +82612,9 @@ GAME
 				srfN = srfAttach, 0
 				mass = 0.0500000007
 				shielded = False
-				temp = 354.17965233713056
-				tempExt = 352.77886914037606
-				tempExtUnexp = 4
+				temp = 297.07387815462749
+				tempExt = 296.81452061152828
+				tempExtUnexp = 301.02534286248567
 				staticPressureAtm = 0
 				expt = 0.5
 				state = 0
@@ -82937,9 +82712,9 @@ GAME
 				srfN = srfAttach, 0
 				mass = 0.00499999989
 				shielded = False
-				temp = 354.28169573768542
-				tempExt = 352.83292826907672
-				tempExtUnexp = 4
+				temp = 297.3071464546307
+				tempExt = 296.79614565697779
+				tempExtUnexp = 301.02534286248567
 				staticPressureAtm = 0
 				expt = 0.5
 				state = 0
@@ -83034,9 +82809,9 @@ GAME
 				attN = bottom, 5
 				mass = 0.00999999978
 				shielded = False
-				temp = 355.05744031420323
-				tempExt = 353.51293429491272
-				tempExtUnexp = 4
+				temp = 298.35586916669263
+				tempExt = 297.60481188719922
+				tempExtUnexp = 301.02534286248567
 				staticPressureAtm = 0
 				expt = 0.5
 				state = 0
@@ -83059,7 +82834,7 @@ GAME
 				RESOURCE
 				{
 					name = ElectricCharge
-					amount = 198.99982279063084
+					amount = 200
 					maxAmount = 200
 					flowState = True
 					isTweakable = True
@@ -83093,9 +82868,9 @@ GAME
 				attN = bottom, 6
 				mass = 0.00999999978
 				shielded = False
-				temp = 356.81538858295545
-				tempExt = 355.11907236372946
-				tempExtUnexp = 4
+				temp = 300.42283406212414
+				tempExt = 300.13335708795637
+				tempExtUnexp = 301.02534286248567
 				staticPressureAtm = 0
 				expt = 0.5
 				state = 0
@@ -83118,7 +82893,7 @@ GAME
 				RESOURCE
 				{
 					name = ElectricCharge
-					amount = 198.99982279063084
+					amount = 200
 					maxAmount = 200
 					flowState = True
 					isTweakable = True
@@ -83152,9 +82927,9 @@ GAME
 				attN = bottom, 7
 				mass = 0.00999999978
 				shielded = False
-				temp = 358.65821185291946
-				tempExt = 356.63012572571142
-				tempExtUnexp = 4
+				temp = 302.54530094890617
+				tempExt = 302.00551723964793
+				tempExtUnexp = 301.02534286248567
 				staticPressureAtm = 0
 				expt = 0.5
 				state = 0
@@ -83177,7 +82952,7 @@ GAME
 				RESOURCE
 				{
 					name = ElectricCharge
-					amount = 198.99982279063084
+					amount = 200
 					maxAmount = 200
 					flowState = True
 					isTweakable = True
@@ -83211,9 +82986,9 @@ GAME
 				attN = bottom, 8
 				mass = 0.00999999978
 				shielded = False
-				temp = 360.86483872611444
-				tempExt = 359.50975917680313
-				tempExtUnexp = 4
+				temp = 304.88460444860715
+				tempExt = 305.23574530375544
+				tempExtUnexp = 301.02534286248567
 				staticPressureAtm = 0
 				expt = 0.5
 				state = 0
@@ -83236,7 +83011,7 @@ GAME
 				RESOURCE
 				{
 					name = ElectricCharge
-					amount = 198.99982279063084
+					amount = 200
 					maxAmount = 200
 					flowState = True
 					isTweakable = True
@@ -83282,8 +83057,8 @@ GAME
 				attN = bottom, 9
 				mass = 0.075000003
 				shielded = False
-				temp = 362.49166354904395
-				tempExt = 360.21799695472345
+				temp = 306.58270874282175
+				tempExt = 306.81121928048265
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -83622,8 +83397,8 @@ GAME
 				attN = bottom, 10
 				mass = 0.5
 				shielded = False
-				temp = 362.82129831340109
-				tempExt = 360.77005251588264
+				temp = 307.0100759387301
+				tempExt = 307.11812078673842
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -83647,7 +83422,7 @@ GAME
 				RESOURCE
 				{
 					name = LiquidFuel
-					amount = 36.063974733520112
+					amount = 82.824887583152176
 					maxAmount = 360
 					flowState = True
 					isTweakable = True
@@ -83658,7 +83433,7 @@ GAME
 				RESOURCE
 				{
 					name = Oxidizer
-					amount = 44.078172271350759
+					amount = 101.23040184032138
 					maxAmount = 440
 					flowState = True
 					isTweakable = True
@@ -83692,8 +83467,8 @@ GAME
 				attN = bottom, -1
 				mass = 0.5
 				shielded = False
-				temp = 363.31980845042119
-				tempExt = 361.53399574201887
+				temp = 309.55734010048718
+				tempExt = 308.5412007152085
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -83877,7 +83652,7 @@ GAME
 				{
 					name = FXModuleAnimateThrottle
 					isEnabled = True
-					animState = 0.00404617749
+					animState = 0.031000413
 					stagingEnabled = True
 					EVENTS
 					{
@@ -83920,8 +83695,8 @@ GAME
 				srfN = srfAttach, 9
 				mass = 0.00499999989
 				shielded = False
-				temp = 362.7641527149471
-				tempExt = 361.00898737720587
+				temp = 306.99005429291952
+				tempExt = 306.79635529381193
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -84012,8 +83787,8 @@ GAME
 				srfN = srfAttach, 9
 				mass = 0.00499999989
 				shielded = False
-				temp = 362.7641527149471
-				tempExt = 361.00898737720587
+				temp = 306.99005427966586
+				tempExt = 306.79635528479844
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -84104,8 +83879,8 @@ GAME
 				srfN = srfAttach, 9
 				mass = 0.00499999989
 				shielded = False
-				temp = 362.7641527149471
-				tempExt = 361.00898737720587
+				temp = 306.99005425494306
+				tempExt = 306.79635526798523
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -84196,8 +83971,8 @@ GAME
 				srfN = srfAttach, 9
 				mass = 0.00499999989
 				shielded = False
-				temp = 362.7641527149471
-				tempExt = 361.00898737720587
+				temp = 306.99005425484341
+				tempExt = 306.79635526791759
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -84288,8 +84063,8 @@ GAME
 				srfN = srfAttach, 9
 				mass = 0.00499999989
 				shielded = False
-				temp = 362.7641527149471
-				tempExt = 361.00898737720587
+				temp = 306.99005425512644
+				tempExt = 306.79635526811006
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -84380,8 +84155,8 @@ GAME
 				srfN = srfAttach, 9
 				mass = 0.00499999989
 				shielded = False
-				temp = 362.7641527149471
-				tempExt = 361.00898737720587
+				temp = 306.99005425481897
+				tempExt = 306.79635526790105
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -84472,8 +84247,8 @@ GAME
 				srfN = srfAttach, 9
 				mass = 0.00499999989
 				shielded = False
-				temp = 362.7641527149471
-				tempExt = 361.00898737720587
+				temp = 306.99005425477856
+				tempExt = 306.79635526787337
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -84564,8 +84339,8 @@ GAME
 				srfN = srfAttach, 9
 				mass = 0.00499999989
 				shielded = False
-				temp = 362.7641527149471
-				tempExt = 361.00898737720587
+				temp = 306.99005425477856
+				tempExt = 306.79635526787337
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -84656,8 +84431,8 @@ GAME
 				srfN = srfAttach, 9
 				mass = 0.00499999989
 				shielded = False
-				temp = 362.7641527149471
-				tempExt = 361.00898737720587
+				temp = 306.99005426242962
+				tempExt = 306.79635527307715
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -84748,8 +84523,8 @@ GAME
 				srfN = srfAttach, 9
 				mass = 0.00499999989
 				shielded = False
-				temp = 362.7641527149471
-				tempExt = 361.00898737720587
+				temp = 306.99005427241207
+				tempExt = 306.79635527986625
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -84840,8 +84615,8 @@ GAME
 				srfN = srfAttach, 9
 				mass = 0.00499999989
 				shielded = False
-				temp = 362.7641527149471
-				tempExt = 361.00898737720587
+				temp = 306.99005425486837
+				tempExt = 306.79635526793459
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -84932,8 +84707,8 @@ GAME
 				srfN = srfAttach, 9
 				mass = 0.00499999989
 				shielded = False
-				temp = 362.76415273970861
-				tempExt = 361.00898739356961
+				temp = 306.99005425479442
+				tempExt = 306.79635526788451
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -85024,8 +84799,8 @@ GAME
 				srfN = srfAttach, 9
 				mass = 0.00499999989
 				shielded = False
-				temp = 362.76415276681388
-				tempExt = 361.00898741148063
+				temp = 306.99005425482198
+				tempExt = 306.7963552679031
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -85116,8 +84891,8 @@ GAME
 				srfN = srfAttach, 9
 				mass = 0.00499999989
 				shielded = False
-				temp = 362.7641527149471
-				tempExt = 361.00898737720587
+				temp = 306.99005425483529
+				tempExt = 306.79635526791208
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -85208,8 +84983,8 @@ GAME
 				srfN = srfAttach, 9
 				mass = 0.00499999989
 				shielded = False
-				temp = 362.7641527149471
-				tempExt = 361.00898737720587
+				temp = 306.99005425477856
+				tempExt = 306.79635526787337
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -85300,8 +85075,8 @@ GAME
 				srfN = srfAttach, 9
 				mass = 0.00499999989
 				shielded = False
-				temp = 362.7641527149471
-				tempExt = 361.00898737720587
+				temp = 306.99005425477856
+				tempExt = 306.79635526787337
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -85392,8 +85167,8 @@ GAME
 				srfN = srfAttach, 9
 				mass = 0.00499999989
 				shielded = False
-				temp = 362.7641527149471
-				tempExt = 361.00898737720587
+				temp = 306.99005425479999
+				tempExt = 306.79635526788803
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -85484,8 +85259,8 @@ GAME
 				srfN = srfAttach, 9
 				mass = 0.00499999989
 				shielded = False
-				temp = 362.7641527149471
-				tempExt = 361.00898737720587
+				temp = 306.99005426887629
+				tempExt = 306.7963552774616
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -85576,8 +85351,8 @@ GAME
 				srfN = srfAttach, 9
 				mass = 0.00499999989
 				shielded = False
-				temp = 362.7641527149471
-				tempExt = 361.00898737720587
+				temp = 306.99005425502537
+				tempExt = 306.79635526804105
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -85668,8 +85443,8 @@ GAME
 				srfN = srfAttach, 9
 				mass = 0.00499999989
 				shielded = False
-				temp = 362.76415271494767
-				tempExt = 361.00898737720621
+				temp = 306.99005425491771
+				tempExt = 306.79635526796812
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -85760,8 +85535,8 @@ GAME
 				srfN = srfAttach, 9
 				mass = 0.00499999989
 				shielded = False
-				temp = 362.76415284661363
-				tempExt = 361.00898746420773
+				temp = 306.99005425484364
+				tempExt = 306.7963552679177
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -85852,8 +85627,8 @@ GAME
 				srfN = srfAttach, 9
 				mass = 0.00499999989
 				shielded = False
-				temp = 362.76415273940637
-				tempExt = 361.00898739337174
+				temp = 306.99005425498603
+				tempExt = 306.79635526801434
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -85944,8 +85719,8 @@ GAME
 				srfN = srfAttach, 9
 				mass = 0.00499999989
 				shielded = False
-				temp = 362.76415271768678
-				tempExt = 361.00898737902054
+				temp = 306.99005425477952
+				tempExt = 306.7963552678745
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -86036,8 +85811,8 @@ GAME
 				srfN = srfAttach, 9
 				mass = 0.00499999989
 				shielded = False
-				temp = 362.7641527149471
-				tempExt = 361.00898737720587
+				temp = 306.99005425477856
+				tempExt = 306.79635526787337
 				tempExtUnexp = 4
 				staticPressureAtm = 0
 				expt = 0.5
@@ -86124,9 +85899,9 @@ GAME
 				srfN = srfAttach, 6
 				mass = 0.00499999989
 				shielded = False
-				temp = 358.49103822839606
-				tempExt = 356.88073244231094
-				tempExtUnexp = 4
+				temp = 302.44145050225831
+				tempExt = 301.85696763269794
+				tempExtUnexp = 301.02534286248567
 				staticPressureAtm = 0
 				expt = 0.5
 				state = 0
@@ -86149,7 +85924,7 @@ GAME
 				RESOURCE
 				{
 					name = ElectricCharge
-					amount = 99.499911395315422
+					amount = 100
 					maxAmount = 100
 					flowState = True
 					isTweakable = True
@@ -86184,9 +85959,9 @@ GAME
 				srfN = srfAttach, 6
 				mass = 0.00499999989
 				shielded = False
-				temp = 358.49103820797643
-				tempExt = 356.88073237584996
-				tempExtUnexp = 4
+				temp = 302.44310627700588
+				tempExt = 301.8734093847562
+				tempExtUnexp = 301.02534286248567
 				staticPressureAtm = 0
 				expt = 0.5
 				state = 0
@@ -86209,7 +85984,7 @@ GAME
 				RESOURCE
 				{
 					name = ElectricCharge
-					amount = 99.499911395315422
+					amount = 100
 					maxAmount = 100
 					flowState = True
 					isTweakable = True
@@ -86244,9 +86019,9 @@ GAME
 				srfN = srfAttach, 6
 				mass = 0.00499999989
 				shielded = False
-				temp = 358.49103814580269
-				tempExt = 356.88073217350228
-				tempExtUnexp = 4
+				temp = 302.44272661259271
+				tempExt = 301.86737235323096
+				tempExtUnexp = 301.02534286248567
 				staticPressureAtm = 0
 				expt = 0.5
 				state = 0
@@ -86269,7 +86044,7 @@ GAME
 				RESOURCE
 				{
 					name = ElectricCharge
-					amount = 99.499911395315422
+					amount = 100
 					maxAmount = 100
 					flowState = True
 					isTweakable = True
@@ -86304,9 +86079,9 @@ GAME
 				srfN = srfAttach, 6
 				mass = 0.00499999989
 				shielded = False
-				temp = 358.49103814644531
-				tempExt = 356.8807321755931
-				tempExtUnexp = 4
+				temp = 302.47376325401763
+				tempExt = 302.23288642017201
+				tempExtUnexp = 301.02534286248567
 				staticPressureAtm = 0
 				expt = 0.5
 				state = 0
@@ -86329,7 +86104,7 @@ GAME
 				RESOURCE
 				{
 					name = ElectricCharge
-					amount = 99.499911395315422
+					amount = 100
 					maxAmount = 100
 					flowState = True
 					isTweakable = True
@@ -86368,9 +86143,9 @@ GAME
 				srfN = srfAttach, 4
 				mass = 0.00499999989
 				shielded = False
-				temp = 354.88201952759647
-				tempExt = 353.42233819808689
-				tempExtUnexp = 4
+				temp = 298.2112618129616
+				tempExt = 297.49734290107915
+				tempExtUnexp = 301.02534286248567
 				staticPressureAtm = 0
 				expt = 0.5
 				state = 0
@@ -86393,7 +86168,7 @@ GAME
 				RESOURCE
 				{
 					name = ElectricCharge
-					amount = 99.499911395315422
+					amount = 100
 					maxAmount = 100
 					flowState = True
 					isTweakable = True
@@ -86432,9 +86207,9 @@ GAME
 				srfN = srfAttach, 4
 				mass = 0.00499999989
 				shielded = False
-				temp = 354.8817433358073
-				tempExt = 353.41935964068716
-				tempExtUnexp = 4
+				temp = 298.21798724446001
+				tempExt = 297.55850863887031
+				tempExtUnexp = 301.02534286248567
 				staticPressureAtm = 0
 				expt = 0.5
 				state = 0
@@ -86457,7 +86232,7 @@ GAME
 				RESOURCE
 				{
 					name = ElectricCharge
-					amount = 99.499911395315422
+					amount = 100
 					maxAmount = 100
 					flowState = True
 					isTweakable = True
@@ -86496,9 +86271,9 @@ GAME
 				srfN = srfAttach, 4
 				mass = 0.00499999989
 				shielded = False
-				temp = 354.88174333565991
-				tempExt = 353.41935964056574
-				tempExtUnexp = 4
+				temp = 298.21739919352996
+				tempExt = 297.55378553568977
+				tempExtUnexp = 301.02534286248567
 				staticPressureAtm = 0
 				expt = 0.5
 				state = 0
@@ -86521,7 +86296,7 @@ GAME
 				RESOURCE
 				{
 					name = ElectricCharge
-					amount = 99.499911395315422
+					amount = 100
 					maxAmount = 100
 					flowState = True
 					isTweakable = True
@@ -86560,9 +86335,9 @@ GAME
 				srfN = srfAttach, 4
 				mass = 0.00499999989
 				shielded = False
-				temp = 354.88174333564257
-				tempExt = 353.41935964055165
-				tempExtUnexp = 4
+				temp = 298.21899990348771
+				tempExt = 297.56582221035342
+				tempExtUnexp = 301.02534286248567
 				staticPressureAtm = 0
 				expt = 0.5
 				state = 0
@@ -86585,7 +86360,7 @@ GAME
 				RESOURCE
 				{
 					name = ElectricCharge
-					amount = 99.499911395315422
+					amount = 100
 					maxAmount = 100
 					flowState = True
 					isTweakable = True
@@ -86624,9 +86399,9 @@ GAME
 				srfN = srfAttach, 4
 				mass = 0.00499999989
 				shielded = False
-				temp = 354.88265767721612
-				tempExt = 353.42852740896546
-				tempExtUnexp = 4
+				temp = 298.21632724148469
+				tempExt = 297.53999135353098
+				tempExtUnexp = 301.02534286248567
 				staticPressureAtm = 0
 				expt = 0.5
 				state = 0
@@ -86649,7 +86424,7 @@ GAME
 				RESOURCE
 				{
 					name = ElectricCharge
-					amount = 99.499911395315422
+					amount = 100
 					maxAmount = 100
 					flowState = True
 					isTweakable = True
@@ -86688,9 +86463,9 @@ GAME
 				srfN = srfAttach, 4
 				mass = 0.00499999989
 				shielded = False
-				temp = 354.88317958862092
-				tempExt = 353.43371506134736
-				tempExtUnexp = 4
+				temp = 298.26310170697639
+				tempExt = 297.98734133940883
+				tempExtUnexp = 301.02534286248567
 				staticPressureAtm = 0
 				expt = 0.5
 				state = 0
@@ -86713,7 +86488,7 @@ GAME
 				RESOURCE
 				{
 					name = ElectricCharge
-					amount = 99.499911395315422
+					amount = 100
 					maxAmount = 100
 					flowState = True
 					isTweakable = True
@@ -86752,9 +86527,9 @@ GAME
 				srfN = srfAttach, 4
 				mass = 0.00499999989
 				shielded = False
-				temp = 354.8837582603494
-				tempExt = 353.43978464880558
-				tempExtUnexp = 4
+				temp = 298.25463191541945
+				tempExt = 297.90430374422033
+				tempExtUnexp = 301.02534286248567
 				staticPressureAtm = 0
 				expt = 0.5
 				state = 0
@@ -86777,7 +86552,7 @@ GAME
 				RESOURCE
 				{
 					name = ElectricCharge
-					amount = 99.499911395315422
+					amount = 100
 					maxAmount = 100
 					flowState = True
 					isTweakable = True
@@ -86816,9 +86591,9 @@ GAME
 				srfN = srfAttach, 4
 				mass = 0.00499999989
 				shielded = False
-				temp = 354.88280776402678
-				tempExt = 353.43027503826005
-				tempExtUnexp = 4
+				temp = 298.21122109188701
+				tempExt = 297.49371631583995
+				tempExtUnexp = 301.02534286248567
 				staticPressureAtm = 0
 				expt = 0.5
 				state = 0
@@ -86841,7 +86616,7 @@ GAME
 				RESOURCE
 				{
 					name = ElectricCharge
-					amount = 99.499911395315422
+					amount = 100
 					maxAmount = 100
 					flowState = True
 					isTweakable = True
@@ -86873,9 +86648,9 @@ GAME
 				srfN = srfAttach, 0
 				mass = 0.00499999989
 				shielded = False
-				temp = 354.28301778248647
-				tempExt = 352.8514807173363
-				tempExtUnexp = 4
+				temp = 297.21160487096734
+				tempExt = 296.82340037299372
+				tempExtUnexp = 301.02534286248567
 				staticPressureAtm = 0
 				expt = 0.5
 				state = 0
@@ -86969,9 +86744,9 @@ GAME
 				attN = bottom, -1
 				mass = 0.0700000003
 				shielded = False
-				temp = 354.23244733753444
-				tempExt = 352.82531290957576
-				tempExtUnexp = 4
+				temp = 297.10744686103646
+				tempExt = 296.84342485464816
+				tempExtUnexp = 301.02534286248567
 				staticPressureAtm = 0
 				expt = 0.5
 				state = 0
@@ -87101,3017 +86876,11 @@ GAME
 			FLIGHTPLAN
 			{
 			}
-			WAYPOINT
-			{
-				type = Custom
-				navigationID = 58fb8cbf-8806-490c-8cba-1925c4c4da62
-			}
 			CTRLSTATE
 			{
-				pitch = -5.39222237E-05
-				yaw = 1.73147146E-05
-				roll = 6.09524307E-08
-				trimPitch = 0
-				trimYaw = 0
-				trimRoll = 0
-				mainThrottle = 0
-			}
-			VESSELMODULES
-			{
-				FlightIntegrator
-				{
-				}
-				CommNetVessel
-				{
-					controlState = ProbeFull
-					canComm = True
-				}
-			}
-		}
-		VESSEL
-		{
-			pid = 06952f321e464e72a9576e71eef75bcf
-			persistentId = 2862695620
-			name = научный спасатель
-			type = Ship
-			sit = ORBITING
-			landed = False
-			skipGroundPositioning = False
-			vesselSpawning = False
-			launchedFrom = LaunchPad
-			landedAt = 
-			displaylandedAt = 
-			splashed = False
-			met = 1173.0400010924786
-			lct = 704256.47691912251
-			lastUT = 705429.51692021498
-			distanceTraveled = 2308241.5997897312
-			root = 0
-			lat = 0.17789120913526951
-			lon = 90.633715127524468
-			alt = 95149.736001832876
-			hgt = -1
-			nrm = 0.731907547,0.681354284,0.00824588537
-			rot = -0.27707994,-0.648591161,-0.651180625,0.280214459
-			CoM = -0.0274807215,-2.43934011,2.38418579E-07
-			stg = 2
-			prst = False
-			ref = 1009184047
-			ctrl = True
-			PQSMin = 2
-			PQSMax = 8
-			cPch = 0
-			cHdg = 0
-			cMod = 0
-			ORBIT
-			{
-				SMA = 690930.36759634223
-				ECC = 0.028936653491458162
-				INC = 0.1786089217560001
-				LPE = 351.34107740250761
-				LAN = 350.25019410013016
-				MNA = 1.7550636437495477
-				EPH = 705429.51692021498
-				REF = 1
-			}
-			PART
-			{
-				name = mk1pod.v2
-				cid = 4290162458
-				uid = 1009184047
-				mid = 2296074010
-				persistentId = 2844013936
-				launchID = 66
-				parent = 0
-				position = 0,0,0
-				rotation = 0,0,0,1
-				mirror = 1,1,1
-				symMethod = Radial
-				istg = -1
-				resPri = 0
-				dstg = 0
-				sqor = -1
-				sepI = -1
-				sidx = -1
-				attm = 0
-				srfN = , -1
-				attN = bottom, 2
-				attN = top, 1
-				mass = 0.800000012
-				shielded = False
-				temp = 266.33740861361008
-				tempExt = 265.50381948281017
-				tempExtUnexp = 4
-				staticPressureAtm = 0
-				expt = 0.5
-				state = 0
-				PreFailState = 0
-				attached = True
-				autostrutMode = Off
-				rigidAttachment = False
-				flag = Squad/Flags/default
-				rTrf = _default
-				modCost = 0
-				EVENTS
-				{
-				}
-				ACTIONS
-				{
-				}
-				PARTDATA
-				{
-				}
-				MODULE
-				{
-					name = ModuleCommand
-					isEnabled = True
-					hibernation = False
-					hibernateOnWarp = False
-					activeControlPointName = _default
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-						MakeReferenceToggle
-						{
-							actionGroup = None
-							wasActiveBeforePartWasAdjusted = False
-						}
-						HibernateToggle
-						{
-							actionGroup = None
-							active = False
-							wasActiveBeforePartWasAdjusted = False
-						}
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = ModuleReactionWheel
-					isEnabled = True
-					actuatorModeCycle = 0
-					authorityLimiter = 100
-					stateString = Работает
-					stagingEnabled = True
-					WheelState = Active
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-						CycleAction
-						{
-							actionGroup = None
-							wasActiveBeforePartWasAdjusted = False
-						}
-						Activate
-						{
-							actionGroup = None
-							wasActiveBeforePartWasAdjusted = False
-						}
-						Deactivate
-						{
-							actionGroup = None
-							wasActiveBeforePartWasAdjusted = False
-						}
-						Toggle
-						{
-							actionGroup = None
-							wasActiveBeforePartWasAdjusted = False
-						}
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = ModuleColorChanger
-					isEnabled = True
-					animState = False
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-						ToggleAction
-						{
-							actionGroup = Light
-							wasActiveBeforePartWasAdjusted = False
-						}
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = ModuleScienceExperiment
-					isEnabled = True
-					Deployed = False
-					Inoperable = False
-					cooldownToGo = 0
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-						DeployAction
-						{
-							actionGroup = None
-							wasActiveBeforePartWasAdjusted = False
-						}
-						ResetAction
-						{
-							actionGroup = None
-							wasActiveBeforePartWasAdjusted = False
-						}
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = ModuleScienceContainer
-					isEnabled = True
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-						CollectAllAction
-						{
-							actionGroup = None
-							wasActiveBeforePartWasAdjusted = False
-						}
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = ModuleConductionMultiplier
-					isEnabled = True
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = ModuleDataTransmitter
-					isEnabled = True
-					xmitIncomplete = False
-					stagingEnabled = True
-					canComm = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-						StartTransmissionAction
-						{
-							actionGroup = None
-							active = False
-							wasActiveBeforePartWasAdjusted = False
-						}
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = ModuleLiftingSurface
-					isEnabled = True
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = FlagDecal
-					isEnabled = True
-					flagDisplayed = True
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = ModulePartVariants
-					isEnabled = True
-					useVariantMass = True
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = ModuleTripLogger
-					isEnabled = True
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-					}
-					Log
-					{
-						flight = 0
-						0 = Flight,Kerbin
-						0 = Suborbit,Kerbin
-						0 = Orbit,Kerbin
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				RESOURCE
-				{
-					name = ElectricCharge
-					amount = 48.09649370550796
-					maxAmount = 50
-					flowState = True
-					isTweakable = True
-					hideFlow = False
-					isVisible = True
-					flowMode = Both
-				}
-				RESOURCE
-				{
-					name = MonoPropellant
-					amount = 10
-					maxAmount = 10
-					flowState = True
-					isTweakable = True
-					hideFlow = False
-					isVisible = True
-					flowMode = Both
-				}
-			}
-			PART
-			{
-				name = parachuteSingle
-				cid = 4290156542
-				uid = 4139239169
-				mid = 2296074010
-				persistentId = 2295458844
-				launchID = 66
-				parent = 0
-				position = 0,0.65745735168457031,0
-				rotation = 0,0,0,1
-				mirror = 1,1,1
-				symMethod = Radial
-				istg = 0
-				resPri = 0
-				dstg = 0
-				sqor = 0
-				sepI = -1
-				sidx = 1
-				attm = 0
-				srfN = srfAttach, -1
-				attN = bottom, 0
-				mass = 0.100000001
-				shielded = False
-				temp = 265.38995210134738
-				tempExt = 265.65733683287186
-				tempExtUnexp = 4
-				staticPressureAtm = 0
-				expt = 0.5
-				state = 0
-				PreFailState = 0
-				attached = True
-				autostrutMode = Off
-				rigidAttachment = False
-				flag = Squad/Flags/default
-				rTrf = parachuteSingle
-				modCost = 0
-				EVENTS
-				{
-				}
-				ACTIONS
-				{
-				}
-				PARTDATA
-				{
-				}
-				MODULE
-				{
-					name = ModuleParachute
-					isEnabled = True
-					persistentState = STOWED
-					animTime = 0
-					minAirPressureToOpen = 0.0399999991
-					deployAltitude = 1000
-					spreadAngle = 7
-					automateSafeDeploy = 0
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-						DeployAction
-						{
-							actionGroup = None
-							wasActiveBeforePartWasAdjusted = False
-						}
-						CutAction
-						{
-							actionGroup = None
-							wasActiveBeforePartWasAdjusted = False
-						}
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = ModuleTestSubject
-					isEnabled = True
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = ModuleDragModifier
-					isEnabled = True
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = ModuleDragModifier
-					isEnabled = True
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-			}
-			PART
-			{
-				name = ServiceBay.125
-				cid = 4290103928
-				uid = 1698469035
-				mid = 2296074010
-				persistentId = 218456468
-				launchID = 66
-				parent = 0
-				position = 0,-0.70503807067871094,0
-				rotation = 0,0,0,1
-				mirror = 1,1,1
-				symMethod = Radial
-				istg = -1
-				resPri = 0
-				dstg = 0
-				sqor = -1
-				sepI = -1
-				sidx = -1
-				attm = 0
-				srfN = , -1
-				attN = top2, 3
-				attN = bottom2, -1
-				attN = top, 0
-				attN = bottom, 10
-				mass = 0.100000001
-				shielded = False
-				temp = 266.92816779542733
-				tempExt = 265.00983463424404
-				tempExtUnexp = 4
-				staticPressureAtm = 0
-				expt = 0.5
-				state = 0
-				PreFailState = 0
-				attached = True
-				autostrutMode = Off
-				rigidAttachment = False
-				flag = Squad/Flags/default
-				rTrf = ServiceBay.125
-				modCost = 0
-				EVENTS
-				{
-				}
-				ACTIONS
-				{
-				}
-				PARTDATA
-				{
-				}
-				MODULE
-				{
-					name = ModuleAnimateGeneric
-					isEnabled = True
-					aniState = LOCKED
-					animSwitch = True
-					animTime = 0
-					animSpeed = -5
-					deployPercent = 100
-					animationIsDisabled = False
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-						ToggleAction
-						{
-							actionGroup = None
-							wasActiveBeforePartWasAdjusted = False
-						}
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = ModuleCargoBay
-					isEnabled = True
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = ModuleSeeThroughObject
-					isEnabled = True
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = ModuleConductionMultiplier
-					isEnabled = True
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-			}
-			PART
-			{
-				name = probeCoreOcto.v2
-				cid = 4290098616
-				uid = 3170438425
-				mid = 2296074010
-				persistentId = 842431256
-				launchID = 66
-				parent = 2
-				position = 0,-0.642120361328125,0
-				rotation = 0,0,0,1
-				mirror = 1,1,1
-				symMethod = Radial
-				istg = -1
-				resPri = 0
-				dstg = 0
-				sqor = -1
-				sepI = -1
-				sidx = -1
-				attm = 0
-				srfN = , -1
-				attN = bottom, 6
-				attN = top, 2
-				mass = 0.100000001
-				shielded = True
-				temp = 264.0825156255022
-				tempExt = 264.0815159307117
-				tempExtUnexp = 299.28762242252066
-				staticPressureAtm = 0
-				expt = 0
-				state = 0
-				PreFailState = 0
-				attached = True
-				autostrutMode = Off
-				rigidAttachment = False
-				flag = Squad/Flags/default
-				rTrf = _default
-				modCost = 0
-				EVENTS
-				{
-				}
-				ACTIONS
-				{
-				}
-				PARTDATA
-				{
-				}
-				MODULE
-				{
-					name = ModuleCommand
-					isEnabled = True
-					hibernation = False
-					hibernateOnWarp = False
-					activeControlPointName = _default
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-						MakeReferenceToggle
-						{
-							actionGroup = None
-							wasActiveBeforePartWasAdjusted = False
-						}
-						HibernateToggle
-						{
-							actionGroup = None
-							wasActiveBeforePartWasAdjusted = False
-						}
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = ModuleReactionWheel
-					isEnabled = True
-					actuatorModeCycle = 0
-					authorityLimiter = 100
-					stateString = Работает
-					stagingEnabled = True
-					WheelState = Active
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-						CycleAction
-						{
-							actionGroup = None
-							wasActiveBeforePartWasAdjusted = False
-						}
-						Activate
-						{
-							actionGroup = None
-							wasActiveBeforePartWasAdjusted = False
-						}
-						Deactivate
-						{
-							actionGroup = None
-							wasActiveBeforePartWasAdjusted = False
-						}
-						Toggle
-						{
-							actionGroup = None
-							wasActiveBeforePartWasAdjusted = False
-						}
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = ModuleSAS
-					isEnabled = True
-					standaloneToggle = True
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = ModuleKerbNetAccess
-					isEnabled = True
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-						OpenKerbNetAction
-						{
-							actionGroup = None
-							wasActiveBeforePartWasAdjusted = False
-						}
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = ModuleDataTransmitter
-					isEnabled = True
-					xmitIncomplete = False
-					stagingEnabled = True
-					canComm = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-						StartTransmissionAction
-						{
-							actionGroup = None
-							active = False
-							wasActiveBeforePartWasAdjusted = False
-						}
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = ModuleTripLogger
-					isEnabled = True
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-					}
-					Log
-					{
-						flight = 0
-						0 = Flight,Kerbin
-						0 = Suborbit,Kerbin
-						0 = Orbit,Kerbin
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				RESOURCE
-				{
-					name = ElectricCharge
-					amount = 9.6192987411132282
-					maxAmount = 10
-					flowState = True
-					isTweakable = True
-					hideFlow = False
-					isVisible = True
-					flowMode = Both
-				}
-				VESSELNAMING
-				{
-					name = научный спасатель
-					type = Ship
-					priority = 10
-				}
-			}
-			PART
-			{
-				name = batteryPack
-				cid = 4290087788
-				uid = 3542543640
-				mid = 2296074010
-				persistentId = 4253545213
-				launchID = 66
-				parent = 3
-				position = 0,-0.69451713562011719,0.34166210889816284
-				rotation = 0,1,0,-1.2166403E-07
-				mirror = 1,1,1
-				symMethod = Radial
-				istg = -1
-				resPri = 0
-				dstg = 0
-				sqor = -1
-				sepI = -1
-				sidx = -1
-				attm = 1
-				sym = 5
-				srfN = srfAttach, 3
-				mass = 0.00499999989
-				shielded = True
-				temp = 264.08248016654977
-				tempExt = 264.08149619271023
-				tempExtUnexp = 299.28762242252066
-				staticPressureAtm = 0
-				expt = 0.5
-				state = 0
-				PreFailState = 0
-				attached = True
-				autostrutMode = Off
-				rigidAttachment = False
-				flag = Squad/Flags/default
-				rTrf = batteryPack
-				modCost = 0
-				EVENTS
-				{
-				}
-				ACTIONS
-				{
-				}
-				PARTDATA
-				{
-				}
-				RESOURCE
-				{
-					name = ElectricCharge
-					amount = 96.19298741101592
-					maxAmount = 100
-					flowState = True
-					isTweakable = True
-					hideFlow = False
-					isVisible = True
-					flowMode = Both
-				}
-			}
-			PART
-			{
-				name = batteryPack
-				cid = 4290087594
-				uid = 3534341511
-				mid = 2296074010
-				persistentId = 1575721342
-				launchID = 66
-				parent = 3
-				position = -2.9802322387695313E-08,-0.69451713562011719,-0.34166216850280762
-				rotation = 0,-1.65375411E-07,0,-1
-				mirror = 1,1,1
-				symMethod = Radial
-				istg = -1
-				resPri = 0
-				dstg = 0
-				sqor = -1
-				sepI = -1
-				sidx = -1
-				attm = 1
-				sym = 4
-				srfN = srfAttach, 3
-				mass = 0.00499999989
-				shielded = True
-				temp = 264.08248016654977
-				tempExt = 264.08149619271023
-				tempExtUnexp = 299.28762242252066
-				staticPressureAtm = 0
-				expt = 0.5
-				state = 0
-				PreFailState = 0
-				attached = True
-				autostrutMode = Off
-				rigidAttachment = False
-				flag = Squad/Flags/default
-				rTrf = batteryPack
-				modCost = 0
-				EVENTS
-				{
-				}
-				ACTIONS
-				{
-				}
-				PARTDATA
-				{
-				}
-				RESOURCE
-				{
-					name = ElectricCharge
-					amount = 96.19298741101592
-					maxAmount = 100
-					flowState = True
-					isTweakable = True
-					hideFlow = False
-					isVisible = True
-					flowMode = Both
-				}
-			}
-			PART
-			{
-				name = batteryBankMini
-				cid = 4290083318
-				uid = 660811309
-				mid = 2296074010
-				persistentId = 752493277
-				launchID = 66
-				parent = 3
-				position = 0,-0.92920112609863281,0
-				rotation = 0,0,0,1
-				mirror = 1,1,1
-				symMethod = Radial
-				istg = -1
-				resPri = 0
-				dstg = 0
-				sqor = -1
-				sepI = -1
-				sidx = -1
-				attm = 0
-				srfN = srfAttach, -1
-				attN = top, 3
-				attN = bottom, -1
-				mass = 0.00999999978
-				shielded = True
-				temp = 264.08249387404862
-				tempExt = 264.08149805896608
-				tempExtUnexp = 299.28762242252066
-				staticPressureAtm = 0
-				expt = 0.5
-				state = 0
-				PreFailState = 0
-				attached = True
-				autostrutMode = Off
-				rigidAttachment = False
-				flag = Squad/Flags/default
-				rTrf = batteryBankMini
-				modCost = 0
-				EVENTS
-				{
-				}
-				ACTIONS
-				{
-				}
-				PARTDATA
-				{
-				}
-				RESOURCE
-				{
-					name = ElectricCharge
-					amount = 192.38597482203184
-					maxAmount = 200
-					flowState = True
-					isTweakable = True
-					hideFlow = False
-					isVisible = True
-					flowMode = Both
-				}
-			}
-			PART
-			{
-				name = SurfaceScanner
-				cid = 4290048350
-				uid = 3437488939
-				mid = 2296074010
-				persistentId = 188586705
-				launchID = 66
-				parent = 3
-				position = -0.4414563775062561,-0.66483879089355469,-3.3527612686157227E-08
-				rotation = 3.99878353E-08,0.70710659,-3.99878139E-08,0.707106948
-				mirror = 1,1,1
-				symMethod = Radial
-				istg = -1
-				resPri = 0
-				dstg = 0
-				sqor = -1
-				sepI = -1
-				sidx = -1
-				attm = 1
-				srfN = srfAttach, 3
-				mass = 0.00499999989
-				shielded = True
-				temp = 264.08249728173257
-				tempExt = 264.08150096910686
-				tempExtUnexp = 299.28762242252066
-				staticPressureAtm = 0
-				expt = 0.5
-				state = 0
-				PreFailState = 0
-				attached = True
-				autostrutMode = Off
-				rigidAttachment = False
-				flag = Squad/Flags/default
-				rTrf = SurfaceScanner
-				modCost = 0
-				EVENTS
-				{
-				}
-				ACTIONS
-				{
-				}
-				PARTDATA
-				{
-				}
-				MODULE
-				{
-					name = ModuleGPS
-					isEnabled = True
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = ModuleResourceScanner
-					isEnabled = True
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = ModuleBiomeScanner
-					isEnabled = True
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = ModuleAsteroidAnalysis
-					isEnabled = True
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = ModuleAnalysisResource
-					isEnabled = True
-					abundance = 0
-					resourceName = Ore
-					displayAbundance = 0
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-			}
-			PART
-			{
-				name = batteryPack
-				cid = 4290045424
-				uid = 2317155236
-				mid = 2296074010
-				persistentId = 2263620238
-				launchID = 66
-				parent = 3
-				position = -0.24178393185138702,-0.724884033203125,0.24178388714790344
-				rotation = -2.1641112E-08,0.923879266,5.22461505E-08,0.382684141
-				mirror = 1,1,1
-				symMethod = Radial
-				istg = -1
-				resPri = 0
-				dstg = 0
-				sqor = -1
-				sepI = -1
-				sidx = -1
-				attm = 1
-				srfN = srfAttach, 3
-				mass = 0.00499999989
-				shielded = True
-				temp = 264.08248016654977
-				tempExt = 264.08149619271023
-				tempExtUnexp = 299.28762242252066
-				staticPressureAtm = 0
-				expt = 0.5
-				state = 0
-				PreFailState = 0
-				attached = True
-				autostrutMode = Off
-				rigidAttachment = False
-				flag = Squad/Flags/default
-				rTrf = batteryPack
-				modCost = 0
-				EVENTS
-				{
-				}
-				ACTIONS
-				{
-				}
-				PARTDATA
-				{
-				}
-				RESOURCE
-				{
-					name = ElectricCharge
-					amount = 96.19298741101592
-					maxAmount = 100
-					flowState = True
-					isTweakable = True
-					hideFlow = False
-					isVisible = True
-					flowMode = Both
-				}
-			}
-			PART
-			{
-				name = batteryPack
-				cid = 4290044252
-				uid = 2833765978
-				mid = 2296074010
-				persistentId = 2553163217
-				launchID = 66
-				parent = 3
-				position = -0.17334963381290436,-0.70688438415527344,-0.3002503514289856
-				rotation = 0,-0.258819073,0,-0.965925872
-				mirror = 1,1,1
-				symMethod = Radial
-				istg = -1
-				resPri = 0
-				dstg = 0
-				sqor = -1
-				sepI = -1
-				sidx = -1
-				attm = 1
-				srfN = srfAttach, 3
-				mass = 0.00499999989
-				shielded = True
-				temp = 264.08248016654977
-				tempExt = 264.08149619271023
-				tempExtUnexp = 299.28762242252066
-				staticPressureAtm = 0
-				expt = 0.5
-				state = 0
-				PreFailState = 0
-				attached = True
-				autostrutMode = Off
-				rigidAttachment = False
-				flag = Squad/Flags/default
-				rTrf = batteryPack
-				modCost = 0
-				EVENTS
-				{
-				}
-				ACTIONS
-				{
-				}
-				PARTDATA
-				{
-				}
-				RESOURCE
-				{
-					name = ElectricCharge
-					amount = 96.19298741101592
-					maxAmount = 100
-					flowState = True
-					isTweakable = True
-					hideFlow = False
-					isVisible = True
-					flowMode = Both
-				}
-			}
-			PART
-			{
-				name = HeatShield1
-				cid = 4290060122
-				uid = 1970012539
-				mid = 2296074010
-				persistentId = 3320773085
-				launchID = 66
-				parent = 2
-				position = 0,-1.0270366668701172,0
-				rotation = 0,0,0,1
-				mirror = 1,1,1
-				symMethod = Radial
-				istg = -1
-				resPri = 0
-				dstg = 1
-				sqor = -1
-				sepI = -1
-				sidx = -1
-				attm = 0
-				srfN = , -1
-				attN = direct, 11
-				attN = bottom, -1
-				attN = top, 2
-				mass = 0.100000001
-				shielded = False
-				temp = 267.55235872415636
-				tempExt = 266.1020601340569
-				tempExtUnexp = 4
-				staticPressureAtm = 0
-				expt = 0.5
-				state = 0
-				PreFailState = 0
-				attached = True
-				autostrutMode = Off
-				rigidAttachment = False
-				flag = Squad/Flags/default
-				rTrf = HeatShield1
-				modCost = 0
-				EVENTS
-				{
-				}
-				ACTIONS
-				{
-				}
-				PARTDATA
-				{
-				}
-				MODULE
-				{
-					name = ModuleJettison
-					isEnabled = True
-					activejettisonName = fairing
-					isJettisoned = True
-					shroudHideOverride = False
-					stagingEnabled = False
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-						JettisonAction
-						{
-							actionGroup = None
-							wasActiveBeforePartWasAdjusted = False
-						}
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = ModuleAblator
-					isEnabled = True
-					nominalAmountRecip = 0.0050000000000000001
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = ModuleColorChanger
-					isEnabled = True
-					animState = False
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-						ToggleAction
-						{
-							actionGroup = None
-							active = False
-							wasActiveBeforePartWasAdjusted = False
-						}
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = ModuleDecouple
-					isEnabled = True
-					ejectionForcePercent = 100
-					isDecoupled = False
-					stagingEnabled = False
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-						DecoupleAction
-						{
-							actionGroup = None
-							wasActiveBeforePartWasAdjusted = False
-						}
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = ModuleTestSubject
-					isEnabled = True
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = ModuleLiftingSurface
-					isEnabled = True
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				RESOURCE
-				{
-					name = Ablator
-					amount = 200
-					maxAmount = 200
-					flowState = True
-					isTweakable = True
-					hideFlow = False
-					isVisible = True
-					flowMode = Both
-				}
-			}
-			PART
-			{
-				name = Decoupler.1
-				cid = 4290143902
-				uid = 2636280581
-				mid = 2296074010
-				persistentId = 2792096234
-				launchID = 66
-				parent = 10
-				position = 0,-1.0770359039306641,0
-				rotation = 0,0,0,1
-				mirror = 1,1,1
-				symMethod = Radial
-				istg = 1
-				resPri = 0
-				dstg = 3
-				sqor = 1
-				sepI = 1
-				sidx = 0
-				attm = 0
-				srfN = , -1
-				attN = top, 10
-				attN = bottom, 12
-				mass = 0.0399999991
-				shielded = False
-				temp = 267.7757846685451
-				tempExt = 267.1183734580402
-				tempExtUnexp = 4
-				staticPressureAtm = 0
-				expt = 0.5
-				state = 0
-				PreFailState = 0
-				attached = True
-				autostrutMode = Off
-				rigidAttachment = False
-				flag = Squad/Flags/default
-				rTrf = Decoupler.1
-				modCost = 0
-				EVENTS
-				{
-				}
-				ACTIONS
-				{
-				}
-				PARTDATA
-				{
-				}
-				MODULE
-				{
-					name = ModuleDecouple
-					isEnabled = True
-					ejectionForcePercent = 100
-					isDecoupled = False
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-						DecoupleAction
-						{
-							actionGroup = None
-							wasActiveBeforePartWasAdjusted = False
-						}
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = ModuleToggleCrossfeed
-					isEnabled = True
-					crossfeedStatus = False
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-						ToggleAction
-						{
-							actionGroup = None
-							wasActiveBeforePartWasAdjusted = False
-						}
-						EnableAction
-						{
-							actionGroup = None
-							wasActiveBeforePartWasAdjusted = False
-						}
-						DisableAction
-						{
-							actionGroup = None
-							wasActiveBeforePartWasAdjusted = False
-						}
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = ModuleTestSubject
-					isEnabled = True
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-			}
-			PART
-			{
-				name = fuelTank.long
-				cid = 4290115992
-				uid = 468767357
-				mid = 2296074010
-				persistentId = 3459859453
-				launchID = 66
-				parent = 11
-				position = 0,-3.0020351409912109,0
-				rotation = 0,0,0,1
-				mirror = 1,1,1
-				symMethod = Radial
-				istg = 1
-				resPri = 0
-				dstg = 4
-				sqor = -1
-				sepI = 1
-				sidx = -1
-				attm = 0
-				srfN = srfAttach, -1
-				attN = top, 11
-				attN = bottom, 13
-				mass = 0.5
-				shielded = False
-				temp = 268.01583796479059
-				tempExt = 267.57099596116018
-				tempExtUnexp = 4
-				staticPressureAtm = 0
-				expt = 0.5
-				state = 0
-				PreFailState = 0
-				attached = True
-				autostrutMode = Off
-				rigidAttachment = False
-				flag = Squad/Flags/default
-				rTrf = fuelTank.long
-				modCost = 0
-				EVENTS
-				{
-				}
-				ACTIONS
-				{
-				}
-				PARTDATA
-				{
-				}
-				RESOURCE
-				{
-					name = LiquidFuel
-					amount = 128.4091644114377
-					maxAmount = 360
-					flowState = True
-					isTweakable = True
-					hideFlow = False
-					isVisible = True
-					flowMode = Both
-				}
-				RESOURCE
-				{
-					name = Oxidizer
-					amount = 156.94452064725712
-					maxAmount = 440
-					flowState = True
-					isTweakable = True
-					hideFlow = False
-					isVisible = True
-					flowMode = Both
-				}
-			}
-			PART
-			{
-				name = liquidEngine3.v2
-				cid = 4290109610
-				uid = 3644488342
-				mid = 2296074010
-				persistentId = 3938173307
-				launchID = 66
-				parent = 12
-				position = 0,-4.8895339965820313,0
-				rotation = 0,0,0,1
-				mirror = 1,1,1
-				symMethod = Radial
-				istg = 2
-				resPri = 0
-				dstg = 4
-				sqor = 2
-				sepI = 1
-				sidx = 0
-				attm = 0
-				srfN = , -1
-				attN = top, 12
-				attN = bottom, 14
-				mass = 0.5
-				shielded = False
-				temp = 268.13423891321145
-				tempExt = 267.70686655741747
-				tempExtUnexp = 4
-				staticPressureAtm = 0
-				expt = 0.5
-				state = 1
-				PreFailState = 0
-				attached = True
-				autostrutMode = Off
-				rigidAttachment = False
-				flag = Squad/Flags/default
-				rTrf = liquidEngine3.v2
-				modCost = 0
-				EVENTS
-				{
-				}
-				ACTIONS
-				{
-				}
-				PARTDATA
-				{
-				}
-				MODULE
-				{
-					name = ModuleEngines
-					isEnabled = True
-					staged = True
-					flameout = False
-					EngineIgnited = True
-					engineShutdown = False
-					currentThrottle = 0
-					thrustPercentage = 100
-					manuallyOverridden = False
-					includeinDVCalcs = False
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-						OnAction
-						{
-							actionGroup = None
-							wasActiveBeforePartWasAdjusted = False
-						}
-						ShutdownAction
-						{
-							actionGroup = None
-							wasActiveBeforePartWasAdjusted = False
-						}
-						ActivateAction
-						{
-							actionGroup = None
-							wasActiveBeforePartWasAdjusted = False
-						}
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = ModuleGimbal
-					isEnabled = True
-					gimbalLock = False
-					gimbalLimiter = 100
-					currentShowToggles = False
-					enableYaw = True
-					enablePitch = True
-					enableRoll = True
-					gimbalActive = True
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-						ToggleAction
-						{
-							actionGroup = None
-							wasActiveBeforePartWasAdjusted = False
-						}
-						LockAction
-						{
-							actionGroup = None
-							wasActiveBeforePartWasAdjusted = False
-						}
-						FreeAction
-						{
-							actionGroup = None
-							wasActiveBeforePartWasAdjusted = False
-						}
-						TogglePitchAction
-						{
-							actionGroup = None
-							wasActiveBeforePartWasAdjusted = False
-						}
-						ToggleYawAction
-						{
-							actionGroup = None
-							wasActiveBeforePartWasAdjusted = False
-						}
-						ToggleRollAction
-						{
-							actionGroup = None
-							wasActiveBeforePartWasAdjusted = False
-						}
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = ModuleJettison
-					isEnabled = True
-					activejettisonName = ShortShroud
-					isJettisoned = True
-					shroudHideOverride = False
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-						JettisonAction
-						{
-							actionGroup = None
-							wasActiveBeforePartWasAdjusted = False
-						}
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = ModuleTestSubject
-					isEnabled = True
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = ModuleSurfaceFX
-					isEnabled = True
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = ModulePartVariants
-					isEnabled = True
-					useVariantMass = True
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = FXModuleAnimateThrottle
-					isEnabled = True
-					animState = 0
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-			}
-			PART
-			{
-				name = liquidEngine3.v2
-				cid = 4289995640
-				uid = 892054514
-				mid = 2296074010
-				persistentId = 29607971
-				launchID = 66
-				parent = 13
-				position = 0,-5.7073440551757813,0
-				rotation = 0,0,0,1
-				mirror = 1,1,1
-				symMethod = Radial
-				istg = 1
-				resPri = 0
-				dstg = 4
-				sqor = 1
-				sepI = 1
-				sidx = 1
-				attm = 0
-				srfN = , -1
-				attN = top, 13
-				attN = bottom, -1
-				mass = 0.5
-				shielded = False
-				temp = 268.33165704619785
-				tempExt = 267.99261168616636
-				tempExtUnexp = 4
-				staticPressureAtm = 0
-				expt = 0.5
-				state = 0
-				PreFailState = 0
-				attached = True
-				autostrutMode = Off
-				rigidAttachment = False
-				flag = Squad/Flags/default
-				rTrf = liquidEngine3.v2
-				modCost = 0
-				EVENTS
-				{
-				}
-				ACTIONS
-				{
-				}
-				PARTDATA
-				{
-				}
-				MODULE
-				{
-					name = ModuleEngines
-					isEnabled = True
-					staged = False
-					flameout = False
-					EngineIgnited = False
-					engineShutdown = False
-					currentThrottle = 0
-					thrustPercentage = 100
-					manuallyOverridden = False
-					includeinDVCalcs = False
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-						OnAction
-						{
-							actionGroup = None
-							wasActiveBeforePartWasAdjusted = False
-						}
-						ShutdownAction
-						{
-							actionGroup = None
-							wasActiveBeforePartWasAdjusted = False
-						}
-						ActivateAction
-						{
-							actionGroup = None
-							wasActiveBeforePartWasAdjusted = False
-						}
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = ModuleGimbal
-					isEnabled = True
-					gimbalLock = False
-					gimbalLimiter = 100
-					currentShowToggles = False
-					enableYaw = True
-					enablePitch = True
-					enableRoll = True
-					gimbalActive = False
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-						ToggleAction
-						{
-							actionGroup = None
-							wasActiveBeforePartWasAdjusted = False
-						}
-						LockAction
-						{
-							actionGroup = None
-							wasActiveBeforePartWasAdjusted = False
-						}
-						FreeAction
-						{
-							actionGroup = None
-							wasActiveBeforePartWasAdjusted = False
-						}
-						TogglePitchAction
-						{
-							actionGroup = None
-							wasActiveBeforePartWasAdjusted = False
-						}
-						ToggleYawAction
-						{
-							actionGroup = None
-							wasActiveBeforePartWasAdjusted = False
-						}
-						ToggleRollAction
-						{
-							actionGroup = None
-							wasActiveBeforePartWasAdjusted = False
-						}
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = ModuleJettison
-					isEnabled = True
-					activejettisonName = ShortShroud
-					isJettisoned = True
-					shroudHideOverride = False
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-						JettisonAction
-						{
-							actionGroup = None
-							wasActiveBeforePartWasAdjusted = False
-						}
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = ModuleTestSubject
-					isEnabled = True
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = ModuleSurfaceFX
-					isEnabled = True
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = ModulePartVariants
-					isEnabled = True
-					useVariantMass = True
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = FXModuleAnimateThrottle
-					isEnabled = True
-					animState = 0
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-			}
-			PART
-			{
-				name = GearSmall
-				cid = 4289892504
-				uid = 4205732852
-				mid = 2296074010
-				persistentId = 855512827
-				launchID = 66
-				parent = 12
-				position = -0.61915308237075806,-2.3593978881835938,3.7252902984619141E-08
-				rotation = -0.50000006,-0.49999997,-0.49999997,0.50000006
-				mirror = 1,1,1
-				symMethod = Radial
-				istg = 1
-				resPri = 0
-				dstg = 4
-				sqor = -1
-				sepI = 1
-				sidx = -1
-				attm = 1
-				srfN = srfAttach, 12
-				mass = 0.25
-				shielded = False
-				temp = 268.06892793604743
-				tempExt = 267.43099391784853
-				tempExtUnexp = 4
-				staticPressureAtm = 0
-				expt = 0.5
-				state = 0
-				PreFailState = 0
-				attached = True
-				autostrutMode = ForceHeaviest
-				rigidAttachment = False
-				flag = Squad/Flags/default
-				rTrf = GearSmall
-				modCost = 0
-				EVENTS
-				{
-				}
-				ACTIONS
-				{
-				}
-				PARTDATA
-				{
-				}
-				MODULE
-				{
-					name = ModuleWheelBase
-					isEnabled = True
-					wheelType = FREE
-					isGrounded = False
-					autoFriction = True
-					frictionMultiplier = 1.00040996
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-						ActAutoFrictionToggle
-						{
-							actionGroup = None
-							wasActiveBeforePartWasAdjusted = False
-						}
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = ModuleWheelSuspension
-					isEnabled = True
-					springTweakable = 1.39972878
-					damperTweakable = 1.00097537
-					autoSpringDamper = True
-					suspensionPos = (0, -0.0879982263, 1.18750036)
-					autoBoost = 0
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = ModuleWheelSteering
-					isEnabled = True
-					steeringEnabled = True
-					steeringInvert = False
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-						SteeringToggle
-						{
-							actionGroup = None
-							wasActiveBeforePartWasAdjusted = False
-						}
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = ModuleWheelBrakes
-					isEnabled = True
-					brakeTweakable = 100
-					brakeInput = 0
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-						BrakeAction
-						{
-							actionGroup = Brakes
-							wasActiveBeforePartWasAdjusted = False
-						}
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = ModuleWheelDeployment
-					isEnabled = True
-					shieldedCanDeploy = False
-					stateDisplayString = Сложено
-					stateString = Retracted
-					stagingEnabled = True
-					position = 0
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-						ActionToggle
-						{
-							actionGroup = Gear
-							wasActiveBeforePartWasAdjusted = False
-						}
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = FXModuleConstrainPosition
-					isEnabled = True
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = FXModuleLookAtConstraint
-					isEnabled = True
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = ModuleStatusLight
-					isEnabled = True
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = ModuleTestSubject
-					isEnabled = True
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = ModuleLight
-					isEnabled = True
-					isOn = False
-					uiWriteLock = False
-					lightR = 1
-					lightG = 1
-					lightB = 1
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-						ToggleLightAction
-						{
-							actionGroup = Light
-							wasActiveBeforePartWasAdjusted = False
-						}
-						LightOnAction
-						{
-							actionGroup = None
-							wasActiveBeforePartWasAdjusted = False
-						}
-						LightOffAction
-						{
-							actionGroup = None
-							wasActiveBeforePartWasAdjusted = False
-						}
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = ModuleWheelDamage
-					isEnabled = True
-					isDamaged = False
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = ModuleDragModifier
-					isEnabled = True
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = ModuleDragModifier
-					isEnabled = True
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-			}
-			PART
-			{
-				name = sensorBarometer
-				cid = 4290064190
-				uid = 3279086820
-				mid = 2296074010
-				persistentId = 366138935
-				launchID = 66
-				parent = 2
-				position = 0.44537606835365295,-0.95503807067871094,0.11933816224336624
-				rotation = 0,0.70710665,-0.707106888,0
-				mirror = 1,1,1
-				symMethod = Radial
-				istg = -1
-				resPri = 0
-				dstg = 0
-				sqor = -1
-				sepI = -1
-				sidx = -1
-				attm = 1
-				srfN = srfAttach, 2
-				mass = 0.00499999989
-				shielded = True
-				temp = 264.41839417252913
-				tempExt = 264.41488041622722
-				tempExtUnexp = 299.28762242252066
-				staticPressureAtm = 0
-				expt = 0.5
-				state = 0
-				PreFailState = 0
-				attached = True
-				autostrutMode = Off
-				rigidAttachment = False
-				flag = Squad/Flags/default
-				rTrf = sensorBarometer
-				modCost = 0
-				EVENTS
-				{
-				}
-				ACTIONS
-				{
-				}
-				PARTDATA
-				{
-				}
-				MODULE
-				{
-					name = ModuleEnviroSensor
-					isEnabled = True
-					sensorActive = False
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-						ToggleAction
-						{
-							actionGroup = None
-							wasActiveBeforePartWasAdjusted = False
-						}
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = ModuleScienceExperiment
-					isEnabled = True
-					Deployed = False
-					Inoperable = False
-					cooldownToGo = 0
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-						DeployAction
-						{
-							actionGroup = None
-							wasActiveBeforePartWasAdjusted = False
-						}
-						ResetAction
-						{
-							actionGroup = None
-							wasActiveBeforePartWasAdjusted = False
-						}
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-			}
-			PART
-			{
-				name = sensorThermometer
-				cid = 4290067322
-				uid = 2490248058
-				mid = 2296074010
-				persistentId = 609704713
-				launchID = 66
-				parent = 2
-				position = 0.42194244265556335,-0.95503807067871094,-0.24360863864421844
-				rotation = 0,0.70710665,-0.707106888,0
-				mirror = 1,1,1
-				symMethod = Radial
-				istg = -1
-				resPri = 0
-				dstg = 0
-				sqor = -1
-				sepI = -1
-				sidx = -1
-				attm = 1
-				srfN = srfAttach, 2
-				mass = 0.00499999989
-				shielded = True
-				temp = 264.98333356373723
-				tempExt = 264.98066939471522
-				tempExtUnexp = 299.28762242252066
-				staticPressureAtm = 0
-				expt = 0.5
-				state = 0
-				PreFailState = 0
-				attached = True
-				autostrutMode = Off
-				rigidAttachment = False
-				flag = Squad/Flags/default
-				rTrf = sensorThermometer
-				modCost = 0
-				EVENTS
-				{
-				}
-				ACTIONS
-				{
-				}
-				PARTDATA
-				{
-				}
-				MODULE
-				{
-					name = ModuleEnviroSensor
-					isEnabled = True
-					sensorActive = False
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-						ToggleAction
-						{
-							actionGroup = None
-							wasActiveBeforePartWasAdjusted = False
-						}
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = ModuleScienceExperiment
-					isEnabled = True
-					Deployed = False
-					Inoperable = False
-					cooldownToGo = 0
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-						DeployAction
-						{
-							actionGroup = None
-							wasActiveBeforePartWasAdjusted = False
-						}
-						ResetAction
-						{
-							actionGroup = None
-							wasActiveBeforePartWasAdjusted = False
-						}
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-			}
-			PART
-			{
-				name = GooExperiment
-				cid = 4290076444
-				uid = 419261742
-				mid = 2296074010
-				persistentId = 1040436736
-				launchID = 66
-				parent = 2
-				position = 0.40942326188087463,-0.36503791809082031,2.9802322387695313E-08
-				rotation = 0,-0.707106829,-0.707106829,0
-				mirror = 1,1,1
-				symMethod = Radial
-				istg = -1
-				resPri = 0
-				dstg = 0
-				sqor = -1
-				sepI = -1
-				sidx = -1
-				attm = 1
-				srfN = srfAttach, 2
-				mass = 0.0500000007
-				shielded = True
-				temp = 265.51100675810568
-				tempExt = 265.51000476300595
-				tempExtUnexp = 299.28762242252066
-				staticPressureAtm = 0
-				expt = 0.5
-				state = 0
-				PreFailState = 0
-				attached = True
-				autostrutMode = Off
-				rigidAttachment = False
-				flag = Squad/Flags/default
-				rTrf = GooExperiment
-				modCost = 0
-				EVENTS
-				{
-				}
-				ACTIONS
-				{
-				}
-				PARTDATA
-				{
-				}
-				MODULE
-				{
-					name = ModuleAnimateGeneric
-					isEnabled = True
-					aniState = LOCKED
-					animSwitch = True
-					animTime = 0
-					animSpeed = 1
-					deployPercent = 100
-					animationIsDisabled = False
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-						ToggleAction
-						{
-							actionGroup = None
-							wasActiveBeforePartWasAdjusted = False
-						}
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = ModuleScienceExperiment
-					isEnabled = True
-					Deployed = False
-					Inoperable = False
-					cooldownToGo = 0
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-						DeployAction
-						{
-							actionGroup = None
-							wasActiveBeforePartWasAdjusted = False
-						}
-						ResetAction
-						{
-							actionGroup = None
-							wasActiveBeforePartWasAdjusted = False
-						}
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-			}
-			PART
-			{
-				name = SurfAntenna
-				cid = 4290058140
-				uid = 1257204387
-				mid = 2296074010
-				persistentId = 973062554
-				launchID = 66
-				parent = 0
-				position = 0,0.31675148010253906,0.45647996664047241
-				rotation = 0.425192654,0.564987838,0.425192654,0.564987838
-				mirror = 1,1,1
-				symMethod = Radial
-				istg = -1
-				resPri = 0
-				dstg = 0
-				sqor = -1
-				sepI = -1
-				sidx = -1
-				attm = 1
-				srfN = srfAttach, 0
-				mass = 0.0149999997
-				shielded = False
-				temp = 265.82308355863893
-				tempExt = 265.47931757732266
-				tempExtUnexp = 4
-				staticPressureAtm = 0
-				expt = 0.5
-				state = 0
-				PreFailState = 0
-				attached = True
-				autostrutMode = Off
-				rigidAttachment = False
-				flag = Squad/Flags/default
-				rTrf = SurfAntenna
-				modCost = 0
-				EVENTS
-				{
-				}
-				ACTIONS
-				{
-				}
-				PARTDATA
-				{
-				}
-				MODULE
-				{
-					name = ModuleDataTransmitter
-					isEnabled = True
-					xmitIncomplete = False
-					stagingEnabled = True
-					canComm = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-						StartTransmissionAction
-						{
-							actionGroup = None
-							wasActiveBeforePartWasAdjusted = False
-						}
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-			}
-			PART
-			{
-				name = parachuteRadial
-				cid = 4289517856
-				uid = 370265856
-				mid = 2296074010
-				persistentId = 351318512
-				launchID = 66
-				parent = 0
-				position = -0.45971411466598511,0.13904380798339844,2.6077032089233398E-08
-				rotation = 0.0988500565,0.700163364,-0.098850064,0.700163305
-				mirror = 1,1,1
-				symMethod = Radial
-				istg = 0
-				resPri = 0
-				dstg = 0
-				sqor = 0
-				sepI = -1
-				sidx = 0
-				attm = 1
-				sym = 21
-				srfN = srfAttach, 0
-				mass = 0.100000001
-				shielded = False
-				temp = 264.86184722119236
-				tempExt = 264.72542090302022
-				tempExtUnexp = 4
-				staticPressureAtm = 0
-				expt = 0.5
-				state = 0
-				PreFailState = 0
-				attached = True
-				autostrutMode = Off
-				rigidAttachment = False
-				flag = Squad/Flags/default
-				rTrf = parachuteRadial
-				modCost = 0
-				EVENTS
-				{
-				}
-				ACTIONS
-				{
-				}
-				PARTDATA
-				{
-				}
-				MODULE
-				{
-					name = ModuleParachute
-					isEnabled = True
-					persistentState = STOWED
-					animTime = 0
-					minAirPressureToOpen = 0.0399999991
-					deployAltitude = 1000
-					spreadAngle = 7
-					automateSafeDeploy = 0
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-						DeployAction
-						{
-							actionGroup = None
-							wasActiveBeforePartWasAdjusted = False
-						}
-						CutAction
-						{
-							actionGroup = None
-							wasActiveBeforePartWasAdjusted = False
-						}
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = ModuleTestSubject
-					isEnabled = True
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = ModuleDragModifier
-					isEnabled = True
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = ModuleDragModifier
-					isEnabled = True
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-			}
-			PART
-			{
-				name = parachuteRadial
-				cid = 4289514344
-				uid = 2607524998
-				mid = 2296074010
-				persistentId = 4113875500
-				launchID = 66
-				parent = 0
-				position = 0.45971411466598511,0.13904380798339844,-6.7055225372314453E-08
-				rotation = -0.0988500714,0.700163245,-0.0988500491,-0.700163424
-				mirror = 1,1,1
-				symMethod = Radial
-				istg = 0
-				resPri = 0
-				dstg = 0
-				sqor = 0
-				sepI = -1
-				sidx = 0
-				attm = 1
-				sym = 20
-				srfN = srfAttach, 0
-				mass = 0.100000001
-				shielded = False
-				temp = 264.8494758742936
-				tempExt = 264.71903949447903
-				tempExtUnexp = 4
-				staticPressureAtm = 0
-				expt = 0.5
-				state = 0
-				PreFailState = 0
-				attached = True
-				autostrutMode = Off
-				rigidAttachment = False
-				flag = Squad/Flags/default
-				rTrf = parachuteRadial
-				modCost = 0
-				EVENTS
-				{
-				}
-				ACTIONS
-				{
-				}
-				PARTDATA
-				{
-				}
-				MODULE
-				{
-					name = ModuleParachute
-					isEnabled = True
-					persistentState = STOWED
-					animTime = 0
-					minAirPressureToOpen = 0.0399999991
-					deployAltitude = 1000
-					spreadAngle = 7
-					automateSafeDeploy = 0
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-						DeployAction
-						{
-							actionGroup = None
-							wasActiveBeforePartWasAdjusted = False
-						}
-						CutAction
-						{
-							actionGroup = None
-							wasActiveBeforePartWasAdjusted = False
-						}
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = ModuleTestSubject
-					isEnabled = True
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = ModuleDragModifier
-					isEnabled = True
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-				MODULE
-				{
-					name = ModuleDragModifier
-					isEnabled = True
-					stagingEnabled = True
-					EVENTS
-					{
-					}
-					ACTIONS
-					{
-					}
-					UPGRADESAPPLIED
-					{
-					}
-				}
-			}
-			ACTIONGROUPS
-			{
-				Stage = False, 704473.516919325
-				Gear = False, 0
-				Light = False, 0
-				RCS = False, 0
-				SAS = True, 704375.356919233
-				Brakes = False, 0
-				Abort = False, 0
-				Custom01 = False, 0
-				Custom02 = False, 0
-				Custom03 = False, 0
-				Custom04 = False, 0
-				Custom05 = False, 0
-				Custom06 = False, 0
-				Custom07 = False, 0
-				Custom08 = False, 0
-				Custom09 = False, 0
-				Custom10 = False, 0
-			}
-			DISCOVERY
-			{
-				state = -1
-				lastObservedTime = 0
-				lifetime = Infinity
-				refTime = Infinity
-				size = 2
-			}
-			FLIGHTPLAN
-			{
-				MANEUVER
-				{
-					UT = 706851.17550833966
-					dV = 0,0.072551161914518936,839.46078812797612
-				}
-			}
-			TARGET
-			{
-				type = CelestialBody
-				tgtId = Mun
-			}
-			CTRLSTATE
-			{
-				pitch = 2.20326037E-05
-				yaw = 6.14118744E-06
-				roll = -8.85085399E-07
+				pitch = -7.6410266E-05
+				yaw = 1
+				roll = -4.62885964E-06
 				trimPitch = 0
 				trimYaw = 0
 				trimRoll = 0
@@ -90492,7 +87261,7 @@ GAME
 			gExperienced = 0
 			outDueToG = False
 			ToD = 0
-			idx = 0
+			idx = -1
 			extraXP = 0
 			hasHelmetOn = False
 			hasNeckRingOn = True
@@ -90543,7 +87312,7 @@ GAME
 			}
 			CAREER_LOG
 			{
-				flight = 9
+				flight = 8
 				0 = Flight,Kerbin
 				0 = Suborbit,Kerbin
 				0 = Land,Kerbin
@@ -90576,11 +87345,10 @@ GAME
 				7 = Land,Kerbin
 				7 = PlantFlag,Kerbin
 				7 = Recover
-				8 = Recover
 			}
 			FLIGHT_LOG
 			{
-				flight = 9
+				flight = 8
 			}
 		}
 		KERBAL
@@ -91510,75 +88278,10 @@ GAME
 				flight = 0
 			}
 		}
-		KERBAL
-		{
-			name = Энгер Керман
-			gender = Male
-			type = Unowned
-			trait = Engineer
-			brave = 0.381376565
-			dumb = 0.851230145
-			badS = False
-			veteran = False
-			tour = False
-			state = Assigned
-			inactive = False
-			inactiveTimeEnd = 0
-			gExperienced = 0
-			outDueToG = False
-			ToD = 0
-			idx = -1
-			extraXP = 0
-			hasHelmetOn = False
-			hasNeckRingOn = False
-			completedFirstEVA = False
-			suit = Default
-			hero = False
-			CAREER_LOG
-			{
-				flight = 0
-			}
-			FLIGHT_LOG
-			{
-				flight = 0
-			}
-		}
 	}
 	MESSAGESYSTEM
 	{
 		flash = True
-		MESSAGE
-		{
-			title = Контракт выполнен
-			message = <b>Собрать атмосферные данные Кербина.</b>~n~nВы собрали атмосферные данные. Они помогут нам выяснить чем именно вызваны эти анализы. Ваша помощь была просто неоценима. Надеемся, что данная награда окупит ваши усилия.~n~n<b><color=#8BED8B>Награды за выполнение:</color></b> ~n<color=#B4D455><sprite="CurrencySpriteAsset" name="Funds" tint=1>  56,206   </color>~n<color=#6DCFF6><sprite="CurrencySpriteAsset" name="Science" tint=1> <color=#caff00>(+0)</color>  </color>~n<color=#E0D503><sprite="CurrencySpriteAsset" name="Reputation" tint=1> 8 <color=#feb200>(0)</color>  </color>~n~n
-			color = 2
-			icon = 3
-			read = False
-		}
-		MESSAGE
-		{
-			title = Параметр контракта выполнен
-			message = <b>Собрать атмосферные данные Кербина.</b>~n~nВы получили необходимые данные из локации Сектор R-21 на Кербине.~n~n<color=#B4D455><sprite="CurrencySpriteAsset" name="Funds" tint=1> 8,800   </color><color=#6DCFF6><sprite="CurrencySpriteAsset" name="Science" tint=1> 3 <color=#caff00>(+0)</color>  </color><color=#E0D503><sprite="CurrencySpriteAsset" name="Reputation" tint=1> 3 <color=#feb200>(0)</color>  </color>
-			color = 2
-			icon = 3
-			read = False
-		}
-		MESSAGE
-		{
-			title = Параметр контракта выполнен
-			message = <b>Собрать атмосферные данные Кербина.</b>~n~nВы получили необходимые данные из локации Секрет Дженкина на Кербине.~n~n<color=#B4D455><sprite="CurrencySpriteAsset" name="Funds" tint=1> 8,800   </color><color=#6DCFF6><sprite="CurrencySpriteAsset" name="Science" tint=1> 3 <color=#caff00>(+0)</color>  </color><color=#E0D503><sprite="CurrencySpriteAsset" name="Reputation" tint=1> 3 <color=#feb200>(0)</color>  </color>
-			color = 2
-			icon = 3
-			read = False
-		}
-		MESSAGE
-		{
-			title = Параметр контракта выполнен
-			message = <b>Собрать атмосферные данные Кербина.</b>~n~nВы получили необходимые данные из локации Великолепие Натаки на Кербине.~n~n<color=#B4D455><sprite="CurrencySpriteAsset" name="Funds" tint=1> 8,800   </color><color=#6DCFF6><sprite="CurrencySpriteAsset" name="Science" tint=1> 3 <color=#caff00>(+0)</color>  </color><color=#E0D503><sprite="CurrencySpriteAsset" name="Reputation" tint=1> 3 <color=#feb200>(0)</color>  </color>
-			color = 2
-			icon = 3
-			read = False
-		}
 		MESSAGE
 		{
 			title = Контракт выполнен
