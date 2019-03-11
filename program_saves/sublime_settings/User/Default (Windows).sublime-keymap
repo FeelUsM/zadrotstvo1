@@ -7,4 +7,8 @@
 
 	{ "keys": ["ctrl+t"], 	"command": "new_file" },
 	{ "keys": ["alt+t"], 	"command": "my" , "args":{"a":1}},
+
+	{ "keys": ["alt+up"], "command": "select_lines", "args": {"forward": false} },
+	{ "keys": ["alt+down"], "command": "select_lines", "args": {"forward": true} },
+
 ]
